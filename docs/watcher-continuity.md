@@ -223,7 +223,7 @@ In its `--claude` mode it cooperates with the auto-arm.
 
 ## Recovery episode acknowledgement
 
-A recovery episode is one generation of the `state/.watcher-down` marker.
+A recovery episode is one generation of the `state/wake/watcher-down` marker.
 It is retired only by the generation-bound acknowledgement the drain prints as `WAKE_ACK_REQUIRED`.
 The away return brief treats a still-open handling episode as a wake in progress, not watcher downtime; an open downtime episode remains a gap.
 
