@@ -1388,7 +1388,7 @@ test_slow_read_deadline_kill_is_budget_refusal() {
   [ -z "$out" ] || fail "a deadline-killed slow read printed an unavailable wake: $out"
   cmp -s "$home/prior.json" "$home/data/delivery/contributions.json" \
     || fail 'a deadline-killed slow read rewrote the prior record'
-  [ ! -s "$home/state/.wake-queue" ] || fail 'a deadline-killed slow read enqueued a wake'
+  [ ! -s "$home/state/wake/queue" ] || fail 'a deadline-killed slow read enqueued a wake'
   pass 'a read killed at the five-second bound is budget refusal and stays silent'
 }
 
@@ -1424,7 +1424,7 @@ test_unmeasured_url_does_not_starve_the_tail() {
       "$home/data/$task/contributions.json" >/dev/null \
       || fail "successive polls starved $task behind the slow head"
   done
-  [ ! -s "$home/state/.wake-queue" ] || fail 'routine slow reads enqueued a wake'
+  [ ! -s "$home/state/wake/queue" ] || fail 'routine slow reads enqueued a wake'
   home=$(new_home sustained-slow-refresh)
   forge_home "$home"
   wrap_forge "$home"
@@ -1469,7 +1469,7 @@ test_unmeasured_url_does_not_starve_the_tail() {
       done
     fi
   done
-  [ ! -s "$home/state/.wake-queue" ] || fail 'slow successful reads enqueued a wake'
+  [ ! -s "$home/state/wake/queue" ] || fail 'slow successful reads enqueued a wake'
   pass 'rotation preserves timed-out records and refreshes every slow PR on successive cycles'
 }
 
@@ -1487,7 +1487,7 @@ test_budget_is_cut_down_to_the_watcher_check_bound() {
   [ -z "$out" ] || fail "a check-bound-capped poll printed a wake: $out"
   cmp -s "$home/prior.json" "$home/data/delivery/contributions.json" \
     || fail 'a poll observed with the full budget despite a six-second check bound'
-  [ ! -s "$home/state/.wake-queue" ] || fail 'a check-bound-capped poll enqueued a wake'
+  [ ! -s "$home/state/wake/queue" ] || fail 'a check-bound-capped poll enqueued a wake'
   pass 'the effective budget is cut down to the watcher per-check bound with margin'
 }
 
