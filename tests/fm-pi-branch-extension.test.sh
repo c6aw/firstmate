@@ -5087,7 +5087,7 @@ test_branch_dispatch_resolves_terminal_keyed_orca_stale_row() {
   local repo home out status
   repo="$TMP_ROOT/dispatch-terminal-root"
   home="$TMP_ROOT/dispatch-terminal-home"
-  mkdir -p "$repo/.pi/extensions/lib" "$home/state" "$home/projects/approved"
+  mkdir -p "$repo/.pi/extensions/lib" "$home/state/wake" "$home/projects/approved"
   cp "$ROOT/.pi/extensions/lib/fm-branch-dispatch.ts" "$repo/.pi/extensions/lib/fm-branch-dispatch.ts"
   cp "$ROOT/.pi/extensions/lib/fm-native-contract.ts" "$repo/.pi/extensions/lib/fm-native-contract.ts"
   cp "$ROOT/.pi/extensions/lib/fm-async-exec.ts" "$repo/.pi/extensions/lib/fm-async-exec.ts"
@@ -5106,7 +5106,7 @@ for (const heartbeat of [false, true]) {
   const queue = heartbeat
     ? ["1\t1\theartbeat\theartbeat\theartbeat", "1\t2\tstale\torca-term-1\tstale: orca-term-1"]
     : ["1\t1\tsignal\torca-task.status\tsignal: orca-task.status", "1\t2\tstale\torca-term-1\tstale: orca-term-1"];
-  writeFileSync(`${state}/.wake-queue`, queue.join("\n"));
+  writeFileSync(`${state}/wake/queue`, queue.join("\n"));
   const scope = scopeForUnreadWake(state, heartbeat);
   if (!scope.eligible || scope.corrupted || scope.eligibleSeqs.slice().sort().join(",") !== "1,2") {
     throw new Error(`a terminal-keyed stale row was not branch-owned (heartbeat=${heartbeat}): ${JSON.stringify(scope)}`);
@@ -5127,7 +5127,7 @@ for (const owner of ["a-owner", "z-owner"]) {
       writeFileSync(`${state}/orca-task.meta`, `project=${project}\nterminal=${terminal}\n`);
       writeFileSync(`${state}/${owner}.meta`, `${ownerProject}${field === "task" ? "" : `${field}=${terminal}\n`}`);
       writeFileSync(`${state}/${owner}.status`, "needs-decision: choose owner\n");
-      writeFileSync(`${state}/.wake-queue`, `1\t1\tsignal\torca-task.status\tsignal: orca-task.status\n1\t2\tstale\t${terminal}\tstale: ${terminal}`);
+      writeFileSync(`${state}/wake/queue`, `1\t1\tsignal\torca-task.status\tsignal: orca-task.status\n1\t2\tstale\t${terminal}\tstale: ${terminal}`);
       const scope = scopeForUnreadWake(state, false);
       if (scope.eligible || !scope.corrupted || scope.eligibleSeqs.length !== 0) {
         throw new Error(`conflicting ${field} ownership must leave the whole wake to MAIN (${owner}, project=${JSON.stringify(ownerProject)}): ${JSON.stringify(scope)}`);
@@ -5140,7 +5140,7 @@ for (const owner of ["a-owner", "z-owner"]) {
 for (const projectField of ["", "project=\n"]) {
   writeFileSync(`${state}/orca-task.meta`, `${projectField}terminal=orca-term-1\n`);
   writeFileSync(`${state}/orca-task.status`, "needs-decision: choose owner\n");
-  writeFileSync(`${state}/.wake-queue`, "1\t1\tstale\torca-term-1\tstale: orca-term-1");
+  writeFileSync(`${state}/wake/queue`, "1\t1\tstale\torca-term-1\tstale: orca-term-1");
   const scope = scopeForUnreadWake(state, false);
   if (scope.eligible || !scope.corrupted) {
     throw new Error(`a unique projectless owner must remain unmappable: ${JSON.stringify(scope)}`);
@@ -5181,11 +5181,11 @@ for (const reverse of [false, true]) {
     for (const project of ["", "project=\n", "project=/owner\n"]) {
       for (const key of ["fm-window", "fm-fm-window"]) {
         const state = `${process.env.CASE_ROOT}/${fixture++}`;
-        fs.mkdirSync(state, { recursive: true });
+        fs.mkdirSync(`${state}/wake`, { recursive: true });
         fs.writeFileSync(`${state}/a.meta`, `${project}${field}=fm-window\n`);
         fs.writeFileSync(`${state}/window.meta`, "project=/approved\n");
         fs.writeFileSync(`${state}/window.status`, "needs-decision: choose owner\n");
-        fs.writeFileSync(`${state}/.wake-queue`, `1\t1\tstale\t${key}\tstale: ${key}\n`);
+        fs.writeFileSync(`${state}/wake/queue`, `1\t1\tstale\t${key}\tstale: ${key}\n`);
         const check = (eligible, corrupted) => {
           for (const afk of [false, true]) {
             const scope = scopeForUnreadWake(state, false, afk);

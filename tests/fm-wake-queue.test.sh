@@ -981,11 +981,11 @@ test_term_stops_a_watcher_blocked_in_the_drain_ring_idle_capture() {
   fakebin="$dir/fakebin"
   fifo="$dir/pane.fifo"
   out="$dir/watch-blocked.out"
-  mkdir -p "$sub/state"
+  mkdir -p "$sub/state/wake"
   printf 'mate\n' > "$sub/.fm-secondmate-home"
   printf 'window=firstmate:fm-mate\nkind=secondmate\nharness=claude\nbackend=tmux\nhome=%s\n' \
     "$sub" > "$state/mate.meta"
-  printf '100\t7\tcheck\trouted\tcheck: routed row\n' > "$sub/state/.wake-queue"
+  printf '100\t7\tcheck\trouted\tcheck: routed row\n' > "$sub/state/wake/queue"
   install_secondmate_alive_tmux "$fakebin"
   install_secondmate_stall_date "$fakebin"
   "$ROOT/bin/fm-busy-event.sh" arm "$state" mate >/dev/null \
@@ -2025,18 +2025,18 @@ test_large_sequences_stay_exact_decimal_identifiers() {
       dir=$(make_case "large-sequence-$start-$counter")
       state="$dir/state"
       queued=$(printf '1700000000\t%s\tcheck\tinbox:queued\tcheck: queued large row' "$start")
-      printf '%s\n' "$queued" > "$state/.wake-queue"
+      printf '%s\n' "$queued" > "$state/wake/queue"
       case "$counter" in
-        intact) printf '%s\n' "$start" > "$state/.wake-queue.seq" ;;
-        malformed) printf 'not-a-sequence\n' > "$state/.wake-queue.seq" ;;
+        intact) printf '%s\n' "$start" > "$state/wake/queue.seq" ;;
+        malformed) printf 'not-a-sequence\n' > "$state/wake/queue.seq" ;;
       esac
       append_wake "$state" check inbox:next 'check: appended after large row' \
         || fail "append after sequence $start ($counter counter) failed"
       expected=$((start + 1))
-      new_seq=$(awk -F '\t' '$4 == "inbox:next" { print $2 }' "$state/.wake-queue")
+      new_seq=$(awk -F '\t' '$4 == "inbox:next" { print $2 }' "$state/wake/queue")
       [ "$new_seq" = "$expected" ] \
         || fail "sequence $start ($counter counter) advanced to '$new_seq', not $expected"
-      [ "$(cat "$state/.wake-queue.seq")" = "$expected" ] \
+      [ "$(cat "$state/wake/queue.seq")" = "$expected" ] \
         || fail "counter after $start ($counter counter) is not $expected"
       [ "$start" = 9223372036854775806 ] && continue
       FM_STATE_OVERRIDE="$state" "$DRAIN" > "$dir/drain.out" 2> "$dir/drain.err" \
@@ -2052,7 +2052,7 @@ test_large_sequences_stay_exact_decimal_identifiers() {
       FM_STATE_OVERRIDE="$state" "$DRAIN" --ack-through "$sequence" \
         --recovery-generation "$generation" \
         || fail "acknowledgement through $expected failed"
-      [ ! -s "$state/.wake-queue" ] || fail "acknowledgement through $expected left rows queued"
+      [ ! -s "$state/wake/queue" ] || fail "acknowledgement through $expected left rows queued"
     done
   done
   pass "wake queue: large sequences advance and acknowledge as exact digit-only decimals"
@@ -2101,7 +2101,7 @@ handover_case() {  # <state> <acked|handling> <append-between 0|1>
   FM_STATE_OVERRIDE="$1" bash -c '
     # shellcheck disable=SC1090,SC1091
     . "$1/bin/fm-wake-lib.sh"
-    marker="$STATE/.watcher-down"
+    marker="$FM_WATCHER_DOWN"
     fm_recovery_marker_publish "$marker" downtime || exit 1
     fm_recovery_marker_read "$marker" || exit 1
     case "$2" in
@@ -3139,14 +3139,14 @@ test_drain_rotates_orphaned_scratch() {
   local dir state name
   dir=$(make_case scratch-rotation)
   state="$dir/state"
-  for name in .main-eligible-rows.tmp.dead01 .wake-rows.consume.dead02 .wake-queue.retire.dead03 \
-    .wake-queue.ack.dead04 .wake-queue.actor-view.dead05; do
+  for name in .main-eligible-rows.tmp.dead01 .wake-rows.consume.dead02 wake/queue.retire.dead03 \
+    wake/queue.ack.dead04 wake/queue.actor-view.dead05; do
     : > "$state/$name"
   done
   : > "$state/.main-eligible-rows"
   FM_STATE_OVERRIDE="$state" "$DRAIN" >/dev/null 2>&1 || fail "drain failed with orphaned scratch present"
-  for name in .main-eligible-rows.tmp.dead01 .wake-rows.consume.dead02 .wake-queue.retire.dead03 \
-    .wake-queue.ack.dead04 .wake-queue.actor-view.dead05; do
+  for name in .main-eligible-rows.tmp.dead01 .wake-rows.consume.dead02 wake/queue.retire.dead03 \
+    wake/queue.ack.dead04 wake/queue.actor-view.dead05; do
     [ ! -e "$state/$name" ] || fail "drain left orphaned scratch $name behind"
   done
   [ -e "$state/.main-eligible-rows" ] || fail "scratch rotation removed the live main rows claim"

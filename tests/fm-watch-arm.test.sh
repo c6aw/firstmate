@@ -877,13 +877,13 @@ SH
     FM_PROCEVENT_LAUNCH_CONFIRM_SECONDS=1 \
     "$ROOT/bin/fm-procevent.sh" reconcile >/dev/null \
     || fail "could not start the Lavish fixture source"
-  printf 'pending:downtime:idle-lavish.1.fixture\n' > "$state/.watcher-down"
+  printf 'pending:downtime:idle-lavish.1.fixture\n' > "$state/wake/watcher-down"
 
   FM_ROOT_OVERRIDE="$ROOT" start_rearm_arm "$home" "$state" "$fakebin" "$first_out"
   wait_for_exit "$ARM_PID" 80 || fail "the first recovery arm did not surface"
   grep -F 'check: rearm-resurface' "$first_out" >/dev/null \
     || fail "the pending recovery generation did not get its first announcement"
-  [ ! -s "$state/.wake-queue" ] \
+  [ ! -s "$state/wake/queue" ] \
     || fail "the idle Lavish source produced a wake before any result"
 
   FM_ROOT_OVERRIDE="$ROOT" start_rearm_arm "$home" "$state" "$fakebin" "$idle_out"
@@ -907,7 +907,7 @@ SH
     || fail "the live Lavish result did not wake the supervising arm"
   grep -F 'check: process-event result captured: procevent:idle-lavish:1' "$idle_out" >/dev/null \
     || fail "the live Lavish result did not surface promptly: $(cat "$idle_out")"
-  grep "$(printf '\tcheck\tprocevent:idle-lavish:1\t')" "$state/.wake-queue" >/dev/null \
+  grep "$(printf '\tcheck\tprocevent:idle-lavish:1\t')" "$state/wake/queue" >/dev/null \
     || fail "the live Lavish result was not durable before its wake"
   pass "watch-arm: an idle Lavish source stays quiet and its real result wakes promptly"
 }
@@ -921,13 +921,13 @@ test_append_wakes_live_announced_watcher() {
   first_out="$dir/first-arm.out"
   idle_out="$dir/idle-arm.out"
   mkdir -p "$home/data"
-  printf 'pending:downtime:append-after-empty.fixture\n' > "$state/.watcher-down"
+  printf 'pending:downtime:append-after-empty.fixture\n' > "$state/wake/watcher-down"
 
   start_rearm_arm "$home" "$state" "$fakebin" "$first_out"
   wait_for_exit "$ARM_PID" 80 || fail "the initial empty recovery did not surface"
   grep -F 'check: rearm-resurface' "$first_out" >/dev/null \
     || fail "the initial empty recovery was not announced"
-  [ ! -s "$state/.wake-queue" ] \
+  [ ! -s "$state/wake/queue" ] \
     || fail "the empty recovery unexpectedly queued durable work"
 
   start_rearm_arm "$home" "$state" "$fakebin" "$idle_out"
@@ -939,7 +939,7 @@ test_append_wakes_live_announced_watcher() {
     || fail "the live watcher stranded work appended after an empty recovery"
   grep -F 'check: rearm-resurface' "$idle_out" >/dev/null \
     || fail "the appended wake did not reopen recovery: $(cat "$idle_out")"
-  grep "$(printf '\tcheck\tinbox:fixture\t')" "$state/.wake-queue" >/dev/null \
+  grep "$(printf '\tcheck\tinbox:fixture\t')" "$state/wake/queue" >/dev/null \
     || fail "the appended wake was not durable when recovery surfaced"
   pass "watch-arm: appending work reopens an announced empty recovery"
 }
@@ -955,13 +955,13 @@ test_append_wakes_handling_successor() {
   mkdir -p "$home/data"
   append_wake "$state" check inbox:zeroth 'check: captain inbox note zeroth'
   append_wake "$state" check inbox:first 'check: captain inbox note first'
-  inherited_row=$(head -n 1 "$state/.wake-queue")
+  inherited_row=$(head -n 1 "$state/wake/queue")
   start_rearm_arm "$home" "$state" "$fakebin" "$dir/first.out"
   wait_for_exit "$ARM_PID" "$REARM_EXIT_POLLS" || fail "first inbox wake did not surface"
   predecessor=$ARM_PID
   start_rearm_arm "$home" "$state" "$fakebin" "$dir/successor.out" "$predecessor"
   successor=$ARM_PID
-  generation=$(recovery_marker_generation "$state/.watcher-down")
+  generation=$(recovery_marker_generation "$state/wake/watcher-down")
   watcher_pid=$(cat "$state/.watch.lock/pid")
   FM_HOME="$home" FM_STATE_OVERRIDE="$state" "$WATCH_ARM" --handling-delivered "$generation" \
     --watcher-pid "$watcher_pid" || fail "could not confirm first notification delivery"
@@ -974,12 +974,12 @@ test_append_wakes_handling_successor() {
   is_live_non_zombie "$successor" || fail "successor repeated the inherited notification"
   if [ "$phase" = after-ack ]; then
     FM_STATE_OVERRIDE="$state" "$DRAIN" --ack-through "$sequence" --recovery-generation "$generation"
-    [ ! -s "$state/.wake-queue" ] || fail "inherited rows were not acknowledged"
+    [ ! -s "$state/wake/queue" ] || fail "inherited rows were not acknowledged"
   fi
   # A lost or unreadable counter must not let a new row look inherited.
   case "$seq_state" in
-    missing) rm -f "$state/.wake-queue.seq" ;;
-    malformed) printf 'not-a-sequence\n' > "$state/.wake-queue.seq" ;;
+    missing) rm -f "$state/wake/queue.seq" ;;
+    malformed) printf 'not-a-sequence\n' > "$state/wake/queue.seq" ;;
   esac
   datebin=
   if [ "$repeat" = identical ]; then
@@ -1002,7 +1002,7 @@ SH
   fi
   PATH="${datebin:+$datebin:}$PATH" append_wake "$state" check "$new_key" "$new_payload"
   if [ "$repeat" = identical ]; then
-    [ "$(head -n 1 "$state/.wake-queue")" = "$inherited_row" ] \
+    [ "$(head -n 1 "$state/wake/queue")" = "$inherited_row" ] \
       || fail "re-append was not byte-identical to the inherited row"
   fi
   if [ "$phase" = before-ack ]; then
@@ -1011,13 +1011,13 @@ SH
   wait_for_exit "$successor" 100 || fail "handling successor stranded the second inbox wake ($phase)"
   grep -F 'check: rearm-resurface' "$dir/successor.out" >/dev/null \
     || fail "successor did not notify about new work"
-  grep "$(printf '\tcheck\t%s\t' "$new_key")" "$state/.wake-queue" >/dev/null \
+  grep "$(printf '\tcheck\t%s\t' "$new_key")" "$state/wake/queue" >/dev/null \
     || fail "notification or old acknowledgement consumed the second message"
   start_rearm_arm "$home" "$state" "$fakebin" "$dir/next.out" "$successor"
   ack_wakes "$state" || fail "could not acknowledge the second message"
   sleep 3
   is_live_non_zombie "$ARM_PID" || fail "next successor repeated already-handled work"
-  [ ! -s "$state/.wake-queue" ] || fail "handled queue was not drained"
+  [ ! -s "$state/wake/queue" ] || fail "handled queue was not drained"
   kill -TERM "$ARM_PID"
   wait "$ARM_PID" 2>/dev/null || true
   pass "watch-arm: handling successor delivers $repeat new inbox work $phase ($seq_state counter) without consuming or looping"
@@ -1236,7 +1236,7 @@ test_take_over_owns_a_fresh_cycle_and_keeps_queued_work_surfacing() {
   SEED_PID=$(cat "$state/.watch.lock/pid")
   append_wake "$state" signal take-over "signal: fixture handled by main"
   ack_wakes "$state" >/dev/null || fail "fixture: main could not acknowledge the handled wake"
-  case "$(cat "$state/.watcher-down" 2>/dev/null)" in acked:*) ;; *) fail "fixture: the episode was not acknowledged" ;; esac
+  case "$(cat "$state/wake/watcher-down" 2>/dev/null)" in acked:*) ;; *) fail "fixture: the episode was not acknowledged" ;; esac
   PATH="$fakebin:$PATH" FM_HOME="$dir" FM_STATE_OVERRIDE="$state" \
     FM_POLL=1 FM_SIGNAL_GRACE=0 FM_CHECK_INTERVAL=999999 FM_HEARTBEAT=999999 \
     "$WATCH_ARM" --take-over "$owner" > "$armout" &
@@ -1248,9 +1248,9 @@ test_take_over_owns_a_fresh_cycle_and_keeps_queued_work_surfacing() {
   [ "$(cat "$state/.watch.lock/pid" 2>/dev/null)" != "$SEED_PID" ] || fail "--take-over did not take the lock"
   sleep 3
   is_live_non_zombie "$ARM_PID" || fail "the taken-over cycle closed with no new work: $(cat "$armout")"
-  case "$(cat "$state/.watcher-down" 2>/dev/null)" in
+  case "$(cat "$state/wake/watcher-down" 2>/dev/null)" in
     acked:*) ;;
-    *) fail "the takeover opened a downtime episode: $(cat "$state/.watcher-down" 2>/dev/null)" ;;
+    *) fail "the takeover opened a downtime episode: $(cat "$state/wake/watcher-down" 2>/dev/null)" ;;
   esac
   grep -q 'reason=taken-over	.*successor=started:' "$state/.watch-cycle-exits.log" \
     || fail "the lifecycle ledger does not link the taken-over cycle to the one it started: $(cat "$state/.watch-cycle-exits.log")"
@@ -1345,7 +1345,7 @@ test_take_over_confirms_a_watcher_stopped_inside_its_event_wait() {
   watcher=$(cat "$state/.watch.lock/pid")
   append_wake "$state" signal take-over "signal: fixture handled by main"
   ack_wakes "$state" >/dev/null || fail "fixture: main could not acknowledge the handled wake"
-  acknowledged=$(cat "$state/.watcher-down")
+  acknowledged=$(cat "$state/wake/watcher-down")
   case "$acknowledged" in acked:*) ;; *) fail "fixture: the episode was not acknowledged: $acknowledged" ;; esac
   # Land the take-over a second into a fresh event wait (each begins with the
   # socket lookup), well inside its 40s budget. The budget must outlast the
@@ -1373,8 +1373,8 @@ test_take_over_confirms_a_watcher_stopped_inside_its_event_wait() {
   ! is_live_non_zombie "$watcher" || fail "the take-over left the watcher it stopped running"
   grep -q "^arm_pid=$ARM_PID	watcher_pid=$watcher	.*reason=taken-over	" "$state/.watch-cycle-exits.log" \
     || fail "the take-over did not confirm its stop: $(cat "$state/.watch-cycle-exits.log")"
-  [ "$(cat "$state/.watcher-down")" = "$acknowledged" ] \
-    || fail "the take-over reopened an acknowledged episode: $(cat "$state/.watcher-down")"
+  [ "$(cat "$state/wake/watcher-down")" = "$acknowledged" ] \
+    || fail "the take-over reopened an acknowledged episode: $(cat "$state/wake/watcher-down")"
   fresh=$(cat "$state/.watch.lock/pid")
   sleep 3
   is_live_non_zombie "$ARM_PID" || fail "the fresh cycle closed with no new work: $(cat "$armout")"
@@ -1412,13 +1412,13 @@ test_take_over_preserves_downtime_from_watcher_self_exit() {
   watcher=$(cat "$state/.watch.lock/pid")
   append_wake "$state" signal take-over "signal: fixture handled by main"
   ack_wakes "$state" >/dev/null || fail "fixture: could not acknowledge wake"
-  acknowledged=$(cat "$state/.watcher-down")
+  acknowledged=$(cat "$state/wake/watcher-down")
   real_rm=$(command -v rm)
   # Only the taking arm gets this shim. Release the real queue lock before
   # exposing the barrier: the self-exiting watcher needs it for cleanup.
   mkdir -p "$dir/barrier-bin"
   printf '#!/usr/bin/env bash\n"%s" "$@"\n' "$real_rm" > "$dir/barrier-bin/rm"
-  printf 'if [ "$*" = "-f %s/.wake-queue.lock" ]; then\n' "$state" >> "$dir/barrier-bin/rm"
+  printf 'if [ "$*" = "-f %s/wake/queue.lock" ]; then\n' "$state" >> "$dir/barrier-bin/rm"
   printf '  touch "%s/snapshot-read"\n  for ((i=0; i<700; i++)); do\n    [ -e "%s/release" ] && break\n    sleep 0.05\n  done\nfi\n' "$dir" "$dir" >> "$dir/barrier-bin/rm"
   chmod +x "$dir/barrier-bin/rm"
   PATH="$dir/barrier-bin:$fakebin:$PATH" FM_HOME="$home" FM_STATE_OVERRIDE="$state" \
@@ -1439,10 +1439,10 @@ test_take_over_preserves_downtime_from_watcher_self_exit() {
   ! is_live_non_zombie "$watcher" || fail "old watcher did not self-exit"
   grep -q "arm_pid=$owner	watcher_pid=$watcher.*exit_code=1	signal=none" "$state/.watch-cycle-exits.log" \
     || fail "owner did not record its watcher's non-signal failure"
-  [ ! -s "$state/.wake-queue" ] || fail "self-exit unexpectedly queued a wake"
+  [ ! -s "$state/wake/queue" ] || fail "self-exit unexpectedly queued a wake"
   ! grep -q "^$watcher	" "$state/.watch-deliveries.log" 2>/dev/null \
     || fail "self-exit unexpectedly delivered a wake"
-  case "$(cat "$state/.watcher-down")" in pending:downtime:*) ;; *) fail "self-exit did not publish downtime" ;; esac
+  case "$(cat "$state/wake/watcher-down")" in pending:downtime:*) ;; *) fail "self-exit did not publish downtime" ;; esac
   rm -f "$dir/fail-tick"
   touch "$dir/release"
   i=0
@@ -1452,7 +1452,7 @@ test_take_over_preserves_downtime_from_watcher_self_exit() {
     sleep 0.05
     i=$((i + 1))
   done
-  [ "$(cat "$state/.watcher-down")" != "$acknowledged" ] || fail "takeover restored the old acknowledgement"
+  [ "$(cat "$state/wake/watcher-down")" != "$acknowledged" ] || fail "takeover restored the old acknowledgement"
   wait_for_exit "$ARM_PID" "$REARM_EXIT_POLLS"
   status=$?
   expect_code 0 "$status" "fresh takeover must surface recovery cleanly"
@@ -1722,18 +1722,18 @@ test_handling_delivered_accepts_already_acked_generation() {
   printf '%s' "$WATCH" > "$state/.watch.lock/watcher-path"
   printf '%s' "$identity" > "$state/.watch.lock/pid-identity"
   FM_STATE_OVERRIDE="$state" bash -c '. "$1"; fm_recovery_marker_publish "$2" downtime' \
-    _ "$ROOT/bin/fm-wake-lib.sh" "$state/.watcher-down" \
+    _ "$ROOT/bin/fm-wake-lib.sh" "$state/wake/watcher-down" \
     || fail "could not publish the fixture downtime episode"
-  generation=$(recovery_marker_generation "$state/.watcher-down")
+  generation=$(recovery_marker_generation "$state/wake/watcher-down")
   [ -n "$generation" ] || fail "published episode left no recovery generation"
   FM_HOME="$home" FM_STATE_OVERRIDE="$state" "$WATCH_ARM" --handling-delivered "$generation" \
     --watcher-pid "$pid" || fail "confirmed prompt delivery did not begin handling"
   FM_STATE_OVERRIDE="$state" bash -c '. "$1"; fm_recovery_marker_ack "$2" "$3"' \
-    _ "$ROOT/bin/fm-wake-lib.sh" "$state/.watcher-down" "$generation" \
+    _ "$ROOT/bin/fm-wake-lib.sh" "$state/wake/watcher-down" "$generation" \
     || fail "could not acknowledge the fixture handling episode"
-  case "$(cat "$state/.watcher-down")" in
+  case "$(cat "$state/wake/watcher-down")" in
     acked:handling:"$generation") ;;
-    *) fail "acknowledged episode did not retire: $(cat "$state/.watcher-down")" ;;
+    *) fail "acknowledged episode did not retire: $(cat "$state/wake/watcher-down")" ;;
   esac
   FM_HOME="$home" FM_STATE_OVERRIDE="$state" "$WATCH_ARM" --handling-delivered "$generation" \
     --watcher-pid "$pid"
@@ -1777,12 +1777,12 @@ test_handling_delivered_rejects_a_superseded_generation() {
   printf '%s' "$WATCH" > "$state/.watch.lock/watcher-path"
   printf '%s' "$identity" > "$state/.watch.lock/pid-identity"
   FM_STATE_OVERRIDE="$state" bash -c '. "$1"; fm_recovery_marker_publish "$2" downtime && fm_recovery_marker_arm_check "$2"' \
-    _ "$ROOT/bin/fm-wake-lib.sh" "$state/.watcher-down" \
+    _ "$ROOT/bin/fm-wake-lib.sh" "$state/wake/watcher-down" \
     || fail "could not announce the fixture downtime episode"
-  first=$(recovery_marker_generation "$state/.watcher-down")
-  case "$(cat "$state/.watcher-down")" in
+  first=$(recovery_marker_generation "$state/wake/watcher-down")
+  case "$(cat "$state/wake/watcher-down")" in
     announced:downtime:"$first") ;;
-    *) fail "announced episode has the wrong shape: $(cat "$state/.watcher-down")" ;;
+    *) fail "announced episode has the wrong shape: $(cat "$state/wake/watcher-down")" ;;
   esac
   # Reopening mints a fresh generation only when unrecovered work is queued:
   # an announced episode with an empty queue must survive untouched, so queue
@@ -1791,28 +1791,28 @@ test_handling_delivered_rejects_a_superseded_generation() {
   append_wake "$state" check inbox:fixture 'check: manual-restart churn fixture' \
     || fail "could not queue the fixture wake for the manual restart"
   FM_STATE_OVERRIDE="$state" bash -c '. "$1"; fm_recovery_marker_arm_check "$2"' \
-    _ "$ROOT/bin/fm-wake-lib.sh" "$state/.watcher-down" \
+    _ "$ROOT/bin/fm-wake-lib.sh" "$state/wake/watcher-down" \
     || fail "could not re-announce the queued fixture episode"
-  first=$(recovery_marker_generation "$state/.watcher-down")
-  case "$(cat "$state/.watcher-down")" in
+  first=$(recovery_marker_generation "$state/wake/watcher-down")
+  case "$(cat "$state/wake/watcher-down")" in
     announced:downtime:"$first") ;;
-    *) fail "queued episode has the wrong shape: $(cat "$state/.watcher-down")" ;;
+    *) fail "queued episode has the wrong shape: $(cat "$state/wake/watcher-down")" ;;
   esac
   FM_STATE_OVERRIDE="$state" bash -c '. "$1"; fm_recovery_marker_reopen_announced "$2"' \
-    _ "$ROOT/bin/fm-wake-lib.sh" "$state/.watcher-down" \
+    _ "$ROOT/bin/fm-wake-lib.sh" "$state/wake/watcher-down" \
     || fail "a manual arm start could not reopen the announced episode"
-  second=$(recovery_marker_generation "$state/.watcher-down")
+  second=$(recovery_marker_generation "$state/wake/watcher-down")
   [ -n "$second" ] && [ "$second" != "$first" ] \
-    || fail "a non-successor arm start did not mint a fresh generation: $(cat "$state/.watcher-down")"
+    || fail "a non-successor arm start did not mint a fresh generation: $(cat "$state/wake/watcher-down")"
   FM_HOME="$home" FM_STATE_OVERRIDE="$state" "$WATCH_ARM" --handling-delivered "$first" \
     --watcher-pid "$pid" 2>/dev/null
   expect_code 3 "$?" "a confirmation for the churned generation must report a mismatch"
   FM_STATE_OVERRIDE="$state" bash -c '. "$1"; fm_recovery_marker_arm_check "$2"' \
-    _ "$ROOT/bin/fm-wake-lib.sh" "$state/.watcher-down" \
+    _ "$ROOT/bin/fm-wake-lib.sh" "$state/wake/watcher-down" \
     || fail "the arm check after the reopen could not run"
-  status=$(recovery_marker_generation "$state/.watcher-down")
+  status=$(recovery_marker_generation "$state/wake/watcher-down")
   [ "$status" = "$second" ] \
-    || fail "an arm check without a reopen minted another generation: $(cat "$state/.watcher-down")"
+    || fail "an arm check without a reopen minted another generation: $(cat "$state/wake/watcher-down")"
   kill -KILL "$pid" 2>/dev/null || true
   wait "$pid" 2>/dev/null || true
   pass "watch-arm: a churned generation's handling confirmation reports a mismatch and an arm check keeps it"

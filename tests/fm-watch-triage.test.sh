@@ -1224,7 +1224,7 @@ unknown_alive_stale_case() {  # <evidence: status|worktree|none>
   reap "$pid"
   ack_stopped_cycle "$state" || fail "[$evidence] could not acknowledge the bounded unknown-but-alive successor stop"
   [ ! -s "$out" ] || fail "[$evidence] a bounded unknown-but-alive successor printed a stale wake: $(cat "$out")"
-  wakes=$(awk -F '\t' -v w="$window" '$3 == "stale" && $4 == w { n++ } END { print n + 0 }' "$state/.wake-queue" 2>/dev/null || echo 0)
+  wakes=$(awk -F '\t' -v w="$window" '$3 == "stale" && $4 == w { n++ } END { print n + 0 }' "$state/wake/queue" 2>/dev/null || echo 0)
   [ "$wakes" -eq 0 ] || fail "[$evidence] a bounded unknown-but-alive successor queued $wakes repeat wakes"
 
   # Expiring the bound restores the original first-sight alarm without changing
@@ -3392,7 +3392,7 @@ test_wedge_threshold_defers_to_a_backlog_captain_hold() {
     n=$((n + 1))
   done
   [ "$(wedge_stale_wakes "$state" "$window")" -eq "$queued" ] \
-    || fail "a backlog-held lane queued a further wake inside its recheck cadence: $(cat "$state/.wake-queue")"
+    || fail "a backlog-held lane queued a further wake inside its recheck cadence: $(cat "$state/wake/queue")"
   [ ! -e "$state/.wedge-escalations-$key" ] \
     || fail "a backlog-held lane counted $(cat "$state/.wedge-escalations-$key") wedge escalation(s)"
 
@@ -3429,7 +3429,7 @@ test_wedge_threshold_defers_to_a_backlog_captain_hold() {
     n=$((n + 1))
   done
   [ "$(wedge_stale_wakes "$state" "$window")" -eq 0 ] \
-    || fail "a backlog-held lane woke the away captain: $(cat "$state/.wake-queue")"
+    || fail "a backlog-held lane woke the away captain: $(cat "$state/wake/queue")"
   [ ! -s "$out" ] \
     || fail "a backlog-held lane printed a recheck while the away-posture record existed: $(cat "$out")"
   [ "$(cat "$state/.stale-since-$key")" != "$armed_timer" ] \
@@ -3770,7 +3770,7 @@ blocked: need the API key for the staging account' 0 600)
     n=$((n + 1))
   done
   [ "$(wedge_stale_wakes "$state" "$window")" -eq 0 ] \
-    || fail "a worker blocker queued a wake inside the recheck cadence: $(cat "$state/.wake-queue")"
+    || fail "a worker blocker queued a wake inside the recheck cadence: $(cat "$state/wake/queue")"
   [ ! -e "$state/.wedge-escalations-$key" ] \
     || fail "a worker blocker counted $(cat "$state/.wedge-escalations-$key") wedge escalation(s)"
 
@@ -3965,7 +3965,7 @@ test_wedge_threshold_defers_to_an_executing_validation_run() {
       n=$((n + 1))
     done
     [ "$(wedge_stale_wakes "$state" "$window")" -eq 0 ] \
-      || fail "a $step validation run queued a stale wake: $(cat "$state/.wake-queue")"
+      || fail "a $step validation run queued a stale wake: $(cat "$state/wake/queue")"
     grep -F 'possible wedge' "$out" >/dev/null \
       && fail "a $step validation run was reported as a possible wedge: $(cat "$out")"
     [ ! -e "$state/.wedge-escalations-$key" ] \
@@ -7075,8 +7075,8 @@ test_captain_held_rechecked_under_a_quiet_record() {
     FM_CHECK_INTERVAL=999999 FM_HEARTBEAT=999999 "$WATCH" > "$out" &
   pid=$!
   wait_for_exit "$pid" 100 || { reap "$pid"; fail "the quiet daemon's one-shot never handed off a captain-held pane"; }
-  grep -F "stale: $window" "$state/.wake-queue" >/dev/null \
-    || fail "the quiet daemon's one-shot did not queue the captain-held pane for the daemon: $(cat "$state/.wake-queue" 2>/dev/null)"
+  grep -F "stale: $window" "$state/wake/queue" >/dev/null \
+    || fail "the quiet daemon's one-shot did not queue the captain-held pane for the daemon: $(cat "$state/wake/queue" 2>/dev/null)"
   pass "quiet mode's record silences no captain-held recheck, on the watcher's cadence or through a quiet daemon's one-shot"
 }
 
@@ -7259,7 +7259,7 @@ bg_job_paused_case() {  # <name> <status-line> -> dir
 
 bg_job_stale_wakes() {  # <state> -> count of stale wakes queued for the parked window
   awk -F '\t' '$3 == "stale" && $4 == "test:fm-parked" { n++ } END { print n + 0 }' \
-    "$1/.wake-queue" 2>/dev/null || echo 0
+    "$1/wake/queue" 2>/dev/null || echo 0
 }
 
 test_paused_bg_job_without_until_stays_silent_after_the_job_ends() {
@@ -7296,7 +7296,7 @@ test_paused_bg_job_until_timeout_rechecks_after_the_job_ends() {
     || fail "the job's timeout passed without a recheck of the worker paused on it"
   [ "$(bg_job_stale_wakes "$state")" -eq 1 ] || fail "the passed timeout queued the wrong number of rechecks"
   awk -F '\t' '$3 == "stale" && $5 == "stale: test:fm-parked" { found = 1 } END { exit !found }' \
-    "$state/.wake-queue" || fail "the recheck carried an unexpected reason: $(cat "$state/.wake-queue")"
+    "$state/wake/queue" || fail "the recheck carried an unexpected reason: $(cat "$state/wake/queue")"
   case "$(cat "$state/.paused-resurfaced-test_fm-parked" 2>/dev/null)" in
     *:due) ;;
     *) fail "the recheck was not recorded as the passed declared time" ;;

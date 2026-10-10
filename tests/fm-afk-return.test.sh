@@ -940,7 +940,7 @@ test_return_brief_reports_only_an_open_downtime_episode_as_a_gap() {
     dir="$TMP_ROOT/brief-open-marker-${token%%:*}-${token#*:}"
     install_runner "$dir"
     contract_in "$dir" enter >/dev/null 2>&1 || fail "could not write the away-posture record"
-    printf '%s:fixture-generation\n' "$token" > "$dir/home/state/.watcher-down"
+    printf '%s:fixture-generation\n' "$token" > "$dir/home/state/wake/watcher-down"
     touch "$dir/home/state/.last-watcher-beat"
     : > "$dir/home/state/.fake-drain"
     out=$(run_return "$dir" begin) || fail "$token: a clean fleet with an open episode should clear the gate: $out"

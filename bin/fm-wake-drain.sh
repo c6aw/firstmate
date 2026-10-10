@@ -10,8 +10,8 @@
 # Keep sequence-bound row consumption independent from generation-bound episode
 # retirement; docs/watcher-continuity.md owns the recovery contract.
 # Every scratch file this script mints (.main-eligible-rows.tmp.*,
-# .wake-rows.consume.*, .wake-queue.retire.*, .wake-queue.ack.*,
-# .wake-queue.actor-view.*) is created and removed under the queue lock, so one
+# .wake-rows.consume.*, wake/queue.retire.*, wake/queue.ack.*,
+# wake/queue.actor-view.*) is created and removed under the queue lock, so one
 # found while taking that lock was left by a drain that died mid-write; each
 # locked drain rotates such leftovers away before doing anything else.
 # FM_STATUS_PRESENTATION_LOCK_TIMEOUT sets the positive whole-second wait for
@@ -85,7 +85,7 @@ rows_file_valid() { fm_wake_grant_rows_valid "$1"; }
 rotate_scratch_locked() {
   local scratch
   for scratch in "$STATE"/.main-eligible-rows.tmp.* "$STATE"/.wake-rows.consume.* \
-    "$STATE"/.wake-queue.retire.* "$STATE"/.wake-queue.ack.* "$STATE"/.wake-queue.actor-view.*; do
+    "$FM_WAKE_DIR"/queue.retire.* "$FM_WAKE_DIR"/queue.ack.* "$FM_WAKE_DIR"/queue.actor-view.*; do
     [ -e "$scratch" ] || [ -L "$scratch" ] || continue
     rm -f -- "$scratch"
   done

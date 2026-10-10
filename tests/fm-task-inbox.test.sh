@@ -1050,7 +1050,7 @@ test_watcher_pays_fire_and_forget_retry_once() {
   kill "$pid" 2>/dev/null; wait "$pid" 2>/dev/null
   rings=$(grep -cF 'Firstmate instruction waiting' "$log" || true)
   [ "$rings" = 1 ] || fail "expected exactly one retry ring, got $rings:"$'\n'"$(cat "$log")"
-  [ ! -s "$state/.wake-queue" ] || fail "a fire-and-forget retry queued a wake:"$'\n'"$(cat "$state/.wake-queue")"
+  [ ! -s "$state/wake/queue" ] || fail "a fire-and-forget retry queued a wake:"$'\n'"$(cat "$state/wake/queue")"
   [ ! -e "$state/t1.inbox/.retry-ring" ] || fail "the watcher did not spend the retry mark"
   [ ! -e "$state/t1.inbox/.ring-state" ] || fail "a fire-and-forget retry entered the re-ring ladder"
   [ -f "$fire" ] || fail "the retry ring removed the durable record"

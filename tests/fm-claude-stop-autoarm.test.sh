@@ -227,7 +227,7 @@ SH
 #!/usr/bin/env bash
 echo "$$" >> "$FM_HOME/state/arm-ran"
 while [ ! -e "$FM_HOME/state/arm-release" ]; do sleep 0.02; done
-printf 'pending:downtime:fixture-generation\n' > "$FM_HOME/state/.watcher-down"
+printf 'pending:downtime:fixture-generation\n' > "$FM_HOME/state/wake/watcher-down"
 touch "$FM_HOME/state/.last-watcher-beat"
 printf 'watcher: started pid=%s (beacon fresh)\n' "$$"
 printf 'signal: %s/state/tfmut-116.turn-ended\n' "$FM_HOME"
@@ -1702,7 +1702,7 @@ write_host_fixture() {
       lost-handback|lost-announced-handback)
         local marker=pending
         [ "$kind" = lost-handback ] || marker=announced
-        printf "printf '%s:handling:fixture-generation\\\\n' > \"\$FM_HOME/state/.watcher-down\"\\n" "$marker"
+        printf "printf '%s:handling:fixture-generation\\\\n' > \"\$FM_HOME/state/wake/watcher-down\"\\n" "$marker"
         cat <<'SH'
 printf 'signal: fixture.status\n'
 printf 'supervision-host: branch-outcome: fixture\n'
@@ -1712,7 +1712,7 @@ SH
         ;;
       benign-refusal)
         cat <<'SH'
-printf 'acked:downtime:fixture-generation\n' > "$FM_HOME/state/.watcher-down"
+printf 'acked:downtime:fixture-generation\n' > "$FM_HOME/state/wake/watcher-down"
 printf 'signal: fixture.status\n'
 printf 'supervision-host: branch-outcome: fixture\n'
 SH

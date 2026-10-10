@@ -254,7 +254,7 @@ test_review_bot_inline_wake() {
   out=$(with_home "$home" "$ROOT/bin/fm-contributions.sh" pending)
   printf '%s' "$out" | jq -e 'length == 1 and .[0].author == "greptile-apps[bot]" and .[0].review_bot == true' >/dev/null \
     || fail "a Greptile inline comment must be the only pending signal: $out"
-  [ "$(awk 'END { print NR }' "$home/state/.wake-queue")" = 1 ] || fail 'a review-bot finding must enqueue exactly one wake'
+  [ "$(awk 'END { print NR }' "$home/state/wake/queue")" = 1 ] || fail 'a review-bot finding must enqueue exactly one wake'
   with_home "$home" "$ROOT/bin/fm-fleet-snapshot.sh" --contribution-input > "$home/input.json" \
     || fail 'could not collect review-bot contribution input'
   with_home "$home" "$ROOT/bin/fm-contributions.sh" snapshot "$home/input.json" --all \
@@ -557,7 +557,7 @@ test_unsupported_poll_is_silent_and_clears_legacy_errors() {
       || fail "unsupported poll failed ($mode): $out"
     [ -z "$out" ] || fail "unsupported poll printed an unavailable signal ($mode): $out"
     [ ! -s "$home/forge/calls" ] || fail "unsupported poll contacted the forge ($mode)"
-    [ ! -s "$home/state/.wake-queue" ] || fail "unsupported poll enqueued a wake ($mode)"
+    [ ! -s "$home/state/wake/queue" ] || fail "unsupported poll enqueued a wake ($mode)"
     for task in gitlab selfhosted hyphenated wildcard; do
       if [ "$mode" = legacy ]; then
         jq -e --slurpfile expected "$home/$task.expected.json" '. == $expected[0]' \
@@ -595,7 +595,7 @@ test_legacy_cleanup_preserves_supported_failure() {
   grep -Fxq 'api repos/o/r/pulls/8' "$home/forge/calls" || fail 'supported ownership was not retried'
   # The transient 502 core read is retried once; unsupported records add no reads.
   [ "$(wc -l < "$home/forge/calls")" -eq 2 ] || fail 'unsupported mixed records triggered forge reads'
-  [ ! -s "$home/state/.wake-queue" ] || fail 'mixed legacy cleanup enqueued a wake'
+  [ ! -s "$home/state/wake/queue" ] || fail 'mixed legacy cleanup enqueued a wake'
   jq -e --slurpfile expected "$home/unsupported.expected.json" '.records | length == 4
     and all(.[]; .observation == null)
     and any(.[]; .url == "https://github.com/o/r/pull/8" and .error != null)
@@ -611,7 +611,7 @@ test_legacy_cleanup_preserves_supported_failure() {
   out=$(with_home "$home" bash "$ROOT/bin/fm-contributions.sh" poll 2>&1) \
     || fail "mixed saved-file recovery failed: $out"
   [ -z "$out" ] || fail "mixed saved-file recovery printed an alert: $out"
-  [ ! -s "$home/state/.wake-queue" ] || fail 'mixed saved-file recovery enqueued a wake'
+  [ ! -s "$home/state/wake/queue" ] || fail 'mixed saved-file recovery enqueued a wake'
   jq -e --slurpfile expected "$home/unsupported.expected.json" '
     [.records[] | select(.url != "https://github.com/o/r/pull/8")] | sort_by(.url)
     == ($expected[0] | sort_by(.url))' "$home/data/delivery/contributions.json" >/dev/null \
@@ -941,7 +941,7 @@ test_http_500_once_retries_without_waking() {
   jq -e --arg now "$NOW" '.records[0] | .checked_at == $now and .error == null' \
     "$home/data/delivery/contributions.json" >/dev/null \
     || fail 'a recovered HTTP 500 left an error in the contribution record'
-  [ ! -s "$home/state/.wake-queue" ] || fail 'a recovered HTTP 500 enqueued a wake'
+  [ ! -s "$home/state/wake/queue" ] || fail 'a recovered HTTP 500 enqueued a wake'
   pass 'one HTTP 500 is retried once and a successful retry stays healthy'
 }
 
@@ -1710,9 +1710,9 @@ test_many_reviews_stay_readable() {
   jq -e '.records[0].observation.reviews | length == 300
     and all(.[]; keys == ["commit_id","id","state","submitted_at","user"] and .user == {login:.user.login})' \
     "$home/data/delivery/contributions.json" >/dev/null || fail 'stored reviews carry more than the classified fields'
-  wakes=$(awk 'END { print NR }' "$home/state/.wake-queue")
+  wakes=$(awk 'END { print NR }' "$home/state/wake/queue")
   registered_checks "$home" >/dev/null
-  [ "$(awk 'END { print NR }' "$home/state/.wake-queue")" = "$wakes" ] || fail 'already notified review signals woke again'
+  [ "$(awk 'END { print NR }' "$home/state/wake/queue")" = "$wakes" ] || fail 'already notified review signals woke again'
   out=$(with_home "$home" "$ROOT/bin/fm-contributions.sh" pending) || fail 'a many-review record made pending unreadable'
   printf '%s' "$out" | jq -e 'length == 60 and all(.[]; .type == "review")' >/dev/null \
     || fail "pending lost the maintainer review signals: $out"
@@ -1773,7 +1773,7 @@ test_unanswered_thread_is_raised_again_under_hold() {
   out=$(poll_at "$home" 2026-09-17T09:00:00Z) || fail 'poll 25 hours after the comment failed'
   printf '%s\n' "$out" | grep -Eq '^contribution-wake: check: contributions delivery [0-9a-f]{64} unanswered https://github.com/o/r/pull/8#discussion_r31 25h$' \
     || fail "an unanswered thread under a hold was not raised with its URL and age: $out"
-  grep -Fq 'unanswered https://github.com/o/r/pull/8#discussion_r31 25h' "$home/state/.wake-queue" \
+  grep -Fq 'unanswered https://github.com/o/r/pull/8#discussion_r31 25h' "$home/state/wake/queue" \
     || fail 'the re-raise never reached the durable wake queue'
   with_home "$home" "$ROOT/bin/fm-contributions.sh" pending \
     | jq -e 'length == 1 and .[0].type == "unanswered" and .[0].source == "https://github.com/o/r/pull/8#discussion_r31"

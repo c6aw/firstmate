@@ -827,7 +827,7 @@ _fm_recovery_marker_restore_token_locked() {
 }
 
 _fm_wake_append_recovery_restore_locked() {
-  local marker="$STATE/.watcher-down" lock previous=$FM_WAKE_APPEND_RECOVERY_PREVIOUS_TOKEN
+  local marker="$FM_WATCHER_DOWN" lock previous=$FM_WAKE_APPEND_RECOVERY_PREVIOUS_TOKEN
   [ -n "$previous" ] || return 0
   lock="${marker}.lock"
   fm_lock_acquire_wait "$lock" || return 1
@@ -1084,7 +1084,7 @@ fm_recovery_marker_handover_snapshot() {  # <marker>
     FM_RECOVERY_HANDOVER_TOKEN=$FM_RECOVERY_MARKER_TOKEN
   fi
   # shellcheck disable=SC2034 # Read by callers after this function returns.
-  FM_RECOVERY_HANDOVER_SEQ=$(cat "$STATE/.wake-queue.seq" 2>/dev/null || true)
+  FM_RECOVERY_HANDOVER_SEQ=$(cat "$FM_WAKE_QUEUE_SEQ" 2>/dev/null || true)
   fm_lock_release "$lock"
   fm_lock_release "$FM_WAKE_QUEUE_LOCK"
 }
@@ -1098,7 +1098,7 @@ _fm_recovery_marker_handover_restore() {
     fm_lock_release "$FM_WAKE_QUEUE_LOCK"
     return 1
   fi
-  if [ "$(cat "$STATE/.wake-queue.seq" 2>/dev/null || true)" = "$seq" ] \
+  if [ "$(cat "$FM_WAKE_QUEUE_SEQ" 2>/dev/null || true)" = "$seq" ] \
     && fm_recovery_marker_read "$marker"; then
     case "$FM_RECOVERY_MARKER_TOKEN" in
       pending:downtime:*)

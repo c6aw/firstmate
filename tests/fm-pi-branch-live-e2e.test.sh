@@ -292,7 +292,7 @@ if (!session.sessionManager.buildSessionContext().messages.some((message) => mes
 if (existsSync(`${home}/state/.branch-eligible-rows`) || existsSync(`${home}/state/branch-outcomes.jsonl`)) {
   throw new Error("unusable branch fabricated an outcome or retained claimed notification ownership");
 }
-if (!readFileSync(`${home}/state/.wake-queue`, "utf8").includes("signal: live pin probe") || errors.length) {
+if (!readFileSync(`${home}/state/wake/queue`, "utf8").includes("signal: live pin probe") || errors.length) {
   throw new Error(`real fallback lost its durable row or raised extension errors: ${JSON.stringify(errors)}`);
 }
 await session.extensionRunner.emit({ type: "session_shutdown", reason: "quit" });
@@ -1200,7 +1200,7 @@ const loader = new sdk.DefaultResourceLoader({
       if (isUser && version.startsWith("1.2.") && event.messageType !== "user") throw new Error("SDK1.2 user discriminator missing");
       if (!isUser && (event.messageType !== "custom" || event.message.content !== customText)) throw new Error("unexpected no-prompt trigger");
       if (textOf(manager.buildSessionContext().messages).includes(currentPrompt)) throw new Error("current prompt was already persisted before startup wait");
-      writeFileSync(`${home}/state/.wake-queue`, "1\t1\tsignal\tstaging-probe.status\tsignal: startup context probe\n");
+      writeFileSync(`${home}/state/wake/queue`, "1\t1\tsignal\tstaging-probe.status\tsignal: startup context probe\n");
       const offer = {
         message: "signal: startup context probe", projects: [project], heartbeat: false, eligible: true,
         accepted: false, settlement: Promise.resolve(),

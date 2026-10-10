@@ -615,7 +615,7 @@ fi
 take_over_cycle() {  # <watcher-pid> <identity>
   local pid=$1 i owner_signal
   cycle_begin "$pid" attached "$2"
-  fm_recovery_marker_handover_snapshot "$STATE/.watcher-down" || return 1
+  fm_recovery_marker_handover_snapshot "$FM_WATCHER_DOWN" || return 1
   if attached_holder_live "$pid"; then
     kill -TERM "$pid" 2>/dev/null || true
   fi
@@ -646,7 +646,7 @@ take_over_cycle() {  # <watcher-pid> <identity>
     i=$((i + 1))
   done
   if [ "$owner_signal" = TERM ]; then
-    fm_recovery_marker_handover_restore "$STATE/.watcher-down" \
+    fm_recovery_marker_handover_restore "$FM_WATCHER_DOWN" \
       "$FM_RECOVERY_HANDOVER_TOKEN" "$FM_RECOVERY_HANDOVER_SEQ" || true
     cycle_log_append unknown unknown taken-over none
   else

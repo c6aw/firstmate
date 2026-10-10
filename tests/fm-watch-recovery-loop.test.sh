@@ -231,10 +231,10 @@ test_handling_successor_resurfaces_a_row_appended_during_startup() {
   state="$dir/state"
   fakebin="$dir/fakebin"
   mkdir -p "$home/data"
-  printf 'pending:downtime:later.1.aaa\n' > "$state/.watcher-down"
-  chmod 600 "$state/.watcher-down"
-  printf '%s\t1\tstale\tfm-demo\tstale: fm-demo (the delivered wake)\n' "$(date +%s)" > "$state/.wake-queue"
-  printf '1\n' > "$state/.wake-queue.seq"
+  printf 'pending:downtime:later.1.aaa\n' > "$state/wake/watcher-down"
+  chmod 600 "$state/wake/watcher-down"
+  printf '%s\t1\tstale\tfm-demo\tstale: fm-demo (the delivered wake)\n' "$(date +%s)" > "$state/wake/queue"
+  printf '1\n' > "$state/wake/queue.seq"
   out="$dir/watch.out"
 
   FM_HOME="$home" FM_STATE_OVERRIDE="$state" bash -c '
@@ -276,12 +276,12 @@ test_handling_successor_resurfaces_a_row_appended_during_startup() {
     || { kill -TERM "$child" 2>/dev/null || true; fail "fixture: handling successor never finished startup"; }
   FM_HOME="$home" FM_STATE_OVERRIDE="$state" bash -c '
     . "$1"
-    fm_recovery_marker_begin_handling "$2/.watcher-down" later.1.aaa || exit 1
+    fm_recovery_marker_begin_handling "$2/wake/watcher-down" later.1.aaa || exit 1
     fm_lock_acquire_wait "$FM_WAKE_QUEUE_LOCK" || exit 1
     awk -F "\t" "\$2 != 1" "$FM_WAKE_QUEUE" > "$FM_WAKE_QUEUE.tmp" \
       && mv -f "$FM_WAKE_QUEUE.tmp" "$FM_WAKE_QUEUE" || exit 1
     fm_lock_release "$FM_WAKE_QUEUE_LOCK"
-    fm_recovery_marker_handling_settled "$2/.watcher-down"
+    fm_recovery_marker_handling_settled "$2/wake/watcher-down"
   ' _ "$ROOT/bin/fm-wake-lib.sh" "$state" \
     || { kill -TERM "$child" 2>/dev/null || true; fail "fixture: handled-turn settlement failed"; }
 
@@ -293,15 +293,15 @@ test_handling_successor_resurfaces_a_row_appended_during_startup() {
   if kill -0 "$child" 2>/dev/null; then
     kill -TERM "$child" 2>/dev/null || true
     wait "$child" 2>/dev/null || true
-    fail "handling successor never resurfaced the startup-window row: $(cat "$out"; cat "$state/.watcher-down")"
+    fail "handling successor never resurfaced the startup-window row: $(cat "$out"; cat "$state/wake/watcher-down")"
   fi
   wait "$child" 2>/dev/null || true
   [ "$(grep -c '^check: rearm-resurface$' "$out")" -eq 1 ] \
     || fail "handling successor did not close once with the recovery wake: $(cat "$out")"
-  grep "$(printf '\tcheck\tinbox:n1\t')" "$state/.wake-queue" >/dev/null \
+  grep "$(printf '\tcheck\tinbox:n1\t')" "$state/wake/queue" >/dev/null \
     || fail "the resurfaced inbox row must stay queued for main"
-  grep -E '^(pending|announced):downtime:' "$state/.watcher-down" >/dev/null \
-    || fail "the resurfaced close must leave a deliverable downtime episode: $(cat "$state/.watcher-down")"
+  grep -E '^(pending|announced):downtime:' "$state/wake/watcher-down" >/dev/null \
+    || fail "the resurfaced close must leave a deliverable downtime episode: $(cat "$state/wake/watcher-down")"
   pass "a handling successor resurfaces a row appended during startup"
 }
 
