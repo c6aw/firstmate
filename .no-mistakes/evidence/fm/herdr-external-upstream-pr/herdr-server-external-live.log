@@ -1,0 +1,23 @@
+lab home: /tmp/fm-lab.nag6vl  sessions: fm-lab-scrub-3640485-31496 fm-lab-extdown-3640508-14190 fm-lab-extback-3640531-13676
+=== S1: unlisted session, polluted per-call env -> Firstmate starts server, scrubbed ===
+ensure rc=0
+server pid 3640686: herdr server --session fm-lab-scrub-3640485-31496 
+  FM_*/CLAUDECODE vars in server environ:
+    HERDR_SESSION=fm-lab-scrub-3640485-31496
+    FM_KEEP_SENTINEL=kept
+{"status":"running","running":true,"version":"0.9.1","protocol":22,"capabilities":{"live_handoff":true,"detached_server_daemon":false,"endpoint_protocol_generation":1,"surface_interest":true,"health_check":true},"compatible":true,"endpoint_compatible":true,"socket":"~/.config/herdr/sessions/fm-lab-scrub-3640485-31496/herdr.sock","session":"fm-lab-scrub-3640485-31496","restart_needed":false,"server_binary_stale":false}
+teardown: ok
+=== S2: listed session, server down -> no server started, error names session ===
+ensure rc=1 after 10s; stderr: error: herdr server for session 'fm-lab-extdown-3640508-14190' is externally owned (config/herdr-server-external) and did not report running within 10s; start it through its service
+server processes for fm-lab-extdown-3640508-14190: []
+[]
+teardown: ok
+=== S3: listed session, operator service brings it back during the wait -> ensure adopts it, one server only ===
+ensure rc=0 after 3s; stderr: []
+server processes for fm-lab-extback-3640531-13676: 1
+  pid 3647207 parent: systemd / launched by fm-herdr-lab provision
+teardown: ok
+=== S4: secondmate home inherits config/herdr-server-external from primary ===
+secondmate config/herdr-server-external: fm-lab-operator-owned
+secondmate home treats fm-lab-operator-owned as externally owned
+cleaned lab homes
