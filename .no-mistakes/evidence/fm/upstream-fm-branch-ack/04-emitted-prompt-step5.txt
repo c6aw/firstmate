@@ -1,0 +1,5 @@
+$ bin/fm-branch-prompt.sh | grep -n -A2 "^5\. Acknowledge"
+27:5. Acknowledge: only after the report succeeds, run the exact `--ack-through` command the drain printed as WAKE_ACK_REQUIRED as its own command, never chained with the report.
+28-   Only a silent exit 0 means acknowledged: a non-zero exit means the wake is still queued, and any output means it may be, so read the output and follow it.
+29-6. Release every lease you claimed: `bin/fm-lease.sh release <task>`.
+byte-identical across environments: yes

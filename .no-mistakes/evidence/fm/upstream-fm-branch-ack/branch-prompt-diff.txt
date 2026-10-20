@@ -1,0 +1,5 @@
+27c27,28
+< 5. Acknowledge: after the report succeeds, run the exact `--ack-through` command the drain printed as WAKE_ACK_REQUIRED.
+---
+> 5. Acknowledge: only after the report succeeds, run the exact `--ack-through` command the drain printed as WAKE_ACK_REQUIRED as its own command, never chained with the report.
+>    Judge it by its exit status, not its output: exit 0 means acknowledged, and any non-zero exit means the wake is still queued.

@@ -1,0 +1,19 @@
+## Scenario (the hazard step 5 now forbids): report with bad arguments chained with the ack in ONE command
+$ bin/fm-branch-report.sh --no-such-flag ; bin/fm-wake-drain.sh --ack-through 2 --recovery-generation 3336280.1792473258.uB6X6H
+Usage:
+  fm-branch-report.sh --task <id|fleet> --verdict routine|captain \
+      --summary <text> [--silent true|false] [--wake <text>]
+
+The verdict criteria are owned by bin/fm-branch-prompt.sh ("Verdict: routine
+exit=0
+queued check keys: []
+outcome notes in lab data: 0
+=> report failed, yet the wake was consumed: its outcome is never recorded.
+
+## Scenario: compliant flow - ack run as its own command after handling
+1792473269	3	check	demo3	check: demo3 wake
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 3 --recovery-generation 3342332.1792473269.aMbY7C
+queued check keys: [demo3 ]
+$ bin/fm-wake-drain.sh --ack-through 3 --recovery-generation 3342332.1792473269.aMbY7C
+output bytes=0 exit=0
+queued check keys: []

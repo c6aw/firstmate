@@ -1,0 +1,6 @@
+$ queue one check wake in the lab home
+exit=0
+$ bin/fm-wake-drain.sh
+1792473236	1	check	demo	check: demo wake
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 3321161.1792473236.lAllnW
+exit=0

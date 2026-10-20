@@ -1,0 +1,16 @@
+## setup: queue wake "demo2" and drain it
+1792473258	2	check	demo2	check: demo2 wake
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 2 --recovery-generation 3336280.1792473258.uB6X6H
+queued check keys: [demo2 ]
+
+## Scenario: refused ack (missing recovery generation) -> non-zero exit, wake still queued
+$ bin/fm-wake-drain.sh --ack-through 2
+wake drain: acknowledgement requires its recovery generation
+exit=2
+queued check keys: [demo2 ]
+
+## Scenario: stale cutoff (an earlier sequence) -> exit 0 WITH output, wake still queued
+$ bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 3336280.1792473258.uB6X6H
+wake drain: nothing was acknowledged through 1 (none of your presented wake rows is at or below it); the current wake is row 2: run bin/fm-wake-drain.sh --ack-through 2 --recovery-generation 3336280.1792473258.uB6X6H after handling it
+exit=0
+queued check keys: [demo2 ]

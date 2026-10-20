@@ -1,0 +1,27 @@
+=== A. forbidden pattern: report with bad args chained by ';' to the ack
+[fresh lab: 1 wake queued and presented, ack required through 1]
+report exit=2
+ack exit=0
+queued wake rows: 0
+recorded outcomes: 0
+=> wake acknowledged although no outcome was recorded (the reported bug)
+
+=== B. step-5 pattern: report fails, ack NOT run; fix report, then ack as its own command
+[fresh lab: 1 wake queued and presented, ack required through 1]
+report exit=2 -> ack skipped
+queued wake rows: 1
+recorded outcomes: 0
+corrected report exit=0
+ack exit=0 output=''
+queued wake rows: 0
+recorded outcomes: 1
+=> success is silent with exit 0
+
+=== C. adversarial: ack refusals exit non-zero and leave the wake queued
+[fresh lab: 1 wake queued and presented, ack required through 1]
+missing generation: exit=2 output='wake drain: acknowledgement requires its recovery generation'
+queued wake rows: 1
+recorded outcomes: 0
+cutoff below presented row: exit=0 output='wake drain: nothing was acknowledged through 0 (none of your presented wake rows is at or below it); the current wake is row 1: run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 3216619.1792473112.cO6dGn after handling it'
+queued wake rows: 1
+recorded outcomes: 0
