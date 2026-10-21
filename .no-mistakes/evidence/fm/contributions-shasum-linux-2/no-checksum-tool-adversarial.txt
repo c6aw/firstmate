@@ -1,0 +1,6 @@
+CHECK EXIT: 1
+CHECK OUTPUT: 
+QUEUE: 
+PENDING: [{"token":"comment:12:2026-09-16T08:01:00Z:","type":"comment","source":"https://github.com/o/r/pull/8#issuecomment-12","head":null,"author":"maintainer","body":"x"}]
+grep: /tmp/fm-contributions.7LWbWp/no-shasum/state/.wake-queue: No such file or directory
+ok - no checksum tool: no empty-key signal queued, event stays pending
