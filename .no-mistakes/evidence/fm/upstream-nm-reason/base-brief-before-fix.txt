@@ -1,0 +1,3 @@
+### base 83b70ef4 rendered no-mistakes brief, --reason lines:
+(none - worker never told to pass --reason)
+125:Two firstmate-specific rules layer on top of that guidance:

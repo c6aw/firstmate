@@ -1,0 +1,16 @@
+### no-mistakes brief: firstmate-specific rules block
+125:Three firstmate-specific rules layer on top of that guidance:
+126-- ask-user findings are never yours to answer: escalate to firstmate using rule 6's ask-user format and stop.
+127-  Firstmate applies `ask-user-authority` and obtains any required captain decision.
+128-  When the decision comes back, feed it to the gate with `no-mistakes axi respond` and let the pipeline apply it - do not route the question to "the user" or implement the fix yourself.
+129-- NEVER pass `--yes` (or `-y`) to `no-mistakes axi run` or `no-mistakes axi respond`. It is banned fleet-wide.
+130-  It auto-resolves every gate including ask-user findings with no escalation, and answering your own ask-user finding is a hard rule violation.
+131-- When firstmate tells you to approve a Test step past a failure, pass firstmate's stated reason with `--reason "<firstmate's words>"` on that `no-mistakes axi respond --step test --action approve`, so the run records why the exception was approved.
+132-
+133-After /no-mistakes reports CI green (the CI-ready return point - do not wait for it to keep monitoring in the background until merge), read the PR back from the forge and confirm it is not a draft (`gh-axi pr view <number>` must print `draft: no`, where <number> is the PR number from your PR URL); if it is a draft, mark it ready with `gh-axi pr ready <number>`.
+### direct-PR brief: --reason / Test-approval lines
+(none)
+### local-only brief: --reason / Test-approval lines
+(none)
+### no-mistakes brief: any instruction pairing --reason with skip
+131:- When firstmate tells you to approve a Test step past a failure, pass firstmate's stated reason with `--reason "<firstmate's words>"` on that `no-mistakes axi respond --step test --action approve`, so the run records why the exception was approved.
