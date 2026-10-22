@@ -29,7 +29,7 @@ If the top-level path is the primary checkout or not the worktree you were launc
    Leave the worktree clean before reporting done.
 3. Use gh-axi for GitHub operations and chrome-devtools-axi for browser operations.
 4. Report status by appending one line:
-   `echo "{state} [at=<epoch>]: {one short line}" >> '/tmp/tmp.nOom5qXJeM/state/nm-reason-no-mistakes.status' && { [ ! -e '/tmp/tmp.nOom5qXJeM/config/fleet-ledger' ] || '/home/c6aw/.no-mistakes/worktrees/e715b931c969/01M5GBV4C44H1MFEPB20C58EP4/bin/fm-fleet-ledger.sh' appended '/tmp/tmp.nOom5qXJeM/config' '/tmp/tmp.nOom5qXJeM/state/nm-reason-no-mistakes.status' >/dev/null 2>&1 || true; }`
+   `echo "{state} [at=<epoch>]: {one short line}" >> '/tmp/tmp.nOom5qXJeM/state/nm-reason-no-mistakes.status' && { [ ! -e '/tmp/tmp.nOom5qXJeM/config/fleet-ledger' ] || '~/.no-mistakes/worktrees/<repo-id>/<run>/bin/fm-fleet-ledger.sh' appended '/tmp/tmp.nOom5qXJeM/config' '/tmp/tmp.nOom5qXJeM/state/nm-reason-no-mistakes.status' >/dev/null 2>&1 || true; }`
    States: working, needs-decision, blocked, paused, done, failed.
    Substitute `<epoch>` with the current Unix time in seconds - run `date +%s` and write the number it printed; a stamp that is not plain digits records no time at all.
    Each append wakes firstmate, so report sparingly: only phase changes a supervisor
@@ -91,7 +91,7 @@ The move IS the acknowledgement: without it firstmate rings again and eventually
 
 # Project memory
 A project's `AGENTS.md` or `CLAUDE.md` is loaded into every agent session in that project, so edit it only to correct information that is factually wrong - including information your own change made wrong - and never to add knowledge because it is missing.
-A correction edits only the wrong text: do not run `/home/c6aw/.no-mistakes/worktrees/e715b931c969/01M5GBV4C44H1MFEPB20C58EP4/bin/fm-ensure-agents-md.sh`, create either file, or add sections, headings, or pointers alongside it.
+A correction edits only the wrong text: do not run `~/.no-mistakes/worktrees/<repo-id>/<run>/bin/fm-ensure-agents-md.sh`, create either file, or add sections, headings, or pointers alongside it.
 
 # Definition of done
 Delivery contract: mode=no-mistakes
