@@ -1,5 +1,5 @@
 # Live-drive helpers for the state/wake + inbox-only sandbox scenarios.
-WT=~/.no-mistakes/worktrees/da8b723484d2/01M3FB07TYDSB9NRW3NVJTEBZR
+WT=~/.no-mistakes/worktrees/<repo-id>/01M3FB07TYDSB9NRW3NVJTEBZR
 LAB=/tmp/fm-lab.8Ss3Yz
 BASE=/tmp/fm-base.ASp0bc
 EV=~/.no-mistakes/evidence/01M3FB07TYDSB9NRW3NVJTEBZR
