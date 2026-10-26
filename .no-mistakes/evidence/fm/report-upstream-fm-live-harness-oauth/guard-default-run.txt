@@ -1,0 +1,29 @@
+# claude 2.1.304 (Claude Code): title='claude' foreground=[claude ]
+ok - harness liveness: claude 2.1.304 (Claude Code) classifies alive
+# claude 2.1.304 (Claude Code): ancestry verdicts=[comm claude]
+ok - harness detection: claude 2.1.304 (Claude Code) is identified by the ancestry walk at comm strength
+# codex codex-cli 0.157.1: title='codex' foreground=[codex ]
+ok - harness liveness: codex codex-cli 0.157.1 classifies alive
+# codex codex-cli 0.157.1: ancestry verdicts=[comm codex]
+ok - harness detection: codex codex-cli 0.157.1 is identified by the ancestry walk at comm strength
+# opencode 1.18.35: title='opencode' foreground=[opencode ]
+ok - harness liveness: opencode 1.18.35 classifies alive
+# opencode 1.18.35: ancestry verdicts=[comm opencode]
+ok - harness detection: opencode 1.18.35 is identified by the ancestry walk at comm strength
+# pi 1.0.4: title='pi' foreground=[pi ]
+ok - harness liveness: pi 1.0.4 classifies alive
+# pi 1.0.4: ancestry verdicts=[comm pi]
+ok - harness detection: pi 1.0.4 is identified by the ancestry walk at comm strength
+# skip: pi-signed is not installed on this machine, so its classification is unverified here
+# skip: grok can open a browser sign-in when launched, so set FM_GROK_LIVE_E2E=1 to check its classification
+# skip: kimi is not installed on this machine, so its classification is unverified here
+# cursor 2026.10.01-e373342: title='cursor-agent' foreground=[MainThread ]
+ok - harness liveness: cursor 2026.10.01-e373342 classifies alive
+# cursor 2026.10.01-e373342: ancestry verdicts=[comm cursor]
+ok - harness detection: cursor 2026.10.01-e373342 is identified by the ancestry walk at comm strength
+# muse Muse Code 1.4.13 (1.4.13-R6996.1): title='muse-bin-1.4.13-R6996.1' foreground=[muse-bin-1.4.13 ]
+ok - harness liveness: muse Muse Code 1.4.13 (1.4.13-R6996.1) classifies alive
+# muse Muse Code 1.4.13 (1.4.13-R6996.1): ancestry verdicts=[comm muse]
+ok - harness detection: muse Muse Code 1.4.13 (1.4.13-R6996.1) is identified by the ancestry walk at comm strength
+# unverified on this machine (not installed or not opted in): pi-signed grok kimi
+# checked 6 installed harness(es)
