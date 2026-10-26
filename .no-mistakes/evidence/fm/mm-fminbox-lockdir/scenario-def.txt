@@ -1,0 +1,25 @@
+## Scenario D: the wake drain reads the queue from state/wake and presents the captain note
+$ FM_HOME=$LAB bin/fm-wake-drain.sh
+1793049564	1	check	inbox:1793049564-sqNtFI	check: captain inbox note 1793049564-sqNtFI - check the lab
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 1502055.1793049564.4Wtwse
+exit=0
+
+## Scenario E: a reply is staged in state/wake and written beside the note; state/ top level stays clean
+$ FM_HOME=$LAB bin/fm-inbox.sh reply 1793049564-sqNtFI "on it"
+replied 1793049564-sqNtFI
+exit=0
+$ find $LAB/state | sort
+$LAB/state
+$LAB/state/inbox
+$LAB/state/inbox/1793049564-sqNtFI.note
+$LAB/state/inbox/.announced
+$LAB/state/inbox/.announced/1793049564-sqNtFI
+$LAB/state/inbox/.replies
+$LAB/state/inbox/.replies/1793049564-sqNtFI
+$LAB/state/inbox/.replies/.seq
+$LAB/state/.main-eligible-rows
+$LAB/state/wake
+$LAB/state/wake/queue
+$LAB/state/wake/queue.seq
+$LAB/state/wake/watcher-down
+

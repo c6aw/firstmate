@@ -1,0 +1,23 @@
+## Scenario C: a home upgraded from the old layout folds state/.wake-queue into state/wake exactly once
+(planted legacy state/.wake-queue with 2 rows and .wake-queue.seq=2)
+$ FM_HOME=$LAB2 bin/fm-inbox.sh note -- "new note after upgrade"
+queued 1793049581-ILIIuF
+  new note after upgrade
+  firstmate will pick this up at its next check.
+exit=0
+$ ls -A $LAB2/state
+inbox
+wake
+$ ls -A $LAB2/state/wake
+queue
+queue.seq
+watcher-down
+$ cat $LAB2/state/wake/queue
+1700000000	3	check	inbox:old-a	check: old note a
+1700000001	4	signal	mail:7	signal: old mail 7
+1793049581	5	check	inbox:1793049581-ILIIuF	check: captain inbox note 1793049581-ILIIuF - new note after upgrade
+$ (load the library twice more)
+$ wc -l $LAB2/state/wake/queue  (still 3: no duplicate fold)
+3
+$ cat $LAB2/state/wake/queue.seq
+5

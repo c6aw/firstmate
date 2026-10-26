@@ -1,0 +1,10 @@
+## Baseline (base commit 127f0f30, before this change): the same note writes its wake at the top level of state/
+$ FM_HOME=$LB <base>/bin/fm-inbox.sh note -- "check the lab"
+queued 1793049624-GGyrBX
+  check the lab
+  firstmate will pick this up at its next check.
+$ ls -A $LB/state
+inbox
+.wake-queue
+.wake-queue.seq
+.watcher-down

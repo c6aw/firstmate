@@ -1,0 +1,15 @@
+## Scenario F (adversarial): a .replies or handled link planted in state/inbox is refused; nothing is written outside the inbox
+$ ln -s $LAB3/outside state/inbox/.replies; ln -s $LAB3/outside state/inbox/handled
+$ FM_HOME=$LAB3 bin/fm-inbox.sh reply 1793049617-nY9xPQ answer
+fm-inbox: refusing to reply: $LAB3/state/inbox/.replies is a link or resolves outside $LAB3/state/inbox
+exit=1
+$ FM_HOME=$LAB3 bin/fm-inbox.sh drain --ack 1793049617-nY9xPQ
+fm-inbox: refusing to ack: $LAB3/state/inbox/handled is a link or resolves outside $LAB3/state/inbox
+exit=1
+$ ls -A $LAB3/outside  (expected empty)
+(count=0)
+$ ls $LAB3/state/inbox/*.note  (note stays pending)
+$LAB3/state/inbox/1793049617-nY9xPQ.note
+$ ls -A $LAB3/state  (no top-level lock or scratch)
+inbox
+wake
