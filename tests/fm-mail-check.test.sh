@@ -399,6 +399,7 @@ test_repeated_status2_stays_queued_still_wakes() {
   done
   cat > "$tmpbin/fm-mail.sh" <<EOF
 #!/usr/bin/env bash
+mkdir -p "\$FM_HOME/state/wake"
 printf '1\t1\tcheck\tmail:9\tcheck: mail 9 - stays queued\\n' >> "\$FM_HOME/state/wake/queue"
 echo "fm-mail: wake for 9 could not be rolled back or durably recorded; the wake stays queued and the next poll heals it - a possible duplicate, never a lost mail" >&2
 exit 1

@@ -3153,6 +3153,20 @@ test_drain_rotates_orphaned_scratch() {
   pass "drain rotates scratch files an interrupted drain left under the queue lock"
 }
 
+# A home that never queues a wake keeps state/ as it was: the library creates
+# state/wake when a writer first locks there, not when it is loaded.
+test_wake_dir_is_created_on_first_write() {
+  local dir state
+  dir=$(make_case wake-dir-lazy)
+  state="$dir/state"
+  rmdir "$state/wake"
+  FM_STATE_OVERRIDE="$state" bash -c '. "$1"' _ "$ROOT/bin/fm-wake-lib.sh" || fail "loading the wake library failed"
+  [ ! -e "$state/wake" ] || fail "loading the wake library created state/wake"
+  append_wake "$state" check "first" "check: first" || fail "the first append without state/wake failed"
+  assert_grep 'check: first' "$state/wake/queue" "the first append did not queue its row in state/wake"
+  pass "state/wake is created on the first wake write, not when the library loads"
+}
+
 test_legacy_top_level_queue_is_folded() {
   local dir state queue seqs
   dir=$(make_case legacy-fold)
@@ -4075,6 +4089,7 @@ test_recovery_ack_failure_is_reported
 test_interruption_before_and_after_raw_commit
 test_wake_queue_prune_task
 test_drain_rotates_orphaned_scratch
+test_wake_dir_is_created_on_first_write
 test_legacy_top_level_queue_is_folded
 test_legacy_fold_skips_non_canonical_queue
 test_legacy_fold_skips_another_homes_secondmate_state

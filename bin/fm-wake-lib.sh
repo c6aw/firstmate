@@ -24,7 +24,7 @@ FM_LOCK_STALE_AFTER="${FM_LOCK_STALE_AFTER:-2}"
 # confirm and 0.5s attach polls, and forking uname per call is a measurable cost on
 # the platform (Git Bash/MSYS) that already pays the highest fork price.
 _FM_UNAME=$(uname 2>/dev/null || echo unknown)
-mkdir -p "$STATE" "$FM_WAKE_DIR"
+mkdir -p "$STATE"
 
 # Most wake-library consumers need only queue and lock primitives, including
 # deliberately minimal recovery fixtures and remote installations.
@@ -627,6 +627,12 @@ fm_lock_claim() {
 fm_lock_try_create() {
   local lockdir=$1 allowed_steal_owner=${2:-} ownerdir
   FM_LOCK_OWNER_DIR=
+  # Every state/wake writer takes a lock there first, so the directory appears
+  # on the first write and a home that never queues a wake keeps state/ as is.
+  # Plain mkdir: a removed state/ stays removed, so fm_lock_parent_gone holds.
+  if [ "${lockdir%/*}" = "$FM_WAKE_DIR" ] && [ ! -d "$FM_WAKE_DIR" ]; then
+    mkdir "$FM_WAKE_DIR" 2>/dev/null || [ -d "$FM_WAKE_DIR" ] || return 1
+  fi
   ownerdir=$(fm_lock_owner_dir "$lockdir") || return 1
   if [ -e "$lockdir" ] || [ -L "$lockdir" ]; then
     fm_lock_discard_owner "$ownerdir"

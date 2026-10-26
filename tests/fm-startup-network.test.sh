@@ -42,7 +42,7 @@ new_world() {
   w="$TMP_ROOT/$name"
   home="$w/home"
   root="$w/root"
-  mkdir -p "$home/state" "$root/bin"
+  mkdir -p "$home/state/wake" "$root/bin"
   for f in "$ROOT"/bin/*.sh; do
     ln -s "$f" "$root/bin/$(basename "$f")"
   done

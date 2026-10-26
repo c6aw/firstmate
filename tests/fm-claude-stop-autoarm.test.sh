@@ -47,7 +47,7 @@ install_autoarm_scripts() {
 # and the supervision-host cases below remove the opt-out.
 make_primary_dir() {
   local dir=$1
-  mkdir -p "$dir/state" "$dir/config"
+  mkdir -p "$dir/state/wake" "$dir/config"
   git init -q "$dir"
   git -C "$dir" commit -q --allow-empty -m init
   : > "$dir/AGENTS.md"
@@ -68,7 +68,7 @@ make_secondmate_dir() {
 make_crewmate_worktree_dir() {
   local base=$1 dir=$2
   fm_git_worktree "$base" "$dir" fm/autoarm-test-branch
-  mkdir -p "$dir/state"
+  mkdir -p "$dir/state/wake"
   : > "$dir/AGENTS.md"
   install_autoarm_scripts "$dir"
   printf '%s\n' "$dir"

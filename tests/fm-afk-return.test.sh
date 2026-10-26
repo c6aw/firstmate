@@ -21,7 +21,7 @@ TMP_ROOT=$(fm_test_tmproot fm-afk-return-tests)
 
 install_runner() {  # <case-dir>
   local dir=$1
-  mkdir -p "$dir/bin" "$dir/home/state" "$dir/home/data" "$dir/home/config"
+  mkdir -p "$dir/bin" "$dir/home/state/wake" "$dir/home/data" "$dir/home/config"
   cp "$ROOT/bin/fm-afk-return.sh" "$dir/bin/"
   cp "$ROOT/bin/fm-wake-lib.sh" "$dir/bin/"
   cp "$ROOT/bin/fm-lock-lib.sh" "$dir/bin/"

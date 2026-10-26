@@ -232,9 +232,7 @@ out=$(pe "$IDLE" list)
 assert_contains "$out" "no sources registered" "an unconfigured home reports no sources"
 out=$(pe "$IDLE" reconcile)
 assert_contains "$out" "published=0 started=0" "reconcile is a no-op with nothing registered"
-# The wake library creates the empty wake-queue directory when sourced.
-[ -z "$(ls -A "$IDLE/state/wake" 2>/dev/null)" ] && [ "$(ls -A "$IDLE/state" 2>/dev/null)" = wake ] \
-  || fail "an unconfigured home generated state: $(ls -AR "$IDLE/state")"
+[ -z "$(ls -A "$IDLE/state" 2>/dev/null)" ] || fail "an unconfigured home generated state: $(ls -A "$IDLE/state")"
 pass "no configured source means no generated state and no process"
 
 sup=$(PATH="${FM_TEST_BASE_PATH:-/usr/bin:/bin:/usr/sbin:/sbin}" bash -c \
@@ -510,7 +508,7 @@ pe_adapter() {  # <home> <command>...: run the runner against the fixture adapte
 HPUBLISH="$TMP_ROOT/hpublish"; new_home "$HPUBLISH"
 fm_test_track_procevent_home "$HPUBLISH"
 pe_adapter "$HPUBLISH" register applying publish-src -- /bin/echo "apply after publish" >/dev/null
-mkdir "$HPUBLISH/state/wake/queue"
+mkdir -p "$HPUBLISH/state/wake/queue"
 out=$(pe_adapter "$HPUBLISH" start publish-src 2>&1)
 assert_contains "$out" "not-autohandled: publish-src" "failed publication did not suppress automatic application"
 assert_absent "$HPUBLISH/state/applied" "a result was applied before its wake was durably published"
