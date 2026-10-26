@@ -1,0 +1,36 @@
+== Scenario 1: captain inbox note in a fresh lab home
+$ fm-inbox.sh note -- try the new sail rig
+queued 1793028235-pHaZT0
+  try the new sail rig
+  firstmate will pick this up at its next check.
+exit=0
+$ ls -A state/  (top level)
+inbox
+wake
+$ ls -A state/wake
+queue
+queue.seq
+watcher-down
+$ cat state/wake/queue
+1793028235	1	check	inbox:1793028235-pHaZT0	check: captain inbox note 1793028235-pHaZT0 - try the new sail rig
+top-level .wake-queue* present? 0
+
+== Scenario 2: fm-inbox.sh drain presents the note via the state/wake queue
+1793028235-pHaZT0
+    try the new sail rig
+
+Ack with: fm-inbox.sh drain --ack <id>...
+exit=0
+
+== Scenario 3: fm-wake-drain.sh reads state/wake/queue
+1793028235	1	check	inbox:1793028235-pHaZT0	check: captain inbox note 1793028235-pHaZT0 - try the new sail rig
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 1192196.1793028235.JuwQhY
+exit=0
+$ ls -A state/ after drain
+inbox
+.main-eligible-rows
+wake
+$ ls -A state/wake
+queue
+queue.seq
+watcher-down

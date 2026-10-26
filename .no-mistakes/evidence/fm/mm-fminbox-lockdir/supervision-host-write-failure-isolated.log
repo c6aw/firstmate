@@ -1,0 +1,6 @@
+not ok - hook write failure: the Stop hook did not finish
+run 1 rc=1
+ok - host+hook: failed at-turn downtime write notifies main despite a healthy successor
+run 2 rc=0
+ok - host+hook: failed at-turn downtime write notifies main despite a healthy successor
+run 3 rc=0

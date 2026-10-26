@@ -1,0 +1,8 @@
+branch run1: not ok - tagged: the host never started a watcher cycle: supervision-host stood down: this session does not own supervision
+branch run2: not ok - tagged: the host never started a watcher cycle: supervision-host stood down: this session does not own supervision
+branch run4: not ok - tagged: the host never started a watcher cycle: supervision-host stood down: this session does not own supervision
+branch run3: not ok - tagged: the host never started a watcher cycle: supervision-host stood down: this session does not own supervision
+base run4: not ok - tagged: the host never started a watcher cycle: supervision-host stood down: this session does not own supervision
+base run3: not ok - tagged: the host never started a watcher cycle: supervision-host stood down: this session does not own supervision
+base run1: not ok - tagged: the host never started a watcher cycle: supervision-host stood down: this session does not own supervision
+base run2: not ok - tagged: the host never started a watcher cycle: supervision-host stood down: this session does not own supervision

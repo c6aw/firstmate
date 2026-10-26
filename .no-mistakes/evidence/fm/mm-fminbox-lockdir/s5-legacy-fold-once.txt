@@ -1,0 +1,32 @@
+== Scenario 5 (adversarial): home upgraded from the old layout with rows in top-level state/.wake-queue
+$ cat state/.wake-queue
+1700000000	7	check	legacy:a	check: legacy row a
+1700000001	8	check	legacy:b	check: legacy row b
+queued 1793028248-gm9ajh
+  after upgrade
+  firstmate will pick this up at its next check.
+exit=0
+$ ls -A state/
+inbox
+wake
+$ cat state/wake/queue
+1700000000	9	check	legacy:a	check: legacy row a
+1700000001	10	check	legacy:b	check: legacy row b
+1793028249	11	check	inbox:1793028248-gm9ajh	check: captain inbox note 1793028248-gm9ajh - after upgrade
+$ second note (fold must not repeat)
+queued 1793028249-bgzlCV
+  second
+  firstmate will pick this up at its next check.
+exit=0
+$ cat state/wake/queue
+1700000000	9	check	legacy:a	check: legacy row a
+1700000001	10	check	legacy:b	check: legacy row b
+1793028249	11	check	inbox:1793028248-gm9ajh	check: captain inbox note 1793028248-gm9ajh - after upgrade
+1793028249	12	check	inbox:1793028249-bgzlCV	check: captain inbox note 1793028249-bgzlCV - second
+legacy rows count in new queue: 2
+$ fm-wake-drain.sh
+1700000000	9	check	legacy:a	check: legacy row a
+1700000001	10	check	legacy:b	check: legacy row b
+1793028249	11	check	inbox:1793028248-gm9ajh	check: captain inbox note 1793028248-gm9ajh - after upgrade
+1793028249	12	check	inbox:1793028249-bgzlCV	check: captain inbox note 1793028249-bgzlCV - second
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 12 --recovery-generation 1199675.1793028248.3EL2AU

@@ -1,0 +1,15 @@
+== Scenario 4: drain leftovers under state/wake are rotated away; ack retires the row
+$ ls -A state/wake (planted dead-drain scratch)
+queue
+queue.ack.dead2
+queue.actor-view.dead3
+queue.retire.dead1
+queue.seq
+watcher-down
+$ ls -A state/wake after a locked drain
+queue
+queue.seq
+watcher-down
+ack exit=0
+$ fm-wake-drain.sh (after ack)
+exit=0
