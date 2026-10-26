@@ -1,0 +1,4 @@
+83a84
+> End the report with an "Open decisions: options and my pick" section: each open decision, its options, your pick with one reason, and which ones only the captain can make; write "None" when there are none.
+85a87
+> If you may not write the home backlog, name each open captain call with its question and options in the report and in your done status instead of running its commands, so firstmate holds each one and runs `complete` for you.

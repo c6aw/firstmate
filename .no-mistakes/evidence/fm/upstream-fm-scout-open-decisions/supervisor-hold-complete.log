@@ -1,0 +1,31 @@
+## setup: scout task as a spawn leaves it
+  - Run `tasks-axi done probe-scout --pr <url>` when it ships
+  - Run `tasks-axi block probe-scout --by <other>` to record a dependency
+## scout wrote (report + status, no backlog write):
+# Sample retention investigation
+Findings: ...
+## Open decisions: options and my pick
+1. Retention window (captain only). Options: 7 days / 30 days. My pick: 30 days, because replays need a month.
+working: report drafted
+needs-decision [key=retention]: Retention window - options 7 days / 30 days; pick 30 days
+done [at=1793000000]: retention investigated; one open captain call named in report (retention window)
+
+## adversarial: firstmate tries complete --none while the scout named an open call
+complete: probe-scout captain-call inventory reviewed
+rc=0
+## firstmate holds the named call for the scout
+probe-scout-retention
+rc=0
+## firstmate runs complete for the scout
+complete: probe-scout captain-call inventory reviewed (probe-scout-retention)
+rc=0
+## verify (what scout teardown calls)
+verified: probe-scout captain-call inventory
+rc=0
+## origin metadata attestation
+decisions_reviewed=1
+decision_keys=
+decisions_reviewed=1
+decision_keys=probe-scout-retention
+## call still open for the captain?
+open rc=0

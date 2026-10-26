@@ -1,0 +1,6 @@
+## with-done: complete --none
+complete: probe-scout captain-call inventory reviewed
+rc=0
+## without-done: complete --none
+fm-captain-hold: origin probe-scout still has open captain decisions in its status stream; hold a captain task for what remains, or answer them, before attesting --none
+rc=1
