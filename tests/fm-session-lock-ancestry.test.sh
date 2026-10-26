@@ -949,7 +949,7 @@ trap 'reap_background_fixture; fm_test_cleanup' EXIT
 
 make_background_session_home() {  # <dir>
   local dir=$1
-  mkdir -p "$dir/state"
+  mkdir -p "$dir/state/wake"
   git init -q "$dir"
   git -C "$dir" commit -q --allow-empty -m init
   : > "$dir/AGENTS.md"
@@ -1520,7 +1520,7 @@ autoarm_midturn_healthy() {  # <state-dir>
 test_reanchor_keeps_autoarm_midturn_healthy() {
   local dir front_pid model_pid
   dir="$TMP_ROOT/reanchor-autoarm"
-  mkdir -p "$dir/state"
+  mkdir -p "$dir/state/wake"
   "$NAMED_CLAUDE" -c '
     printf "%s\n" "$$" > "$0/state/front-pid"
     while [ ! -e "$0/state/stop" ] && [ "$SECONDS" -lt "${FM_TEST_STUB_MAX_BLOCK_SECONDS:-120}" ]; do sleep 0.05; done
