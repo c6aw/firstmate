@@ -1,0 +1,30 @@
+## Scenario A: no config/lavish-off, compatible lavish-axi on PATH
+$ ls ~LAB/config/lavish-off
+ls: cannot access '~LAB/config/lavish-off': No such file or directory
+$ fm-brief.sh scout-on alpha --scout
+scaffolded: ~LAB/data/scout-on/brief.md (scout; replace {TASK} and {FIRSTMATE_SPEC})
+rc=0
+--- Lavish line in brief:
+84:If your deliverable is a visual artifact the captain will review and iterate on, use the lavish-axi rule: arm your board with bin/fm-procevent-lavish.sh arm <artifact.html> --for <task-id>; never run lavish-axi poll yourself. Re-arm with the reply after each nonterminal round to acknowledge it, route the board feedback through your steering inbox, write needs-decision [key=board-review] with the live board URL when the captain owes a decision, and stop at session_ended or an empty End without re-arming - acknowledge that final round with bin/fm-procevent.sh handled <source-id> <sequence> to conclude and retire your board.
+
+## Scenario B: operator creates config/lavish-off
+$ fm-brief.sh scout-off alpha --scout
+scaffolded: ~LAB/data/scout-off/brief.md (scout; replace {TASK} and {FIRSTMATE_SPEC})
+rc=0
+--- Lavish line in brief:
+84:Lavish is turned off for this home (config/lavish-off), so deliver your findings as a text report without Lavish, even for a visual deliverable.
+
+## Scenario C: Bearings board build with config/lavish-off
+$ fm-bearings-board.sh build payload.json
+lavish-off: no board built or armed (~LAB/config/lavish-off exists)
+rc=0
+$ fm-bearings-board.sh path
+~LAB/.lavish/bearings-board.html
+board file exists? no
+$ fm-procevent.sh list
+no sources registered
+
+## Scenario D: flag removed, same build reaches the normal path
+$ fm-bearings-board.sh build payload.json  (invalid payload {} on purpose)
+fm-bearings-board: board data does not satisfy fm-bearings-board.v1: ~LAB/payload.json
+rc=1
