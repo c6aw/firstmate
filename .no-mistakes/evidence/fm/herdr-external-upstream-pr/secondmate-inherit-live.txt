@@ -1,0 +1,6 @@
+== secondmate inheritance via real propagate_inheritable_config
+propagate exit=0
+secondmate config/herdr-server-external: firstmate
+secondmate adapter sees session 'firstmate' as external:
+yes
+after primary removes it, secondmate copy exists: no

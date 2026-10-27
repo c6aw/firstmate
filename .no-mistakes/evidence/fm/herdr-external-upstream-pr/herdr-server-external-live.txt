@@ -1,0 +1,35 @@
+lab session: fm-lab-extsrv-1470586-21615
+lab home created (marked)
+prepared tripwire
+
+== S1: unlisted lab session, server down -> adapter starts it with per-call vars scrubbed
+before: []
+ensure exit=0 (0s)
+after: [{"name":"fm-lab-extsrv-1470586-21615","running":true}]
+server pid: 1470633
+HERDR_SESSION=fm-lab-extsrv-1470586-21615
+FM_HERDR_SENTINEL=kept
+(only FM_HERDR_SENTINEL / HERDR_SESSION expected above)
+
+== stop the lab server (guarded)
+after stop: [{"name":"fm-lab-extsrv-1470586-21615","running":false}]
+
+== S2: session listed in config/herdr-server-external, server down -> never started, error names session
+ensure exit=1 (10s)
+stderr: error: herdr server for session 'fm-lab-extsrv-1470586-21615' is externally owned (config/herdr-server-external) and did not report running within 10s; start it through its service
+after: [{"name":"fm-lab-extsrv-1470586-21615","running":false}]
+server processes for session: 0
+
+== S3: listed session brought back by the 'operator service' (lab provision) -> adapter adopts it
+service-started: [{"name":"fm-lab-extsrv-1470586-21615","running":true}]
+ensure exit=0
+server pid before=1472765 after=1472765 count=1
+
+== S4: service restarts during the wait window -> adapter waits and succeeds without starting one
+stopped: [{"name":"fm-lab-extsrv-1470586-21615","running":false}]
+ensure exit=0 after 3s
+after: [{"name":"fm-lab-extsrv-1470586-21615","running":true}] count=1
+
+== teardown
+teardown ok
+lab home removed
