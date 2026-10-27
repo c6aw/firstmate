@@ -1,0 +1,13 @@
+== fixed tree (62902f92) ==
+ok - a host without shasum keys contribution signals with sha256sum
+RESULT test_signal_key_without_shasum: ok
+ok - new maintainer comment wakes once and stays pending until acknowledged
+RESULT test_comment_wake: ok
+ok - new maintainer review wakes once and stays pending until acknowledged
+RESULT test_review_wake: ok
+ok - new maintainer inline wakes once and stays pending until acknowledged
+RESULT test_inline_wake: ok
+
+== base tree (7da4c362, pre-fix) with the same new test ==
+not ok - without shasum the signal key was not the sha256 of url and token: 1793128485	1	check	contribution-	check: contributions delivery 
+RESULT test_signal_key_without_shasum: FAILED

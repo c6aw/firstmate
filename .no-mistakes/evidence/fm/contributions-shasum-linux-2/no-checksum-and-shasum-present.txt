@@ -1,0 +1,34 @@
+(register + first poll with full PATH; the poll that sees the new maintainer comment runs with the stripped PATH)
+== fixed tree ==
+### A: neither shasum nor sha256sum on PATH
+check exit=1
+check exit=0
+wake-queue:
+(empty)
+pending tokens: ["comment:12:2026-09-16T08:01:00Z:"] notified: []
+expected key: contribution-ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177
+
+### B: shasum present (normal host)
+check exit=0
+check exit=0
+wake-queue:
+1793128519	1	check	contribution-ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177	check: contributions delivery ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177
+pending tokens: ["comment:12:2026-09-16T08:01:00Z:"] notified: ["comment:12:2026-09-16T08:01:00Z:"]
+expected key: contribution-ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177
+
+== base tree ==
+### A: neither shasum nor sha256sum on PATH
+check exit=0
+check exit=0
+wake-queue:
+1793128523	1	check	contribution-	check: contributions delivery 
+pending tokens: ["comment:12:2026-09-16T08:01:00Z:"] notified: ["comment:12:2026-09-16T08:01:00Z:"]
+expected key: contribution-ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177
+
+### B: shasum present (normal host)
+check exit=0
+check exit=0
+wake-queue:
+1793128528	1	check	contribution-ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177	check: contributions delivery ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177
+pending tokens: ["comment:12:2026-09-16T08:01:00Z:"] notified: ["comment:12:2026-09-16T08:01:00Z:"]
+expected key: contribution-ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177
