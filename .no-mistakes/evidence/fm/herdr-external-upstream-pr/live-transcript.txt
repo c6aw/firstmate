@@ -1,0 +1,27 @@
+lab home: <tmp>/fm-lab.4lYf8T  session: fm-lab-extsrv-3495018-16683
+== operator service (lab helper) starts the server
+running=true pids=[3495059 ]
+after service stop: running=false pids=[]
+
+== S1: session listed in config/herdr-server-external, service down
+ensure rc=1 elapsed=10s
+stderr: error: herdr server for session 'fm-lab-extsrv-3495018-16683' is externally owned (config/herdr-server-external) and did not report running within 10s; start it through its service
+after: running=false pids=[]
+
+== S2: listed, service brings server back during the wait
+during wait (2s): running=false pids=[]
+ensure rc=0 stderr=[]
+after: running=true server process count=1
+
+== S3: session not listed, Firstmate starts the server with per-call vars scrubbed
+before: running=false pids=[]
+ensure rc=0
+after: running=true pids=[3511053 ]
+server pid 3511053 environment (FM_*/sentinel names only):
+  FM_HERDR_SENTINEL
+  absent FM_SNAPSHOT_NOW
+  absent FM_CREW_STATE_NO_FORGE
+  absent FM_HOME
+  absent CLAUDECODE
+  kept FM_HERDR_SENTINEL
+teardown rc=0

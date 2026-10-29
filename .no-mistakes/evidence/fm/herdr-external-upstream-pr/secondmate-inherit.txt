@@ -1,0 +1,5 @@
+== primary lists: firstmate ops-svc
+propagate rc=0
+secondmate config/herdr-server-external: firstmate ops-svc
+secondmate ensure sees 'firstmate' as external: yes
+after primary removes it, secondmate file exists: no
