@@ -1,0 +1,7 @@
+first ack exit 0
+repeat ack 1 exit 1
+repeat ack 2 exit 1
+repeat ack 3 exit 1
+every state file byte-identical across repeat refusals
+main drain still sees the un-granted row (seq 2):
+2	signal	task-b.status	signal: task-b

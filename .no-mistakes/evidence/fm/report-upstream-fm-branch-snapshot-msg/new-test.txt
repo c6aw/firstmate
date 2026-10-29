@@ -1,0 +1,2 @@
+ok - a branch-actor drain with no eligible-row snapshot refuses loudly instead of draining nothing
+ok - a repeat branch acknowledgement after its own ack consumed the grant says the grant was already consumed

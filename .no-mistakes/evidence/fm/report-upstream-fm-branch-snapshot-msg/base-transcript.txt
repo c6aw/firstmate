@@ -1,0 +1,12 @@
+== S1/S4: first branch drain + ack succeed, repeat ack names consumed grant
+1793310599	1	signal	task-a.status	signal: task-a
+[drain exit 0]
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 1950099.1793310599.FvbPCu
+$ env FM_STATE_OVERRIDE=/tmp/tmp.K9bJ0XSrr8/state FM_SUPERVISION_ACTOR=branch /tmp/tmp.ZO0ebrptdt/bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 1950099.1793310599.FvbPCu
+[exit 0]
+rows file present after first ack? no
+$ env FM_STATE_OVERRIDE=/tmp/tmp.K9bJ0XSrr8/state FM_SUPERVISION_ACTOR=branch /tmp/tmp.ZO0ebrptdt/bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 1950099.1793310599.FvbPCu
+wake drain: no branch-eligible row snapshot at /tmp/tmp.K9bJ0XSrr8/state/.branch-eligible-rows; refusing to guess what this actor may consume
+[exit 1]
+== S2: repeat plain branch drain with live owner, rows gone
+$ env FM_STATE_OVERRIDE=/tmp/tmp.K9bJ0XSrr8/state FM_SUPERVISION_ACTOR=branch /tmp/tmp.ZO0ebrptdt/bin/fm-wake-drain.sh

@@ -1,0 +1,35 @@
+== S1/S4: first branch drain + ack succeed, repeat ack names consumed grant
+1793310582	1	signal	task-a.status	signal: task-a
+[drain exit 0]
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 1925646.1793310582.Vq8ery
+$ env FM_STATE_OVERRIDE=/tmp/tmp.J2w045dGrZ/state FM_SUPERVISION_ACTOR=branch /home/c6aw/.no-mistakes/worktrees/e715b931c969/01M64T5QWRTRAZ2FD4W6NAX3B4/bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 1925646.1793310582.Vq8ery
+[exit 0]
+rows file present after first ack? no
+$ env FM_STATE_OVERRIDE=/tmp/tmp.J2w045dGrZ/state FM_SUPERVISION_ACTOR=branch /home/c6aw/.no-mistakes/worktrees/e715b931c969/01M64T5QWRTRAZ2FD4W6NAX3B4/bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 1925646.1793310582.Vq8ery
+wake drain: this branch's grant was already consumed by its acknowledgement; nothing is left to drain or acknowledge, so do not acknowledge again
+[exit 1]
+== S2: repeat plain branch drain with live owner, rows gone
+$ env FM_STATE_OVERRIDE=/tmp/tmp.J2w045dGrZ/state FM_SUPERVISION_ACTOR=branch /home/c6aw/.no-mistakes/worktrees/e715b931c969/01M64T5QWRTRAZ2FD4W6NAX3B4/bin/fm-wake-drain.sh
+wake drain: this branch's grant was already consumed by its acknowledgement; nothing is left to drain or acknowledge, so do not acknowledge again
+[exit 1]
+state dir changed:
+3c3
+< drwx------ 3 c6aw c6aw 100 Oct 29 16:49 ..
+---
+> drwx------ 3 c6aw c6aw 120 Oct 29 16:49 ..
+== S3: owner dead, rows gone -> generic refusal
+$ env FM_STATE_OVERRIDE=/tmp/tmp.J2w045dGrZ/state FM_SUPERVISION_ACTOR=branch /home/c6aw/.no-mistakes/worktrees/e715b931c969/01M64T5QWRTRAZ2FD4W6NAX3B4/bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 1925646.1793310582.Vq8ery
+wake drain: no branch-eligible row snapshot at /tmp/tmp.J2w045dGrZ/state/.branch-eligible-rows; refusing to guess what this actor may consume
+[exit 1]
+== S5: no owner record at all (outside handoff) -> generic refusal
+$ env FM_STATE_OVERRIDE=/tmp/tmp.J2w045dGrZ/state2 FM_SUPERVISION_ACTOR=branch /home/c6aw/.no-mistakes/worktrees/e715b931c969/01M64T5QWRTRAZ2FD4W6NAX3B4/bin/fm-wake-drain.sh
+wake drain: no branch-eligible row snapshot at /tmp/tmp.J2w045dGrZ/state2/.branch-eligible-rows; refusing to guess what this actor may consume
+[exit 1]
+== S6: live owner, rows file exists but empty -> generic refusal
+$ env FM_STATE_OVERRIDE=/tmp/tmp.J2w045dGrZ/state2 FM_SUPERVISION_ACTOR=branch /home/c6aw/.no-mistakes/worktrees/e715b931c969/01M64T5QWRTRAZ2FD4W6NAX3B4/bin/fm-wake-drain.sh
+wake drain: no branch-eligible row snapshot at /tmp/tmp.J2w045dGrZ/state2/.branch-eligible-rows; refusing to guess what this actor may consume
+[exit 1]
+== S6b: live owner, rows path is a dangling symlink -> generic refusal
+$ env FM_STATE_OVERRIDE=/tmp/tmp.J2w045dGrZ/state2 FM_SUPERVISION_ACTOR=branch /home/c6aw/.no-mistakes/worktrees/e715b931c969/01M64T5QWRTRAZ2FD4W6NAX3B4/bin/fm-wake-drain.sh
+wake drain: no branch-eligible row snapshot at /tmp/tmp.J2w045dGrZ/state2/.branch-eligible-rows; refusing to guess what this actor may consume
+[exit 1]
