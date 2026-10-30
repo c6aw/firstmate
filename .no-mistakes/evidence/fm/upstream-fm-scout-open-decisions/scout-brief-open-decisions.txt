@@ -1,0 +1,16 @@
+== HEAD (ba40098c) scout brief: fm-brief.sh demo-scout sample --scout
+scaffolded: /tmp/fm-lab.YgGP6b/data/demo-scout/brief.md (scout; replace {TASK} and {FIRSTMATE_SPEC})
+86:End the report with an "Open decisions: options and my pick" section: each open decision, its options, your pick with one reason, and which ones only the captain can make; write "None" when there are none.
+
+Order check (completion gate -> Open decisions -> done line):
+85:Before reporting done, read and follow `/home/c6aw/.no-mistakes/worktrees/e715b931c969/01M674P0FJCCGSWX0J14RVVCRX/.agents/skills/captain-hold-lifecycle/SKILL.md` and pass its shared completion gate for the report and any visual review.
+86:End the report with an "Open decisions: options and my pick" section: each open decision, its options, your pick with one reason, and which ones only the captain can make; write "None" when there are none.
+87:When the report is complete, append `done [at=<epoch>]: {one-line conclusion}` to the status file and stop.
+
+== HEAD ship brief (must NOT carry the scout report section): fm-brief.sh demo-ship sample --mode local-only
+scaffolded: /tmp/fm-lab.YgGP6b/data/demo-ship/brief.md (ship, mode=local-only; replace {TASK} and {FIRSTMATE_SPEC})
+Open decisions matches: 0
+
+== BASE (30e185d1) scout brief
+scaffolded: /tmp/fm-lab.YgGP6b/data/base-scout/brief.md (scout; replace {TASK} and {FIRSTMATE_SPEC})
+Open decisions matches: 0
