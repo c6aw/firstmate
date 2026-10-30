@@ -1,0 +1,14 @@
+The report is written to `/tmp/fm-lab.gDDMRw/data/naming-scout/report.md`, and I appended the done status. I read `bin/fm-lab-home.sh` and grepped for its callers. I ran nothing else and changed nothing.
+
+- **Today:** the script has three subcommands. `create` marks and builds a home, `tmux-dir` creates or prints a private socket directory, and `teardown` removes that socket directory. Every one takes a path the caller chose.
+- **No registry exists:** lab homes are scattered, caller-chosen directories. The only way to recognise one is the `.fm-lab-home` marker file, so a `list` has nothing to read today.
+- **Adding `list`:** the simplest version scans a root directory for marker files, about 10–15 lines plus a usage line, a docs row and a test. It adds no new state.
+- **Age:** it comes from the marker file's modification time. That costs about 5 more lines and a portable `stat` helper like the two already in the script.
+- **A registry is not worth building:** it would go stale whenever a caller deletes a home with `rm -rf`.
+- **Recommendation:** skip both for now, since no caller needs to enumerate lab homes.
+
+Open decisions for you, captain, both product choices:
+1. Add `list` at all? My pick is no. The other option is a scan-only `list [root]`.
+2. If added, show age? My pick is path only, unless cleaning up stale labs is the goal.
+
+I did not check whether any tool outside this repository depends on the script's exact usage text.

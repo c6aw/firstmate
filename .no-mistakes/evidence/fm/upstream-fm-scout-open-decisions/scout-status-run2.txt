@@ -1,0 +1,1 @@
+done [at=1793367161]: report written; one captain call for firstmate to hold - add a list subcommand to fm-lab-home.sh? (a) no, document a find one-liner [my pick] (b) yes, list [<root>] default /tmp; and if yes, print age? (a) path only [my pick] (b) age plus path

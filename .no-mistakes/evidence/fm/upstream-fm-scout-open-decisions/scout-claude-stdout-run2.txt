@@ -1,0 +1,21 @@
+I've written the report, at 36 lines, and posted the done status. Nothing was edited and the steering inbox is empty.
+
+**What the script does today**
+- `bin/fm-lab-home.sh` has three subcommands. Each one takes a path that the caller picks:
+  - `create` makes a marked lab home.
+  - `tmux-dir` creates or re-checks the home's private tmux socket folder.
+  - `teardown` removes that socket folder, but only after it confirms no tmux server is still running there.
+- There is no list of lab homes anywhere. A lab home is known only by the `.fm-lab-home` marker file inside it (`bin/fm-gate-refuse-lib.sh:83-92`), and callers delete homes with plain `rm -rf`.
+- Callers put homes in unrelated places: the tests use their own temp folders, and `fm-live-lab.sh` uses `/tmp/fmlab.XXXXXX/home` by default.
+
+**What adding `list` would involve**
+- A `list [<root>]` subcommand would search the root for marker files, keep only homes with a valid marker, and print their paths. With `/tmp` as the default root, it would miss homes created anywhere else.
+- That is about 10–15 lines, plus updates to the usage text and the `docs/scripts.md` row, and one test. It adds no new state and only reads files.
+- Printing each home's age would add about 3 lines, using the file-date check the script already has. It also changes the output format, so that choice should be made before anything starts reading the output.
+- No script or test needs a list today. The only use I can see is finding homes left behind by crashed runs. `find /tmp -maxdepth 3 -name .fm-lab-home` already does that, and today it finds only this lab.
+
+**Captain calls for firstmate to record** (both are in the report and the done status)
+1. Add `list`? (a) No, just document the `find` line. (b) Yes, `list [<root>]` with `/tmp` as the default. **My pick: (a)**, because nothing needs it yet and a default root quietly misses homes stored elsewhere.
+2. If yes, print each home's age too? (a) Paths only. (b) Age and path. **My pick: (a)**, because path-only output stays stable, and age is easy to add later if a cleanup job needs it.
+
+I didn't check macOS, where temp folders are under `$TMPDIR` and not `/tmp`, so a `/tmp` default would miss them there.

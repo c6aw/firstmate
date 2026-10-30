@@ -1,0 +1,14 @@
+Warning: no stdin data received in 3s, proceeding without it. If piping from a slow command, redirect stdin explicitly: < /dev/null to skip, or wait longer.
+`bin/fm-lab-home.sh` accepts exactly 3 subcommands. Each one takes a single `<dir>` argument:
+
+1. **`create <dir>`** makes a marked lab home with `state/`, `data/`, `config/` and `projects/`, then prints its path (`bin/fm-lab-home.sh:40`).
+2. **`tmux-dir <dir>`** creates the home's private tmux socket directory, or prints it if it already exists (`bin/fm-lab-home.sh:55`).
+3. **`teardown <dir>`** removes that socket directory (`bin/fm-lab-home.sh:78`).
+
+Any other argument prints the usage line and exits with code 2 (`bin/fm-lab-home.sh:103-105`).
+
+I read the dispatch at `bin/fm-lab-home.sh:39` and the usage header at lines 10-13, at commit 47ab4f93. I did not edit or run anything.
+
+The 14-line report is at `/tmp/fm-lab.gDDMRw/data/fact-scout/report.md`, and the done status line is appended. There is nothing to ship and no open decisions. I did not run `fm-captain-hold.sh`, as the instructions said.
+
+I did not run the script, so this answer comes only from reading its code.
