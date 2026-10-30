@@ -1,0 +1,4 @@
+ok - a host without shasum keys contribution signals with sha256sum
+ok - new maintainer comment wakes once and stays pending until acknowledged
+ok - new maintainer review wakes once and stays pending until acknowledged
+ok - shared contribution signal wakes once while retaining both acknowledgements
