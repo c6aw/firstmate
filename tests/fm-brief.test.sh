@@ -1099,8 +1099,6 @@ test_scout_and_secondmate_load_decision_hold_policy() {
     "scout brief did not cross-reference visual-review completion"
   assert_grep 'End the report with an "Open decisions: options and my pick" section' "$scout" \
     "scout brief did not ask the report to end with its open decisions"
-  assert_grep 'If any captain call remains, name each one with its question and options in the report and in your done status, so firstmate can hold each one before running' "$scout" \
-    "scout was not told to hand each open captain call to firstmate"
   FM_HOME="$home" FM_ROOT_OVERRIDE="$ROOT" FM_SECONDMATE_CHARTER='sample reviews' \
     "$ROOT/bin/fm-brief.sh" sample-mate --secondmate --no-projects >/dev/null 2>&1
   charter="$home/data/sample-mate/brief.md"
