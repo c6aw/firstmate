@@ -3,7 +3,7 @@ scaffolded: /tmp/fm-lab.YgGP6b/data/demo-scout/brief.md (scout; replace {TASK} a
 86:End the report with an "Open decisions: options and my pick" section: each open decision, its options, your pick with one reason, and which ones only the captain can make; write "None" when there are none.
 
 Order check (completion gate -> Open decisions -> done line):
-85:Before reporting done, read and follow `/home/c6aw/.no-mistakes/worktrees/e715b931c969/01M674P0FJCCGSWX0J14RVVCRX/.agents/skills/captain-hold-lifecycle/SKILL.md` and pass its shared completion gate for the report and any visual review.
+85:Before reporting done, read and follow `~/.no-mistakes/worktrees/<repo-id>/01M674P0FJCCGSWX0J14RVVCRX/.agents/skills/captain-hold-lifecycle/SKILL.md` and pass its shared completion gate for the report and any visual review.
 86:End the report with an "Open decisions: options and my pick" section: each open decision, its options, your pick with one reason, and which ones only the captain can make; write "None" when there are none.
 87:When the report is complete, append `done [at=<epoch>]: {one-line conclusion}` to the status file and stop.
 

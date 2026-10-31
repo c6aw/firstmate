@@ -23,7 +23,7 @@ The report is the only thing that survives, so anything worth keeping must be in
 2. Stay inside this worktree; the only files you may write outside it are the report and the status file below.
 3. Use gh-axi for GitHub operations and chrome-devtools-axi for browser operations.
 4. Report status by appending one line:
-   `echo "{state} [at=<epoch>]: {one short line}" >> '/tmp/fm-lab.gDDMRw/state/naming-scout.status' && { [ ! -e '/tmp/fm-lab.gDDMRw/config/fleet-ledger' ] || '/home/c6aw/.no-mistakes/worktrees/e715b931c969/01M66G08YCZ9TMP6CV9JCHP9V3/bin/fm-fleet-ledger.sh' appended '/tmp/fm-lab.gDDMRw/config' '/tmp/fm-lab.gDDMRw/state/naming-scout.status' >/dev/null 2>&1 || true; }`
+   `echo "{state} [at=<epoch>]: {one short line}" >> '/tmp/fm-lab.gDDMRw/state/naming-scout.status' && { [ ! -e '/tmp/fm-lab.gDDMRw/config/fleet-ledger' ] || '~/.no-mistakes/worktrees/<repo-id>/01M66G08YCZ9TMP6CV9JCHP9V3/bin/fm-fleet-ledger.sh' appended '/tmp/fm-lab.gDDMRw/config' '/tmp/fm-lab.gDDMRw/state/naming-scout.status' >/dev/null 2>&1 || true; }`
    States: working, needs-decision, blocked, paused, done, failed.
    Substitute `<epoch>` with the current Unix time in seconds - run `date +%s` and write the number it printed; a stamp that is not plain digits records no time at all.
    Each append wakes firstmate, so report sparingly: only phase changes a supervisor
@@ -82,7 +82,7 @@ The move IS the acknowledgement: without it firstmate rings again and eventually
 Write your findings to `/tmp/fm-lab.gDDMRw/data/naming-scout/report.md`.
 The report must stand alone: what you did, what you found, the evidence (commands run, output, file:line references), and what you recommend.
 Lavish is unavailable (lavish-axi is missing or below its supported version floor), so deliver your findings as a text report without Lavish, even for a visual deliverable.
-Before reporting done, read and follow `/home/c6aw/.no-mistakes/worktrees/e715b931c969/01M66G08YCZ9TMP6CV9JCHP9V3/.agents/skills/captain-hold-lifecycle/SKILL.md` and pass its shared completion gate for the report and any visual review.
+Before reporting done, read and follow `~/.no-mistakes/worktrees/<repo-id>/01M66G08YCZ9TMP6CV9JCHP9V3/.agents/skills/captain-hold-lifecycle/SKILL.md` and pass its shared completion gate for the report and any visual review.
 If any captain call remains, name each one with its question and options in the report and in your done status, so firstmate can hold each one before running `complete` for you.
 End the report with an "Open decisions: options and my pick" section: each open decision, its options, your pick with one reason, and which ones only the captain can make; write "None" when there are none.
 When the report is complete, append `done [at=<epoch>]: {one-line conclusion}` to the status file and stop.
