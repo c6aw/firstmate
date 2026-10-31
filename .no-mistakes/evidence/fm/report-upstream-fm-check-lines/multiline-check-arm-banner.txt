@@ -1,0 +1,24 @@
+registered: state/task.check.sh
+arm exit=0
+== tree <head> arm output:
+watcher: started pid=534164 (beacon fresh)
+check: /tmp/fm-lab.KUwQi8/state/task.check.sh: first event second event third event
+== banner filter (Stop hook line 664):
+check: /tmp/fm-lab.KUwQi8/state/task.check.sh: first event second event third event
+== drain:
+1793470427	1	check	$LAB/state/task.check.sh	check: $LAB/state/task.check.sh: first event second event third event
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 534164.1793470427.6GrggK
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+registered: state/task.check.sh
+arm exit=0
+== tree <base> arm output:
+watcher: started pid=539704 (beacon fresh)
+check: /tmp/fm-lab.IR4JT0/state/task.check.sh: first event
+second event
+third event
+== banner filter (Stop hook line 664):
+check: /tmp/fm-lab.IR4JT0/state/task.check.sh: first event
+== drain:
+1793470429	1	check	$LAB/state/task.check.sh	check: $LAB/state/task.check.sh: first event second event third event
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 539704.1793470429.2dSFnH
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.

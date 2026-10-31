@@ -1,0 +1,18 @@
+== tree <head>
+registered: state/task.check.sh
+check: $LAB/state/task.check.sh: event number 1
+check: rearm-resurface
+-- queue rows:
+check	$LAB/state/task.check.sh	check: $LAB/state/task.check.sh: event number 1
+-- drain output:
+1793470441	1	check	$LAB/state/task.check.sh	check: $LAB/state/task.check.sh: event number 1
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 568649.1793470441.EZ1Z1u
+== tree <base>
+registered: state/task.check.sh
+check: $LAB/state/task.check.sh: event number 1
+check: rearm-resurface
+-- queue rows:
+check	$LAB/state/task.check.sh	check: $LAB/state/task.check.sh: event number 1
+-- drain output:
+1793470443	1	check	$LAB/state/task.check.sh	check: $LAB/state/task.check.sh: event number 1
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 575488.1793470443.3Bcjkh
