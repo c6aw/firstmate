@@ -1,0 +1,5 @@
+== head perl fallback, owned group, check sleeps past 1s timeout: finding before the cut
+exit=124
+== base perl fallback, owned group, check sleeps past 1s timeout: finding before the cut
+_: line 1: 1165511 Killed                     ( FM_CHECK_FORCE_FALLBACK=1 FM_CHECK_OWNED_GROUP=1 run_check_process "$2" )
+exit=137

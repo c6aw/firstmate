@@ -1,0 +1,18 @@
+registered: state/custom.check.sh
+== head-stubborn-timeout (mode=timeout, root=~/.no-mistakes/worktrees/e715b931c969/01M6BZPSA9TPY9VYS1SV3EW3PZ)
+timeout on PATH: yes
+watcher rc=0 elapsed=3s
+-- watcher stdout:
+check: /tmp/fm-lab.ypEbs6/state/custom.check.sh: stubborn finding
+timed out after 2s
+-- leftover check processes:
+none
+registered: state/custom.check.sh
+== head-stubborn-no-timeout-path (mode=no-timeout-path, root=~/.no-mistakes/worktrees/e715b931c969/01M6BZPSA9TPY9VYS1SV3EW3PZ)
+timeout on PATH: no
+watcher rc=0 elapsed=3s
+-- watcher stdout:
+check: /tmp/fm-lab.YjcJtM/state/custom.check.sh: stubborn finding
+timed out after 2s
+-- leftover check processes:
+none
