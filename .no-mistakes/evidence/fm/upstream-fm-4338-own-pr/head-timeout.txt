@@ -1,5 +1,5 @@
 registered: state/custom.check.sh
-== head-timeout (mode=timeout, root=~/.no-mistakes/worktrees/e715b931c969/01M6BZPSA9TPY9VYS1SV3EW3PZ)
+== head-timeout (mode=timeout, root=<the run's worktree>)
 timeout on PATH: yes
 watcher rc=0 elapsed=3s
 -- watcher stdout:

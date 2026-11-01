@@ -1,9 +1,9 @@
 registered: state/custom.check.sh
-== head-no-timeout-path (mode=no-timeout-path, root=~/.no-mistakes/worktrees/e715b931c969/01M6BZPSA9TPY9VYS1SV3EW3PZ)
+== head-no-timeout-path (mode=no-timeout-path, root=<the run's worktree>)
 timeout on PATH: no
 watcher rc=0 elapsed=3s
 -- watcher stdout:
 check: /tmp/fm-lab.0dwyAk/state/custom.check.sh: finding before the cut
 timed out after 2s
 -- leftover check processes:
-1062423 /usr/bin/bash -c source ~/.claude-accounts/4/shell-snapshots/snapshot-bash-1793551280068-lwp7vg.sh 2>/dev/null || true && shopt -u extglob 2>/dev/null || true && { \builtin unalias -- 'which'; \builtin unset -f -- 'which'; } >/dev/null 2>&1 || true && { \builtin unalias -- 'unsetenv'; \builtin unset -f -- 'unsetenv'; } >/dev/null 2>&1 || true && eval 'EV=~/.no-mistakes/evidence/01M6BZPSA9TPY9VYS1SV3EW3PZ; sed -i '"'"'s/pgrep -af "fm-lab-marker-$LABEL"/pgrep -af "fm-lab-marker"/'"'"' $EV/drive-timeout.sh BASE=$(mktemp -d /tmp/fm-base.XXXXXX); git archive 41a47c09 | tar -x -C "$BASE"; echo "$BASE" > /tmp/fm-base-path $EV/drive-timeout.sh "$PWD" head-force-fallback force-fallback $EV/check-partial.sh 2>&1 | tee $EV/head-force-fallback.txt $EV/drive-timeout.sh "$PWD" head-no-timeout-path no-timeout-path $EV/check-partial.sh 2>&1 | tee $EV/head-no-timeout-path.txt $EV/drive-timeout.sh "$BASE" base-timeout timeout $EV/check-partial.sh 2>&1 | tee $EV/base-timeout.txt $EV/drive-timeout.sh "$BASE" base-no-timeout-path no-timeout-path $EV/check-partial.sh 2>&1 | tee $EV/base-no-timeout-path.txt' < /dev/null && pwd -P >| /tmp/claude-dbc4-cwd
+none

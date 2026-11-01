@@ -1,5 +1,5 @@
 registered: state/custom.check.sh
-== head-fail3-timeout (mode=timeout, root=~/.no-mistakes/worktrees/e715b931c969/01M6BZPSA9TPY9VYS1SV3EW3PZ)
+== head-fail3-timeout (mode=timeout, root=<the run's worktree>)
 timeout on PATH: yes
 watcher rc=0 elapsed=1s
 -- watcher stdout:
@@ -7,7 +7,7 @@ check: /tmp/fm-lab.1qHvlA/state/custom.check.sh: ordinary finding
 -- leftover check processes:
 none
 registered: state/custom.check.sh
-== head-fail3-no-timeout-path (mode=no-timeout-path, root=~/.no-mistakes/worktrees/e715b931c969/01M6BZPSA9TPY9VYS1SV3EW3PZ)
+== head-fail3-no-timeout-path (mode=no-timeout-path, root=<the run's worktree>)
 timeout on PATH: no
 watcher rc=0 elapsed=1s
 -- watcher stdout:
