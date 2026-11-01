@@ -1,0 +1,39 @@
+$ cat pool/lv1/.fm-slot-owner
+task=lv9
+home=/other/home
+b718b8f567a2c0bf75e0ccb138f6686f6ddb2805  $LAB/state/lv1.meta
+$ bin/fm-control.sh lv1 relaunch --note "lab check"
+fm-gate-refuse: gate agent lifecycle permitted only against lab home $LAB
+error: task lv1's recorded worktree $LAB/pool/lv1/wt was reassigned to task lv9 (home /other/home), which claimed that pool slot after this record was written; refusing to relaunch lv1 into another task's copy. Reconcile which record is stale (bin/fm-crew-state.sh lv1) before relaunching
+exit=1
+b718b8f567a2c0bf75e0ccb138f6686f6ddb2805  $LAB/state/lv1.meta
+lv1.meta
+task=lv9
+home=/other/home
+$ bin/fm-spawn.sh lv1 --relaunch
+fm-gate-refuse: gate agent lifecycle permitted only against lab home $LAB
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  watcher supervision needs Stop-owned automatic recovery; inspect the hook registration and startup status before ending the turn.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: task lv1's recorded worktree $LAB/pool/lv1/wt was reassigned to task lv9 (home /other/home), which claimed that pool slot after this record was written; refusing to relaunch lv1 into another task's copy. Reconcile which record is stale (bin/fm-crew-state.sh lv1) before relaunching
+exit=1
+--- unreadable claim (no task= line)
+$ bin/fm-control.sh lv1 relaunch --note "lab check"
+fm-gate-refuse: gate agent lifecycle permitted only against lab home $LAB
+error: task lv1's recorded worktree $LAB/pool/lv1/wt carries a slot-owner claim that cannot be read, so the slot cannot be proved to still be lv1's; refusing to relaunch. Inspect or repair the claim file beside that worktree (task= and home= lines) first
+exit=1
+$ bin/fm-spawn.sh lv1 --relaunch
+fm-gate-refuse: gate agent lifecycle permitted only against lab home $LAB
+WARNING: watcher still down (same stale episode; last beat: never, grace 300s) - full banner already printed this episode.
+error: task lv1's recorded worktree $LAB/pool/lv1/wt carries a slot-owner claim that cannot be read, so the slot cannot be proved to still be lv1's; refusing to relaunch. Inspect or repair the claim file beside that worktree (task= and home= lines) first
+exit=1
+--- claim is a directory
+$ bin/fm-control.sh lv1 relaunch --note "lab check"
+fm-gate-refuse: gate agent lifecycle permitted only against lab home $LAB
+error: task lv1's recorded worktree $LAB/pool/lv1/wt carries a slot-owner claim that cannot be read, so the slot cannot be proved to still be lv1's; refusing to relaunch. Inspect or repair the claim file beside that worktree (task= and home= lines) first
+exit=1
+fm-lv1 bash

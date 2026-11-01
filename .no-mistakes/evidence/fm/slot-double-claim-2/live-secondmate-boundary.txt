@@ -1,0 +1,9 @@
+--- kind=secondmate with a foreign claim (control: same record as kind=ship)
+$ bin/fm-control.sh sm1 relaunch
+fm-gate-refuse: gate agent lifecycle permitted only against lab home $LAB
+error: task sm1's home $LAB/pool/sm1/wt is not marked as its own seeded secondmate home (marker: none); refusing to relaunch
+exit=1
+$ (kind=ship) bin/fm-control.sh sm1 relaunch --note x
+fm-gate-refuse: gate agent lifecycle permitted only against lab home $LAB
+error: task sm1's recorded worktree $LAB/pool/sm1/wt was reassigned to task zz9 (home /other), which claimed that pool slot after this record was written; refusing to relaunch sm1 into another task's copy. Reconcile which record is stale (bin/fm-crew-state.sh sm1) before relaunching
+exit=1

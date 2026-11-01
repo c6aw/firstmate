@@ -1,0 +1,4 @@
+ok - fm-control relaunch: a refusal before the agent is stopped leaves the durable record untouched
+ok - fm-control relaunch: checkpoint inspection failures refuse before stopping
+not ok - a slot claimed by another task should refuse: expected exit 1, got 0
+rc=1

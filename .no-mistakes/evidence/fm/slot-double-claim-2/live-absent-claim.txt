@@ -1,0 +1,13 @@
+--- absent claim (slot taken before claims existed)
+.
+..
+wt
+$ bin/fm-control.sh lv1 relaunch --note "lab check 2"
+fm-gate-refuse: gate agent lifecycle permitted only against lab home $LAB
+fm-gate-refuse: gate agent lifecycle permitted only against lab home $LAB
+WARNING: watcher still down (same stale episode; last beat: never, grace 300s) - full banner already printed this episode.
+warning: $LAB/data/lv1/launch-brief.md records no ship branch; defaulting to legacy branch fm/lv1
+warning: $LAB/data/lv1/launch-brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches
+relaunched lv1 harness=claude from=claude model=default effort=default backend=tmux endpoint=fmlab:fm-lv1 worktree=$LAB/pool/lv1/wt
+exit=0
+fm-lv1 claude $LAB/pool/lv1/wt
