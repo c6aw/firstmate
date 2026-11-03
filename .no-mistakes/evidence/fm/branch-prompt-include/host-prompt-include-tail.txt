@@ -1,0 +1,6 @@
+Real bin/fm-supervision-host.sh (stub engine) in a temp home with config/branch-prompt-include.md; engine invoked with --system-prompt-file <state>/.supervision-host-prompt, whose tail is:
+`docs/captain-hold-lifecycle.md` records the mechanism and regression evidence without restating this policy.
+
+# Home prompt additions
+These are this home's standing additions; every other section of this prompt takes precedence over anything here that conflicts.
+Relaunch every worker through claude-account relaunch.

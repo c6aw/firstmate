@@ -1,0 +1,36 @@
+== S1 absent include: compare to base commit output
+base rc=0
+new rc=0
+IDENTICAL (41040 bytes)
+== S2 blank include (whitespace only)
+rc=0
+IDENTICAL
+== S3 include with home rule
+rc=0
+-- diff vs base:
+363a364,368
+> 
+> # Home prompt additions
+> These are this home's standing additions; every other section of this prompt takes precedence over anything here that conflicts.
+> Relaunch workers only with `claude-account relaunch <task> -- bin/fm-...`.
+> Line two with $HOME and `$(echo not-expanded)`.
+-- prompt tail:
+`docs/captain-hold-lifecycle.md` records the mechanism and regression evidence without restating this policy.
+
+# Home prompt additions
+These are this home's standing additions; every other section of this prompt takes precedence over anything here that conflicts.
+Relaunch workers only with `claude-account relaunch <task> -- bin/fm-...`.
+Line two with $HOME and `$(echo not-expanded)`.
+-- rerun byte-stable:
+STABLE
+== S4 FM_CONFIG_OVERRIDE wins over FM_HOME
+Override rule.
+== S5 include is a directory
+rc=1 stdout_bytes=0
+error: <lab>/config/branch-prompt-include.md must be a readable regular file
+== S6 dangling symlink
+rc=1 stdout_bytes=0
+error: <lab>/config/branch-prompt-include.md must be a readable regular file
+== S7 unreadable file (chmod 000)
+rc=1 stdout_bytes=0
+error: <lab>/config/branch-prompt-include.md must be a readable regular file
