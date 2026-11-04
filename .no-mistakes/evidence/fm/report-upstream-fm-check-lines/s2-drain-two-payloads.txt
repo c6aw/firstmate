@@ -1,0 +1,15 @@
+Lab queue (state/.wake-queue) before drain: row 3 from a real watcher run, rows 4-5 via fm_wake_append
+1793765174	3	check	/tmp/fm-lab.dAF1co/state/task.check.sh	check: /tmp/fm-lab.dAF1co/state/task.check.sh: event number 1
+1793765188	4	check	/tmp/fm-lab.dAF1co/state/task.check.sh	check: /tmp/fm-lab.dAF1co/state/task.check.sh: event number 2
+1793765188	5	check	/tmp/fm-lab.dAF1co/state/task.check.sh	check: /tmp/fm-lab.dAF1co/state/task.check.sh: event number 2
+
+$ FM_HOME=<lab> <base b329c275 bin>/fm-wake-drain.sh
+1793765188	5	check	/tmp/fm-lab.dAF1co/state/task.check.sh	check: /tmp/fm-lab.dAF1co/state/task.check.sh: event number 2
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 5 --recovery-generation 725797.1793765188.K13ND0
+   -> base: "event number 1" hidden, yet the ack through 5 would consume it.
+
+$ FM_HOME=<lab> bin/fm-wake-drain.sh        (this change, same queue)
+1793765174	3	check	/tmp/fm-lab.dAF1co/state/task.check.sh	check: /tmp/fm-lab.dAF1co/state/task.check.sh: event number 1
+1793765188	5	check	/tmp/fm-lab.dAF1co/state/task.check.sh	check: /tmp/fm-lab.dAF1co/state/task.check.sh: event number 2
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 5 --recovery-generation 725797.1793765188.K13ND0
+   -> both distinct payloads shown; the identical repeat (row 4/5) collapsed to one.

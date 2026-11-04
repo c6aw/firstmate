@@ -1,0 +1,17 @@
+ ▐▛███▛█   Claude Code v2.1.316
+▝▜██████▀  Opus 5.5 with high effort · Claude Ultra
+ ▝▝   ▝▝   /tmp/fm-lab.dAF1co/checkout
+❯ Run bin/fm-lock.sh once, then reply with only the word ok. Do nothing else.
+  Ran 1 shell command
+● ok
+✻ Worked for 15s · done 4:13 AM
+● Stop hook feedback
+  Read 1 file, ran 2 shell commands
+● Captain, shipshape. The lab check fired with three test events: "first event", "second event" and "third event". It needs nothing from you, and I've marked it handled.
+✻ Worked for 29s · done 4:13 AM
+● full  $0.53  last $0.08  45s                                                                                                                                        Review  Audit  Board  Details [-]
+                                                                                                                                                            Update available! Run: mise upgrade claude
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯ 
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  ⏵⏵ auto mode on (shift+tab to cycle)
