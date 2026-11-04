@@ -1,0 +1,3 @@
+$ bash tests/fm-install-herdr.test.sh
+ok - installer downloads the pinned asset from herdrdev/herdr
+exit=0

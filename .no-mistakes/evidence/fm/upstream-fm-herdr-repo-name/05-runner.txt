@@ -1,0 +1,8 @@
+$ bin/fm-test-run.sh tests/fm-install-herdr.test.sh
+FM_TEST_BEGIN 2026-11-04T18:45:08Z tests/fm-install-herdr.test.sh family=pure-contract-unit expected_gate_skip=none
+ok - installer downloads the pinned asset from herdrdev/herdr
+FM_TEST_END 2026-11-04T18:45:08Z tests/fm-install-herdr.test.sh exit=0 duration_ms=158 gate_skip=false
+FM_TEST_SUMMARY total=1 failed=0 skipped_gate=0 duration_ms=219
+FM_TEST_SUMMARY_FAMILY family=pure-contract-unit count=1 duration_ms=158 failed=0
+FM_TEST_SLOWEST rank=1 script=tests/fm-install-herdr.test.sh duration_ms=158
+exit=0

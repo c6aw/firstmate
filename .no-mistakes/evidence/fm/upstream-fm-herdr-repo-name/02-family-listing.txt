@@ -1,0 +1,5 @@
+$ bin/fm-test-run.sh --list --family pure-contract-unit | grep install-herdr
+tests/fm-install-herdr.test.sh
+exit=0
+$ base version (bb8dd209) of fm-test-run.sh, same query
+exit=1
