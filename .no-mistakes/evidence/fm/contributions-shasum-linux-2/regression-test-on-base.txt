@@ -1,0 +1,3 @@
+not ok - without shasum the signal key was not the sha256 of url and token: 1793971370	1	check	contribution-	check: contributions delivery 
+not ok - 1 contribution regressions
+base exit=1

@@ -1,0 +1,82 @@
+### tools on host: shasum and sha256sum both on PATH; each case uses a PATH mirror
+
+=== A. sha256sum only, two maintainer comments, through the registered watcher check
+  shasum: absent
+  check: contribution-wake: check: contributions delivery ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177
+  check exit=0 (contributions.check.sh)
+  check exit=0 (delivery.check.sh)
+  wake-queue keys: contribution-ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177 
+  record: {"pending":["comment:12:2026-09-16T08:01:00Z:"],"notified":["comment:12:2026-09-16T08:01:00Z:"]}
+  oracle sha256(url,comment:12:2026-09-16T08:01:00Z:) = ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177
+  check: contribution-wake: check: contributions delivery 1d393060e37a676df02c2aaf0c38df83339973eef2a022e2e9ab523fbecf428b
+  check exit=0 (contributions.check.sh)
+  check exit=0 (delivery.check.sh)
+  wake-queue keys: contribution-ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177 contribution-1d393060e37a676df02c2aaf0c38df83339973eef2a022e2e9ab523fbecf428b 
+  record: {"pending":["comment:12:2026-09-16T08:01:00Z:","comment:13:2026-09-16T08:01:00Z:"],"notified":["comment:12:2026-09-16T08:01:00Z:","comment:13:2026-09-16T08:01:00Z:"]}
+  oracle sha256(url,comment:12:2026-09-16T08:01:00Z:) = ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177
+  oracle sha256(url,comment:13:2026-09-16T08:01:00Z:) = 1d393060e37a676df02c2aaf0c38df83339973eef2a022e2e9ab523fbecf428b
+  re-poll, no new event:
+  check exit=0 (contributions.check.sh)
+  check exit=0 (delivery.check.sh)
+  wake-queue keys: contribution-ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177 contribution-1d393060e37a676df02c2aaf0c38df83339973eef2a022e2e9ab523fbecf428b 
+  record: {"pending":["comment:12:2026-09-16T08:01:00Z:","comment:13:2026-09-16T08:01:00Z:"],"notified":["comment:12:2026-09-16T08:01:00Z:","comment:13:2026-09-16T08:01:00Z:"]}
+  oracle sha256(url,comment:12:2026-09-16T08:01:00Z:) = ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177
+  oracle sha256(url,comment:13:2026-09-16T08:01:00Z:) = 1d393060e37a676df02c2aaf0c38df83339973eef2a022e2e9ab523fbecf428b
+  pending view: ["comment:12:2026-09-16T08:01:00Z:","comment:13:2026-09-16T08:01:00Z:"]
+
+=== B. shasum present, same URL and comments (key must equal case A)
+  check: contribution-wake: check: contributions delivery ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177
+  check exit=0 (contributions.check.sh)
+  check exit=0 (delivery.check.sh)
+  wake-queue keys: contribution-ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177 
+  record: {"pending":["comment:12:2026-09-16T08:01:00Z:"],"notified":["comment:12:2026-09-16T08:01:00Z:"]}
+  oracle sha256(url,comment:12:2026-09-16T08:01:00Z:) = ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177
+  check: contribution-wake: check: contributions delivery 1d393060e37a676df02c2aaf0c38df83339973eef2a022e2e9ab523fbecf428b
+  check exit=0 (contributions.check.sh)
+  check exit=0 (delivery.check.sh)
+  wake-queue keys: contribution-ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177 contribution-1d393060e37a676df02c2aaf0c38df83339973eef2a022e2e9ab523fbecf428b 
+  record: {"pending":["comment:12:2026-09-16T08:01:00Z:","comment:13:2026-09-16T08:01:00Z:"],"notified":["comment:12:2026-09-16T08:01:00Z:","comment:13:2026-09-16T08:01:00Z:"]}
+  oracle sha256(url,comment:12:2026-09-16T08:01:00Z:) = ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177
+  oracle sha256(url,comment:13:2026-09-16T08:01:00Z:) = 1d393060e37a676df02c2aaf0c38df83339973eef2a022e2e9ab523fbecf428b
+  distinct shasum invocations logged: -a 256 -;
+
+=== C. BASE code, sha256sum only (reproduces the issue)
+  poll exit=0
+  stdout: <lab>/base/bin/fm-contributions.sh: line 541: shasum: command not found
+  stdout: contribution-wake: check: contributions delivery 
+  wake-queue keys: contribution- 
+  record: {"pending":["comment:12:2026-09-16T08:01:00Z:"],"notified":["comment:12:2026-09-16T08:01:00Z:"]}
+  oracle sha256(url,comment:12:2026-09-16T08:01:00Z:) = ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177
+  poll exit=0
+  stdout: <lab>/base/bin/fm-contributions.sh: line 541: shasum: command not found
+  wake-queue keys: contribution- 
+  record: {"pending":["comment:12:2026-09-16T08:01:00Z:","comment:13:2026-09-16T08:01:00Z:"],"notified":["comment:12:2026-09-16T08:01:00Z:","comment:13:2026-09-16T08:01:00Z:"]}
+  oracle sha256(url,comment:12:2026-09-16T08:01:00Z:) = ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177
+  oracle sha256(url,comment:13:2026-09-16T08:01:00Z:) = 1d393060e37a676df02c2aaf0c38df83339973eef2a022e2e9ab523fbecf428b
+
+=== D. neither checksum tool: fail closed, then recover when one returns
+  shasum, sha256sum: absent
+  poll exit=1
+  stdout: 
+  wake-queue keys: 
+  record: {"pending":["comment:12:2026-09-16T08:01:00Z:"],"notified":[]}
+  oracle sha256(url,comment:12:2026-09-16T08:01:00Z:) = ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177
+  recovery with sha256sum:
+  poll exit=0
+  stdout: contribution-wake: check: contributions delivery ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177
+  wake-queue keys: contribution-ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177 
+  record: {"pending":["comment:12:2026-09-16T08:01:00Z:"],"notified":["comment:12:2026-09-16T08:01:00Z:"]}
+  oracle sha256(url,comment:12:2026-09-16T08:01:00Z:) = ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177
+
+=== E. shasum present but failing: fail closed, then recover
+  poll exit=1
+  stdout: 
+  wake-queue keys: 
+  record: {"pending":["comment:12:2026-09-16T08:01:00Z:"],"notified":[]}
+  oracle sha256(url,comment:12:2026-09-16T08:01:00Z:) = ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177
+  recovery with sha256sum:
+  poll exit=0
+  stdout: contribution-wake: check: contributions delivery ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177
+  wake-queue keys: contribution-ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177 
+  record: {"pending":["comment:12:2026-09-16T08:01:00Z:"],"notified":["comment:12:2026-09-16T08:01:00Z:"]}
+  oracle sha256(url,comment:12:2026-09-16T08:01:00Z:) = ee89cced8f63efe97f93a052f98e52a4acd99e50badd2edee5d2d192cc414177
