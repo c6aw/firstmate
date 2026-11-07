@@ -1,0 +1,11 @@
+== mirror file ==
+{"seq":1,"epoch":1794049378,"key":"2003947:2612629326:4294967295","id":"d7e19cbf-d5dc-4f25-90a7-79d6303e05eb","tag":"captain","text":"Reply with exactly the word mirror-ok. Context: <redacted> then API_TOKEN=<redacted> then password: <redacted> then --client-secret <redacted> then https://<redacted>@host.example.com/x then Authorization: <redacted> then <jwt> ; keep https://github.com/o/r/pulls?author=c6aw&sort=created keyboard=us sort_key=created_at primary key: user_id2024 auth: 2026-11-07 fmSupervisionHostAttendedReadyCheck2 bf05a4fcd69b8bb27f261177eac4abb57f98aa1b bin/fm-host-mirror.sh Authorization: the captain approved it","text_sha256":"31228b9a0ae015b10c773786178cf57060d6c8703f960f7e6f65e071840ee9d6"}
+{"seq":2,"epoch":1794049381,"key":"2003947:2612629326:4294967295","id":"d7e19cbf-d5dc-4f25-90a7-79d6303e05eb","tag":"main","text":"mirror-ok","text_sha256":"86c040a508839f134dc6d83c54be91581e3e43d32a459a01553b5da898772f29"}
+== feed new ==
+[captain] Reply with exactly the word mirror-ok. Context: <redacted> then API_TOKEN=<redacted> then password: <redacted> then --client-secret <redacted> then https://<redacted>@host.example.com/x then Authorization: <redacted> then <jwt> ; keep https://github.com/o/r/pulls?author=c6aw&sort=created keyboard=us sort_key=created_at primary key: user_id2024 auth: 2026-11-07 fmSupervisionHostAttendedReadyCheck2 bf05a4fcd69b8bb27f261177eac4abb57f98aa1b bin/fm-host-mirror.sh Authorization: the captain approved it
+[main] mirror-ok
+feed-exit=0
+== digest check ==
+digest-matches-masked-text
+== raw secrets anywhere in state? ==
+none

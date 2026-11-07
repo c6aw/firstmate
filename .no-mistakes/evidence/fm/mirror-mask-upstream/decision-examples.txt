@@ -1,0 +1,13 @@
+== decision-round-1 examples, input -> recorded
+sort_key=created_at
+   -> sort_key=<redacted>
+primary key: user_id2024
+   -> primary key: <redacted>
+auth: 2026-11-07
+   -> auth: <redacted>
+fmSupervisionHostAttendedReadyCheck2 is the function
+   -> <redacted> is the function
+password: CorrectHorseBattery
+   -> password: CorrectHorseBattery
+https://user:p@ss@host.example.com/x
+   -> https://<redacted>@host.example.com/x

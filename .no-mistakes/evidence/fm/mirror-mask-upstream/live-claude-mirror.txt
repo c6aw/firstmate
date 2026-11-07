@@ -1,0 +1,12 @@
+claude: 2.1.318 (Claude Code)
+== typed prompt
+Reply with exactly the word mirror-ok and nothing else. Context only: GITHUB_TOKEN=ghp_FAKEaB3dE5fG7hJ9kL1mN3pQ5rS7tU9vW1xY and see https://github.com/o/r/pulls?author=me&sort=created at commit bf05a4fcd69b8bb27f261177eac4abb57f98aa1b
+== state/.host-mirror.jsonl (lab home)
+{"seq":1,"tag":"captain","text":"Reply with exactly the word mirror-ok and nothing else. Context only: GITHUB_TOKEN=<redacted> and see https://github.com/o/r/pulls?author=me&sort=created at commit bf05a4fcd69b8bb27f261177eac4abb57f98aa1b"}
+{"seq":2,"tag":"main","text":"mirror-ok"}
+== feed engine-1 new
+[captain] Reply with exactly the word mirror-ok and nothing else. Context only: GITHUB_TOKEN=<redacted> and see https://github.com/o/r/pulls?author=me&sort=created at commit bf05a4fcd69b8bb27f261177eac4abb57f98aa1b
+[main] mirror-ok
+feed rc=0
+== secret present anywhere in lab state?
+none

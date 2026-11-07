@@ -1,0 +1,35 @@
+== inputs
+ORDINARY: see ~/secrets/notes.md and src/auth/tokenizer.ts and the keyboard layout
+ORDINARY: commit 6ac02f1a and full sha df1b1c07667e46ecb6b851ce4073eac47d869d0e and uuid 123e4567-e89b-12d3-a456-426614174000
+ORDINARY: https://github.com/kunchenguid/firstmate/pull/8030?author=c6aw&sort_key=created_at plus primary key: user_id2024
+ORDINARY: fmSupervisionHostAttendedReadyCheck2 is the function; author=me; monkey=banana; tokens are counted
+SECRET: export OPENAI_API_KEY=sk-proj-FAKEfakeFAKEfake1234567890abcd and GITHUB_TOKEN=hunter2plain
+SECRET: curl -H "Authorization: Bearer abc.def.ghi" https://admin:hunter2@db.example.com:5432/x
+SECRET: jwt eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+SECRET: aws AKIAIOSFODNN7EXAMPLE and slack xoxb-1234567890-abcdefghij and hex 0123456789abcdef0123456789abcdef0123456789abcdef0123
+SECRET: run tool --password s3cretPass --db-password=other1 and password: CorrectHorseBattery
+SECRET: random Zx9Qm2Lp8Rt4Vw6Yb1Nc3Kd5Fg7Hj0Sa2Ue4
+== recorded captain texts (state/.host-mirror.jsonl)
+ORDINARY: see ~/secrets/notes.md and src/auth/tokenizer.ts and the keyboard layout
+ORDINARY: commit 6ac02f1a and full sha df1b1c07667e46ecb6b851ce4073eac47d869d0e and uuid 123e4567-e89b-12d3-a456-426614174000
+ORDINARY: https://github.com/kunchenguid/firstmate/pull/8030?author=c6aw&sort_key=<redacted> plus primary key: <redacted>
+ORDINARY: <redacted> is the function; author=me; monkey=banana; tokens are counted
+SECRET: export OPENAI_API_KEY=<redacted> and GITHUB_TOKEN=<redacted>
+SECRET: curl -H "Authorization: <redacted> https://<redacted>@db.example.com:5432/x
+SECRET: jwt <jwt>
+SECRET: aws <redacted> and slack <redacted> and hex <redacted>
+SECRET: run tool --password <redacted> --db-password=<redacted> and password: CorrectHorseBattery
+SECRET: random <redacted>
+key below
+<private-key>
+== hook exit codes
+hook rc=0
+hook rc=0
+hook rc=0
+hook rc=0
+hook rc=0
+hook rc=0
+hook rc=0
+hook rc=0
+hook rc=0
+hook rc=0

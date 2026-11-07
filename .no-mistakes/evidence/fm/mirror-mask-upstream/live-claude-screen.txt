@@ -1,0 +1,50 @@
+
+ ▐▛███▛█   Claude Code v2.1.318
+▝▜██████▀  Haiku 5.5 · Claude Ultra
+ ▝▝   ▝▝   /tmp/fm-lab.e3DoWd/p
+
+
+❯ Reply with exactly the word mirror-ok. Context: ghp_aB3dE5fG7hJ9kL1mN3pQ5rS7tU9vW1xY3zA5 then API_TOKEN=plainvalue77 then password: CorrectHorseBattery then --client-secret hunter2hunter then
+  https://user:p@ss@host.example.com/x then Authorization: Bearer abc.def.ghi then eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c ; keep
+  https://github.com/o/r/pulls?author=c6aw&sort=created keyboard=us sort_key=created_at primary key: user_id2024 auth: 2026-11-07 fmSupervisionHostAttendedReadyCheck2 bf05a4fcd69b8bb27f261177eac4abb57f98aa1b
+  bin/fm-host-mirror.sh Authorization: the captain approved it
+
+● mirror-ok
+
+✻ Crunched for 3s · done 11:03 AM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● full  $0.01  last $0.01  3s                                                                                                                                                             Review  Audit  Board  Details [-]
+                                                                   You've used 72% of your weekly limit · resets Nov 12, 8pm (UTC) · /usage-credits to keep using Claude Code · Update available! Run: mise upgrade claude
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯ 
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  ⏵⏵ bypass permissions on (shift+tab to cycle)

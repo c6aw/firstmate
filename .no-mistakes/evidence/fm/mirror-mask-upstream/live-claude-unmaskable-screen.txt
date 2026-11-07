@@ -1,0 +1,50 @@
+
+ ▐▛███▛█   Claude Code v2.1.318
+▝▜██████▀  Haiku 5.5 · Claude Ultra
+ ▝▝   ▝▝   /tmp/fm-lab.iHId8o/p
+
+
+❯ UNMASKABLE prompt: reply with exactly the word first-ok
+
+● first-ok
+
+✻ Crunched for 2s · done 11:04 AM
+
+❯ Reply with exactly the word second-ok
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+✽ Nebulizing…
+  ⎿  Tip: For a fast, cheap code review, try /code-review low. It runs the built-in skill at its lightest effort level.
+● full  $0.01  last $0.01  2s                                                                                                                                                             Review  Audit  Board  Details [-]
+                                                                   You've used 72% of your weekly limit · resets Nov 12, 8pm (UTC) · /usage-credits to keep using Claude Code · Update available! Run: mise upgrade claude
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯ 
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  ⏵⏵ bypass permissions on (shift+tab to cycle) · esc to interrupt

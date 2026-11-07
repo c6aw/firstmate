@@ -1,0 +1,3 @@
+== fail-closed: masking jq fails
+hook rc=0
+mirror file exists? no

@@ -1,0 +1,12 @@
+== mirror file ==
+{"seq":1,"epoch":1794049473,"key":"2279623:3154731414:4294967295","id":"1fab4af4-c887-4f02-9e8f-81603f5ceca6","tag":"main","text":"first-ok","text_sha256":"4c861562bd77c7822541cf95d3de72f1accc872fab5b3e1890f9e364692458e3"}
+{"seq":2,"epoch":1794049479,"key":"2279623:3154731414:4294967295","id":"a8c3c2d8-ec1c-4bf1-90d3-64abd4071050","tag":"captain","text":"Reply with exactly the word second-ok","text_sha256":"489102c5a7d80dd1aedfaa0210e1dd8560196d5c59b3c5766c723ea1edd2704f"}
+== validity check ==
+check-exit=0
+== wrapper log ==
+13
+MASKCALL UNMASKABLE prompt: r
+MASKCALL first-ok
+MASKCALL Reply with exactly t
+== UNMASKABLE text recorded? ==
+0
