@@ -1,0 +1,2 @@
+[captain] Reply with exactly the word mirror-ok and nothing else. Notes: api_key=<redacted> and password: <redacted> and --client-secret <redacted> and https://<redacted>@host.example.com/x but keep https://github.com/o/r/pulls?author=c6aw&sort=created and commit bf05a4fc0123456789abcdef0123456789abcdef as said.
+[main] mirror-ok

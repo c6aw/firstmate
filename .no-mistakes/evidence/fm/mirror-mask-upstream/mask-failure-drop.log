@@ -1,0 +1,10 @@
+hook rc=0
+mirror after normal append:
+{"tag":"captain","text":"first ordinary line"}
+hook rc=0
+mirror after mask failure:
+{"tag":"captain","text":"first ordinary line"}
+0
+feed:
+[captain] first ordinary line
+feed rc=0
