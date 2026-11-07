@@ -1,0 +1,9 @@
+=== fix (busy-event 1b12a475)
+1..1
+ok - a relaunched busy worker is aged from its own arm, not the previous agent's last turn
+FM_TEST_COMPLETE
+exit=0
+=== nofix (busy-event ccf7c066)
+1..1
+not ok - a relaunched busy worker re-surfaced its old declared pause: stale: test:fm-relaunched (paused 19001s, awaiting external - declared pause, rechecked on a long cadence not a wedge; confirm the wait still holds)
+exit=1

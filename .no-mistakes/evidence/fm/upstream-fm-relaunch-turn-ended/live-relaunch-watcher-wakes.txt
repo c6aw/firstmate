@@ -1,0 +1,24 @@
+=== PRE-FIX (/tmp/fm-lab.BxVZD4/base-tree)
+before: turn_ended_age=108s status_age=50s newest=paused [at=1794018296]: waiting on an outside review
+relaunched rel1 harness=claude from=claude model=haiku effort=default backend=tmux endpoint=firstmate:fm-rel1 worktree=~/.treehouse/demo-ff579c/1/demo
+relaunch took 7s; turn_ended=present busy=state=busy source=fm-spawn event=launch-brief
+watcher exit after 1s: check: rearm-resurface
+watcher stopped t+1s after relaunch; busy=state=busy event=launch-brief pane_busy=0 turn_ended=present
+--- PRE-FIX watcher restarted after draining recovery state; meta_age=13s turn_ended=present turn_ended_age=127s busy=state=busy event=user-prompt-submit pane_busy=1
+watcher exit after 2s: stale: firstmate:fm-rel1 (paused 70s, awaiting external - declared pause, rechecked on a long cadence not a wedge; confirm the wait still holds)
+after: meta_age=15s busy=state=busy event=user-prompt-submit pane_busy=1
+=== FIXED (<worktree>
+before: turn_ended_age=59s status_age=50s newest=paused [at=1794018482]: waiting on an outside review
+relaunched rel1 harness=claude from=claude model=haiku effort=default backend=tmux endpoint=firstmate:fm-rel1 worktree=~/.treehouse/demo-ff579c/1/demo
+relaunch took 9s; turn_ended=absent busy=state=busy source=fm-spawn event=launch-brief
+watcher exit after 1s: check: rearm-resurface
+watcher stopped t+1s after relaunch; busy=state=busy event=launch-brief pane_busy=0 turn_ended=absent
+--- FIXED watcher restarted (busy, below bound 40s): meta_age=13s turn_ended=absent progress_age=none status_age=70s busy=state=busy event=user-prompt-submit pane_busy=1
+watcher: no wake in 20s
+after 20s window: meta_age=33s turn_ended=absent progress_age=none status_age=90s busy=state=busy event=user-prompt-submit pane_busy=1
+--- FIXED guard: keep watching past the 40s bound; the bound itself must still fire
+watcher exit after 1s: check: rearm-resurface
+after bound window: meta_age=34s turn_ended=absent progress_age=none status_age=91s busy=state=busy event=user-prompt-submit pane_busy=1
+--- FIXED guard watcher restarted (past bound 40s): meta_age=49s turn_ended=absent status_age=106s busy=state=busy event=user-prompt-submit pane_busy=1
+watcher exit after 2s: stale: firstmate:fm-rel1 (paused 107s, awaiting external - declared pause, rechecked on a long cadence not a wedge; confirm the wait still holds)
+after: meta_age=51s turn_ended=absent status_age=108s busy=state=busy event=user-prompt-submit pane_busy=1

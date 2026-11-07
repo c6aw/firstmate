@@ -1,0 +1,522 @@
+[02:15:30 1794017730] === CYCLE PRE-FIX: worker parks
+[02:15:30 1794017730] sample busy=idle:stop turn_ended=present
+[02:15:30 1794017730] status tail: paused [at=1794017730]: waiting on an outside review
+[02:15:33 1794017733] sample busy=idle:stop turn_ended=present
+[02:15:33 1794017733] WAKE: signal: /tmp/fm-lab.BxVZD4/state/rel1.status /tmp/fm-lab.BxVZD4/state/rel1.turn-ended
+[02:15:35 1794017735] WAKE: check: rearm-resurface
+[02:15:36 1794017736] sample busy=idle:stop turn_ended=present
+[02:15:37 1794017737] WAKE: check: rearm-resurface
+[02:15:39 1794017739] sample busy=idle:stop turn_ended=present
+[02:15:39 1794017739] WAKE: check: rearm-resurface
+[02:15:41 1794017741] WAKE: check: rearm-resurface
+[02:15:42 1794017742] sample busy=idle:stop turn_ended=present
+[02:15:42 1794017742] WAKE: check: rearm-resurface
+[02:15:44 1794017744] WAKE: check: rearm-resurface
+[02:15:45 1794017745] sample busy=idle:stop turn_ended=present
+[02:15:46 1794017746] WAKE: check: rearm-resurface
+[02:15:47 1794017747] WAKE: check: rearm-resurface
+[02:15:48 1794017748] sample busy=idle:stop turn_ended=present
+[02:15:49 1794017749] WAKE: check: rearm-resurface
+[02:15:50 1794017750] WAKE: check: rearm-resurface
+[02:15:51 1794017751] sample busy=idle:stop turn_ended=present
+[02:15:52 1794017752] WAKE: check: rearm-resurface
+[02:15:53 1794017753] WAKE: check: rearm-resurface
+[02:15:54 1794017754] sample busy=idle:stop turn_ended=present
+[02:15:55 1794017755] WAKE: check: rearm-resurface
+[02:15:56 1794017756] WAKE: check: rearm-resurface
+[02:15:57 1794017757] sample busy=idle:stop turn_ended=present
+[02:15:58 1794017758] WAKE: check: rearm-resurface
+[02:15:59 1794017759] WAKE: check: rearm-resurface
+[02:16:00 1794017760] sample busy=idle:stop turn_ended=present
+[02:16:01 1794017761] WAKE: check: rearm-resurface
+[02:16:02 1794017762] WAKE: check: rearm-resurface
+[02:16:03 1794017763] sample busy=idle:stop turn_ended=present
+[02:16:04 1794017764] WAKE: check: rearm-resurface
+[02:16:05 1794017765] WAKE: check: rearm-resurface
+[02:16:06 1794017766] sample busy=idle:stop turn_ended=present
+[02:16:07 1794017767] WAKE: check: rearm-resurface
+[02:16:08 1794017768] WAKE: check: rearm-resurface
+[02:16:09 1794017769] sample busy=idle:stop turn_ended=present
+[02:16:10 1794017770] WAKE: check: rearm-resurface
+[02:16:11 1794017771] WAKE: check: rearm-resurface
+[02:16:12 1794017772] sample busy=idle:stop turn_ended=present
+[02:16:13 1794017773] WAKE: check: rearm-resurface
+[02:16:14 1794017774] WAKE: check: rearm-resurface
+[02:16:15 1794017775] sample busy=idle:stop turn_ended=present
+[02:16:16 1794017776] WAKE: check: rearm-resurface
+[02:16:18 1794017778] WAKE: check: rearm-resurface
+[02:16:18 1794017778] sample busy=idle:stop turn_ended=present
+[02:16:19 1794017779] WAKE: check: rearm-resurface
+[02:16:21 1794017781] WAKE: check: rearm-resurface
+[02:16:21 1794017781] sample busy=idle:stop turn_ended=present
+[02:16:22 1794017782] WAKE: check: rearm-resurface
+[02:16:24 1794017784] sample busy=idle:stop turn_ended=present
+[02:16:24 1794017784] WAKE: check: rearm-resurface
+[02:16:25 1794017785] WAKE: check: rearm-resurface
+[02:16:27 1794017787] sample busy=idle:stop turn_ended=present
+[02:16:27 1794017787] WAKE: check: rearm-resurface
+[02:16:29 1794017789] WAKE: check: rearm-resurface
+[02:16:30 1794017790] sample busy=idle:stop turn_ended=present
+[02:16:31 1794017791] WAKE: check: rearm-resurface
+[02:16:32 1794017792] WAKE: check: rearm-resurface
+[02:16:33 1794017793] sample busy=idle:stop turn_ended=present
+[02:16:34 1794017794] WAKE: check: rearm-resurface
+[02:16:36 1794017796] WAKE: check: rearm-resurface
+[02:16:36 1794017796] sample busy=idle:stop turn_ended=present
+[02:16:38 1794017798] WAKE: check: rearm-resurface
+[02:16:39 1794017799] sample busy=idle:stop turn_ended=present
+[02:16:39 1794017799] WAKE: check: rearm-resurface
+[02:16:41 1794017801] WAKE: check: rearm-resurface
+[02:16:42 1794017802] sample busy=idle:stop turn_ended=present
+[02:16:43 1794017803] WAKE: check: rearm-resurface
+[02:16:44 1794017804] WAKE: check: rearm-resurface
+[02:16:45 1794017805] sample busy=idle:stop turn_ended=present
+[02:16:46 1794017806] WAKE: check: rearm-resurface
+[02:16:48 1794017808] sample busy=idle:stop turn_ended=present
+[02:16:48 1794017808] WAKE: check: rearm-resurface
+[02:16:50 1794017810] WAKE: check: rearm-resurface
+[02:16:51 1794017811] sample busy=idle:stop turn_ended=present
+[02:16:52 1794017812] WAKE: check: rearm-resurface
+[02:16:54 1794017814] WAKE: check: rearm-resurface
+[02:16:54 1794017814] sample busy=idle:stop turn_ended=present
+[02:16:55 1794017815] WAKE: check: rearm-resurface
+[02:16:57 1794017817] sample busy=idle:stop turn_ended=present
+[02:16:57 1794017817] WAKE: check: rearm-resurface
+[02:16:59 1794017819] WAKE: check: rearm-resurface
+[02:17:00 1794017820] sample busy=idle:stop turn_ended=present
+[02:17:01 1794017821] WAKE: check: rearm-resurface
+[02:17:03 1794017823] WAKE: check: rearm-resurface
+[02:17:03 1794017823] sample busy=idle:stop turn_ended=present
+[02:17:05 1794017825] WAKE: check: rearm-resurface
+[02:17:06 1794017826] sample busy=idle:stop turn_ended=present
+[02:17:07 1794017827] WAKE: check: rearm-resurface
+[02:17:09 1794017829] WAKE: check: rearm-resurface
+[02:17:09 1794017829] sample busy=idle:stop turn_ended=present
+[02:17:11 1794017831] WAKE: check: rearm-resurface
+[02:17:12 1794017832] sample busy=idle:stop turn_ended=present
+[02:17:13 1794017833] WAKE: check: rearm-resurface
+[02:17:15 1794017835] WAKE: check: rearm-resurface
+[02:17:15 1794017835] sample busy=idle:stop turn_ended=present
+[02:17:17 1794017837] WAKE: check: rearm-resurface
+[02:17:18 1794017838] sample busy=idle:stop turn_ended=present
+[02:17:19 1794017839] WAKE: check: rearm-resurface
+[02:17:21 1794017841] WAKE: check: rearm-resurface
+[02:17:21 1794017841] sample busy=idle:stop turn_ended=present
+[02:17:23 1794017843] WAKE: check: rearm-resurface
+[02:17:24 1794017844] sample busy=idle:stop turn_ended=present
+[02:17:25 1794017845] WAKE: check: rearm-resurface
+[02:17:27 1794017847] WAKE: check: rearm-resurface
+[02:17:27 1794017847] sample busy=idle:stop turn_ended=present
+[02:17:29 1794017849] WAKE: check: rearm-resurface
+[02:17:30 1794017850] sample busy=idle:stop turn_ended=present
+[02:17:31 1794017851] WAKE: check: rearm-resurface
+[02:17:33 1794017853] WAKE: check: rearm-resurface
+[02:17:33 1794017853] sample busy=idle:stop turn_ended=present
+[02:17:35 1794017855] WAKE: check: rearm-resurface
+[02:17:36 1794017856] sample busy=idle:stop turn_ended=present
+[02:17:37 1794017857] WAKE: check: rearm-resurface
+[02:17:39 1794017859] sample busy=idle:stop turn_ended=present
+[02:17:40 1794017860] WAKE: check: rearm-resurface
+[02:17:40 1794017860] before relaunch: turn_ended age=200s status age=130s busy=state=idle
+[02:17:40 1794017860] RELAUNCH start (/tmp/fm-lab.BxVZD4/base-tree/bin/fm-control.sh rel1 relaunch)
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/fm-lab.BxVZD4
+[02:17:42 1794017862] WAKE: check: rearm-resurface
+[02:17:42 1794017862] sample busy=idle:stop turn_ended=present
+[02:17:44 1794017864] WAKE: check: rearm-resurface
+[02:17:45 1794017865] sample busy=idle:session-end turn_ended=present
+[02:17:46 1794017866] WAKE: check: rearm-resurface
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/fm-lab.BxVZD4
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+[02:17:48 1794017868] WAKE: check: rearm-resurface
+[02:17:48 1794017868] sample busy= turn_ended=present
+[02:17:50 1794017870] WAKE: check: rearm-resurface
+[02:17:51 1794017871] sample busy=busy:launch-brief turn_ended=present
+relaunched rel1 harness=claude from=claude model=haiku effort=default backend=tmux endpoint=firstmate:fm-rel1 worktree=~/.treehouse/demo-ff579c/1/demo
+[02:17:52 1794017872] RELAUNCH exit=0 after 12s; turn_ended=present busy=state=busy source=fm-spawn event=launch-brief
+[02:17:52 1794017872]   t+12s state=busy event=launch-brief turn_ended=present meta_age=3 pane=0
+[02:17:53 1794017873] WAKE: check: rearm-resurface
+[02:17:54 1794017874] sample busy=busy:launch-brief turn_ended=present
+[02:17:56 1794017876] WAKE: check: rearm-resurface
+[02:17:57 1794017877]   t+17s state=busy event=user-prompt-submit turn_ended=present meta_age=8 pane=1
+[02:17:57 1794017877] sample busy=busy:user-prompt-submit turn_ended=present
+[02:17:58 1794017878] WAKE: check: rearm-resurface
+[02:18:00 1794017880] WAKE: check: rearm-resurface
+[02:18:00 1794017880] sample busy=busy:user-prompt-submit turn_ended=present
+[02:18:02 1794017882]   t+22s state=busy event=user-prompt-submit turn_ended=present meta_age=13 pane=1
+[02:18:02 1794017882] WAKE: check: rearm-resurface
+[02:18:03 1794017883] sample busy=busy:user-prompt-submit turn_ended=present
+[02:18:05 1794017885] WAKE: check: rearm-resurface
+[02:18:06 1794017886] sample busy=busy:user-prompt-submit turn_ended=present
+[02:18:07 1794017887]   t+27s state=busy event=user-prompt-submit turn_ended=present meta_age=18 pane=1
+[02:18:07 1794017887] WAKE: check: rearm-resurface
+[02:18:09 1794017889] WAKE: check: rearm-resurface
+[02:18:09 1794017889] sample busy=busy:user-prompt-submit turn_ended=present
+[02:18:12 1794017892] WAKE: check: rearm-resurface
+[02:18:12 1794017892]   t+32s state=busy event=user-prompt-submit turn_ended=present meta_age=23 pane=1
+[02:18:12 1794017892] sample busy=busy:user-prompt-submit turn_ended=present
+[02:18:14 1794017894] WAKE: check: rearm-resurface
+[02:18:15 1794017895] sample busy=busy:user-prompt-submit turn_ended=present
+[02:18:16 1794017896] WAKE: check: rearm-resurface
+[02:18:17 1794017897]   t+37s state=busy event=user-prompt-submit turn_ended=present meta_age=28 pane=1
+[02:18:18 1794017898] WAKE: check: rearm-resurface
+[02:18:18 1794017898] sample busy=busy:user-prompt-submit turn_ended=present
+[02:18:20 1794017900] WAKE: check: rearm-resurface
+[02:18:21 1794017901] sample busy=busy:user-prompt-submit turn_ended=present
+[02:18:22 1794017902]   t+42s state=busy event=user-prompt-submit turn_ended=present meta_age=33 pane=1
+[02:18:22 1794017902] WAKE: check: rearm-resurface
+[02:18:24 1794017904] WAKE: check: rearm-resurface
+[02:18:24 1794017904] sample busy=busy:user-prompt-submit turn_ended=present
+[02:18:26 1794017906] WAKE: check: rearm-resurface
+[02:18:27 1794017907]   t+47s state=busy event=user-prompt-submit turn_ended=present meta_age=38 pane=1
+[02:18:27 1794017907] sample busy=busy:user-prompt-submit turn_ended=present
+[02:18:28 1794017908] WAKE: check: rearm-resurface
+[02:18:31 1794017911] sample busy=busy:user-prompt-submit turn_ended=present
+[02:18:31 1794017911] WAKE: check: rearm-resurface
+[02:18:32 1794017912]   t+52s state=busy event=user-prompt-submit turn_ended=present meta_age=43 pane=1
+[02:18:33 1794017913] WAKE: check: rearm-resurface
+[02:18:34 1794017914] sample busy=busy:user-prompt-submit turn_ended=present
+[02:18:35 1794017915] WAKE: check: rearm-resurface
+[02:18:36 1794017916] WAKE: check: rearm-resurface
+[02:18:37 1794017917] sample busy=busy:user-prompt-submit turn_ended=present
+[02:18:37 1794017917]   t+57s state=busy event=user-prompt-submit turn_ended=present meta_age=48 pane=1
+[02:18:38 1794017918] WAKE: check: rearm-resurface
+[02:18:40 1794017920] sample busy=busy:user-prompt-submit turn_ended=present
+[02:18:40 1794017920] WAKE: check: rearm-resurface
+[02:18:42 1794017922] WAKE: check: rearm-resurface
+[02:18:42 1794017922]   t+62s state=busy event=user-prompt-submit turn_ended=present meta_age=53 pane=1
+[02:18:43 1794017923] sample busy=busy:user-prompt-submit turn_ended=present
+[02:18:44 1794017924] WAKE: check: rearm-resurface
+[02:18:46 1794017926] sample busy=busy:user-prompt-submit turn_ended=present
+[02:18:46 1794017926] WAKE: check: rearm-resurface
+[02:18:47 1794017927]   t+67s state=busy event=user-prompt-submit turn_ended=present meta_age=58 pane=1
+[02:18:48 1794017928] WAKE: check: rearm-resurface
+[02:18:49 1794017929] sample busy=busy:user-prompt-submit turn_ended=present
+[02:18:50 1794017930] WAKE: check: rearm-resurface
+[02:18:52 1794017932] sample busy=busy:user-prompt-submit turn_ended=present
+[02:18:52 1794017932] WAKE: check: rearm-resurface
+[02:18:52 1794017932]   t+72s state=busy event=user-prompt-submit turn_ended=present meta_age=63 pane=1
+[02:18:54 1794017934] WAKE: check: rearm-resurface
+[02:18:55 1794017935] sample busy=busy:user-prompt-submit turn_ended=present
+[02:18:55 1794017935] WAKE: check: rearm-resurface
+[02:18:57 1794017937]   t+77s state=busy event=user-prompt-submit turn_ended=present meta_age=68 pane=1
+[02:18:57 1794017937] WAKE: check: rearm-resurface
+[02:18:58 1794017938] sample busy=busy:user-prompt-submit turn_ended=present
+[02:18:59 1794017939] WAKE: check: rearm-resurface
+[02:19:01 1794017941] sample busy=busy:user-prompt-submit turn_ended=present
+[02:19:01 1794017941] WAKE: check: rearm-resurface
+[02:19:02 1794017942]   t+82s state=busy event=user-prompt-submit turn_ended=present meta_age=73 pane=1
+[02:19:03 1794017943] WAKE: check: rearm-resurface
+[02:19:04 1794017944] sample busy=busy:user-prompt-submit turn_ended=present
+[02:19:04 1794017944] WAKE: check: rearm-resurface
+[02:19:06 1794017946] WAKE: check: rearm-resurface
+[02:19:07 1794017947] sample busy=idle:stop turn_ended=present
+[02:19:07 1794017947] cycle PRE-FIX end: state=idle event=stop turn_ended=present
+[02:19:08 1794017948] WAKE: check: rearm-resurface
+[02:19:10 1794017950] sample busy=idle:stop turn_ended=present
+[02:19:10 1794017950] WAKE: check: rearm-resurface
+[02:19:11 1794017951] WAKE: check: rearm-resurface
+[02:19:13 1794017953] sample busy=idle:stop turn_ended=present
+[02:19:13 1794017953] WAKE: check: rearm-resurface
+[02:19:15 1794017955] === CYCLE FIXED: worker parks
+[02:19:15 1794017955] status tail: paused [at=1794017955]: waiting on an outside review
+[02:19:15 1794017955] WAKE: check: rearm-resurface
+[02:19:16 1794017956] sample busy=idle:stop turn_ended=present
+[02:19:17 1794017957] WAKE: check: rearm-resurface
+[02:19:19 1794017959] sample busy=idle:stop turn_ended=present
+[02:19:20 1794017960] WAKE: check: rearm-resurface
+[02:19:22 1794017962] sample busy=idle:stop turn_ended=present
+[02:19:22 1794017962] WAKE: check: rearm-resurface
+[02:19:24 1794017964] WAKE: check: rearm-resurface
+[02:19:25 1794017965] sample busy=idle:stop turn_ended=present
+[02:19:26 1794017966] WAKE: check: rearm-resurface
+[02:19:28 1794017968] sample busy=idle:stop turn_ended=present
+[02:19:28 1794017968] WAKE: check: rearm-resurface
+[02:19:30 1794017970] WAKE: check: rearm-resurface
+[02:19:31 1794017971] sample busy=idle:stop turn_ended=present
+[02:19:32 1794017972] WAKE: check: rearm-resurface
+[02:19:34 1794017974] sample busy=idle:stop turn_ended=present
+[02:19:34 1794017974] WAKE: check: rearm-resurface
+[02:19:36 1794017976] WAKE: check: rearm-resurface
+[02:19:37 1794017977] sample busy=idle:stop turn_ended=present
+[02:19:38 1794017978] WAKE: check: rearm-resurface
+[02:19:40 1794017980] sample busy=idle:stop turn_ended=present
+[02:19:40 1794017980] WAKE: check: rearm-resurface
+[02:19:42 1794017982] WAKE: check: rearm-resurface
+[02:19:43 1794017983] sample busy=idle:stop turn_ended=present
+[02:19:44 1794017984] WAKE: check: rearm-resurface
+[02:19:46 1794017986] sample busy=idle:stop turn_ended=present
+[02:19:46 1794017986] WAKE: check: rearm-resurface
+[02:19:48 1794017988] WAKE: check: rearm-resurface
+[02:19:49 1794017989] sample busy=idle:stop turn_ended=present
+[02:19:50 1794017990] WAKE: check: rearm-resurface
+[02:19:52 1794017992] sample busy=idle:stop turn_ended=present
+[02:19:52 1794017992] WAKE: check: rearm-resurface
+[02:19:54 1794017994] WAKE: check: rearm-resurface
+[02:19:55 1794017995] sample busy=idle:stop turn_ended=present
+[02:19:57 1794017997] WAKE: check: rearm-resurface
+[02:19:58 1794017998] sample busy=idle:stop turn_ended=present
+[02:19:59 1794017999] WAKE: check: rearm-resurface
+[02:20:01 1794018001] sample busy=idle:stop turn_ended=present
+[02:20:01 1794018001] WAKE: check: rearm-resurface
+[02:20:03 1794018003] WAKE: check: rearm-resurface
+[02:20:04 1794018004] sample busy=idle:stop turn_ended=present
+[02:20:05 1794018005] WAKE: check: rearm-resurface
+[02:20:07 1794018007] sample busy=idle:stop turn_ended=present
+[02:20:07 1794018007] WAKE: check: rearm-resurface
+[02:20:10 1794018010] WAKE: check: rearm-resurface
+[02:20:10 1794018010] sample busy=idle:stop turn_ended=present
+[02:20:12 1794018012] WAKE: check: rearm-resurface
+[02:20:13 1794018013] sample busy=idle:stop turn_ended=present
+[02:20:14 1794018014] WAKE: check: rearm-resurface
+[02:20:16 1794018016] sample busy=idle:stop turn_ended=present
+[02:20:16 1794018016] WAKE: check: rearm-resurface
+[02:20:18 1794018018] WAKE: check: rearm-resurface
+[02:20:19 1794018019] sample busy=idle:stop turn_ended=present
+[02:20:20 1794018020] WAKE: check: rearm-resurface
+[02:20:22 1794018022] sample busy=idle:stop turn_ended=present
+[02:20:22 1794018022] WAKE: check: rearm-resurface
+[02:20:25 1794018025] WAKE: check: rearm-resurface
+[02:20:25 1794018025] sample busy=idle:stop turn_ended=present
+[02:20:27 1794018027] WAKE: check: rearm-resurface
+[02:20:28 1794018028] sample busy=idle:stop turn_ended=present
+[02:20:29 1794018029] WAKE: check: rearm-resurface
+[02:20:31 1794018031] WAKE: check: rearm-resurface
+[02:20:31 1794018031] sample busy=idle:stop turn_ended=present
+[02:20:33 1794018033] WAKE: check: rearm-resurface
+[02:20:34 1794018034] sample busy=idle:stop turn_ended=present
+[02:20:36 1794018036] WAKE: check: rearm-resurface
+[02:20:37 1794018037] sample busy=idle:stop turn_ended=present
+[02:20:38 1794018038] WAKE: check: rearm-resurface
+[02:20:40 1794018040] WAKE: check: rearm-resurface
+[02:20:40 1794018040] sample busy=idle:stop turn_ended=present
+[02:20:42 1794018042] WAKE: check: rearm-resurface
+[02:20:43 1794018043] sample busy=idle:stop turn_ended=present
+[02:20:44 1794018044] WAKE: check: rearm-resurface
+[02:20:46 1794018046] sample busy=idle:stop turn_ended=present
+[02:20:46 1794018046] WAKE: check: rearm-resurface
+[02:20:49 1794018049] WAKE: check: rearm-resurface
+[02:20:49 1794018049] sample busy=idle:stop turn_ended=present
+[02:20:51 1794018051] WAKE: check: rearm-resurface
+[02:20:52 1794018052] sample busy=idle:stop turn_ended=present
+[02:20:53 1794018053] WAKE: check: rearm-resurface
+[02:20:55 1794018055] WAKE: check: rearm-resurface
+[02:20:55 1794018055] sample busy=idle:stop turn_ended=present
+[02:20:57 1794018057] WAKE: check: rearm-resurface
+[02:20:58 1794018058] sample busy=idle:stop turn_ended=present
+[02:20:59 1794018059] WAKE: check: rearm-resurface
+[02:21:01 1794018061] WAKE: check: rearm-resurface
+[02:21:01 1794018061] sample busy=idle:stop turn_ended=present
+[02:21:03 1794018063] WAKE: check: rearm-resurface
+[02:21:04 1794018064] sample busy=idle:stop turn_ended=present
+[02:21:05 1794018065] WAKE: check: rearm-resurface
+[02:21:07 1794018067] sample busy=idle:stop turn_ended=present
+[02:21:07 1794018067] WAKE: check: rearm-resurface
+[02:21:10 1794018070] WAKE: check: rearm-resurface
+[02:21:10 1794018070] sample busy=idle:stop turn_ended=present
+[02:21:12 1794018072] WAKE: check: rearm-resurface
+[02:21:13 1794018073] sample busy=idle:stop turn_ended=present
+[02:21:14 1794018074] WAKE: check: rearm-resurface
+[02:21:16 1794018076] WAKE: check: rearm-resurface
+[02:21:16 1794018076] sample busy=idle:stop turn_ended=present
+[02:21:18 1794018078] WAKE: check: rearm-resurface
+[02:21:19 1794018079] sample busy=idle:stop turn_ended=present
+[02:21:20 1794018080] WAKE: check: rearm-resurface
+[02:21:22 1794018082] WAKE: check: rearm-resurface
+[02:21:22 1794018082] sample busy=idle:stop turn_ended=present
+[02:21:24 1794018084] WAKE: check: rearm-resurface
+[02:21:25 1794018085] before relaunch: turn_ended age=139s status age=130s busy=state=idle
+[02:21:25 1794018085] RELAUNCH start (<worktree> rel1 relaunch)
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/fm-lab.BxVZD4
+[02:21:25 1794018085] sample busy=idle:stop turn_ended=present
+[02:21:26 1794018086] WAKE: check: rearm-resurface
+[02:21:28 1794018088] sample busy=idle:stop turn_ended=present
+[02:21:28 1794018088] WAKE: check: rearm-resurface
+[02:21:30 1794018090] WAKE: check: rearm-resurface
+[02:21:31 1794018091] sample busy= turn_ended=present
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/fm-lab.BxVZD4
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+[02:21:32 1794018093] WAKE: check: rearm-resurface
+[02:21:34 1794018094] sample busy=busy:launch-brief turn_ended=absent
+[02:21:35 1794018095] WAKE: check: rearm-resurface
+relaunched rel1 harness=claude from=claude model=haiku effort=default backend=tmux endpoint=firstmate:fm-rel1 worktree=~/.treehouse/demo-ff579c/1/demo
+[02:21:36 1794018096] RELAUNCH exit=0 after 11s; turn_ended=absent busy=state=busy source=fm-spawn event=launch-brief
+[02:21:36 1794018096]   t+11s state=busy event=launch-brief turn_ended=absent meta_age=2 pane=0
+[02:21:37 1794018097] WAKE: check: rearm-resurface
+[02:21:37 1794018097] sample busy=busy:launch-brief turn_ended=absent
+[02:21:39 1794018099] WAKE: check: rearm-resurface
+[02:21:40 1794018100] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:21:41 1794018101] WAKE: check: rearm-resurface
+[02:21:41 1794018101]   t+16s state=busy event=user-prompt-submit turn_ended=absent meta_age=7 pane=1
+[02:21:42 1794018102] WAKE: check: rearm-resurface
+[02:21:43 1794018103] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:21:45 1794018105] WAKE: check: rearm-resurface
+[02:21:46 1794018106]   t+21s state=busy event=user-prompt-submit turn_ended=absent meta_age=12 pane=1
+[02:21:46 1794018106] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:21:47 1794018107] WAKE: check: rearm-resurface
+[02:21:49 1794018109] WAKE: check: rearm-resurface
+[02:21:49 1794018109] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:21:50 1794018110] WAKE: check: rearm-resurface
+[02:21:51 1794018111]   t+26s state=busy event=user-prompt-submit turn_ended=absent meta_age=17 pane=1
+[02:21:52 1794018112] WAKE: check: rearm-resurface
+[02:21:52 1794018112] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:21:54 1794018114] WAKE: check: rearm-resurface
+[02:21:55 1794018115] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:21:56 1794018116] WAKE: check: rearm-resurface
+[02:21:56 1794018116]   t+31s state=busy event=user-prompt-submit turn_ended=absent meta_age=22 pane=1
+[02:21:57 1794018117] WAKE: check: rearm-resurface
+[02:21:58 1794018118] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:21:59 1794018119] WAKE: check: rearm-resurface
+[02:22:00 1794018120] WAKE: check: rearm-resurface
+[02:22:01 1794018121]   t+36s state=busy event=user-prompt-submit turn_ended=absent meta_age=27 pane=1
+[02:22:01 1794018121] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:22:02 1794018122] WAKE: check: rearm-resurface
+[02:22:04 1794018124] WAKE: check: rearm-resurface
+[02:22:04 1794018124] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:22:05 1794018125] WAKE: check: rearm-resurface
+[02:22:06 1794018126]   t+41s state=busy event=user-prompt-submit turn_ended=absent meta_age=32 pane=1
+[02:22:07 1794018127] WAKE: check: rearm-resurface
+[02:22:08 1794018128] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:22:09 1794018129] WAKE: check: rearm-resurface
+[02:22:10 1794018130] WAKE: check: rearm-resurface
+[02:22:11 1794018131] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:22:11 1794018131]   t+46s state=busy event=user-prompt-submit turn_ended=absent meta_age=37 pane=1
+[02:22:12 1794018132] WAKE: check: rearm-resurface
+[02:22:14 1794018134] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:22:14 1794018134] WAKE: check: rearm-resurface
+[02:22:15 1794018135] WAKE: check: rearm-resurface
+[02:22:16 1794018136]   t+51s state=busy event=user-prompt-submit turn_ended=absent meta_age=42 pane=1
+[02:22:17 1794018137] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:22:17 1794018137] WAKE: check: rearm-resurface
+[02:22:18 1794018138] WAKE: check: rearm-resurface
+[02:22:20 1794018140] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:22:20 1794018140] WAKE: check: rearm-resurface
+[02:22:21 1794018141]   t+56s state=busy event=user-prompt-submit turn_ended=absent meta_age=47 pane=1
+[02:22:21 1794018141] WAKE: check: rearm-resurface
+[02:22:23 1794018143] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:22:23 1794018143] WAKE: check: rearm-resurface
+[02:22:25 1794018145] WAKE: check: rearm-resurface
+[02:22:26 1794018146] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:22:26 1794018146] WAKE: check: rearm-resurface
+[02:22:26 1794018146]   t+61s state=busy event=user-prompt-submit turn_ended=absent meta_age=52 pane=1
+[02:22:27 1794018147] WAKE: check: rearm-resurface
+[02:22:29 1794018149] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:22:29 1794018149] WAKE: check: rearm-resurface
+[02:22:30 1794018150] WAKE: check: rearm-resurface
+[02:22:31 1794018151]   t+66s state=busy event=user-prompt-submit turn_ended=absent meta_age=57 pane=1
+[02:22:32 1794018152] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:22:32 1794018152] WAKE: check: rearm-resurface
+[02:22:33 1794018153] WAKE: check: rearm-resurface
+[02:22:35 1794018155] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:22:35 1794018155] WAKE: check: rearm-resurface
+[02:22:36 1794018156] WAKE: check: rearm-resurface
+[02:22:36 1794018156]   t+71s state=busy event=user-prompt-submit turn_ended=absent meta_age=62 pane=1
+[02:22:38 1794018158] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:22:38 1794018158] WAKE: check: rearm-resurface
+[02:22:39 1794018159] WAKE: check: rearm-resurface
+[02:22:41 1794018161] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:22:41 1794018161] WAKE: check: rearm-resurface
+[02:22:41 1794018161]   t+76s state=busy event=user-prompt-submit turn_ended=absent meta_age=67 pane=1
+[02:22:42 1794018162] WAKE: check: rearm-resurface
+[02:22:44 1794018164] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:22:44 1794018164] WAKE: check: rearm-resurface
+[02:22:45 1794018165] WAKE: check: rearm-resurface
+[02:22:46 1794018166]   t+81s state=busy event=user-prompt-submit turn_ended=absent meta_age=72 pane=1
+[02:22:47 1794018167] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:22:47 1794018167] WAKE: check: rearm-resurface
+[02:22:48 1794018168] WAKE: check: rearm-resurface
+[02:22:50 1794018170] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:22:50 1794018170] WAKE: check: rearm-resurface
+[02:22:51 1794018171] WAKE: check: rearm-resurface
+[02:22:52 1794018172]   t+86s state=busy event=user-prompt-submit turn_ended=absent meta_age=77 pane=1
+[02:22:52 1794018172] WAKE: check: rearm-resurface
+[02:22:53 1794018173] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:22:54 1794018174] WAKE: check: rearm-resurface
+[02:22:55 1794018175] WAKE: check: rearm-resurface
+[02:22:56 1794018176] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:22:57 1794018177]   t+92s state=busy event=user-prompt-submit turn_ended=absent meta_age=83 pane=1
+[02:22:57 1794018177] WAKE: check: rearm-resurface
+[02:22:58 1794018178] WAKE: check: rearm-resurface
+[02:22:59 1794018179] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:23:00 1794018180] WAKE: check: rearm-resurface
+[02:23:01 1794018181] WAKE: check: rearm-resurface
+[02:23:02 1794018182]   t+97s state=busy event=user-prompt-submit turn_ended=absent meta_age=88 pane=1
+[02:23:02 1794018182] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:23:02 1794018182] WAKE: check: rearm-resurface
+[02:23:04 1794018184] WAKE: check: rearm-resurface
+[02:23:05 1794018185] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:23:05 1794018185] WAKE: check: rearm-resurface
+[02:23:07 1794018187]   t+102s state=busy event=user-prompt-submit turn_ended=absent meta_age=93 pane=1
+[02:23:07 1794018187] WAKE: check: rearm-resurface
+[02:23:08 1794018188] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:23:08 1794018188] WAKE: check: rearm-resurface
+[02:23:10 1794018190] WAKE: check: rearm-resurface
+[02:23:11 1794018191] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:23:11 1794018191] WAKE: check: rearm-resurface
+[02:23:12 1794018192]   t+107s state=busy event=user-prompt-submit turn_ended=absent meta_age=98 pane=1
+[02:23:13 1794018193] WAKE: check: rearm-resurface
+[02:23:14 1794018194] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:23:15 1794018195] WAKE: check: rearm-resurface
+[02:23:16 1794018196] WAKE: check: rearm-resurface
+[02:23:17 1794018197]   t+112s state=busy event=user-prompt-submit turn_ended=absent meta_age=103 pane=1
+[02:23:17 1794018197] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:23:18 1794018198] WAKE: check: rearm-resurface
+[02:23:19 1794018199] WAKE: check: rearm-resurface
+[02:23:20 1794018200] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:23:21 1794018201] WAKE: check: rearm-resurface
+[02:23:22 1794018202]   t+117s state=busy event=user-prompt-submit turn_ended=absent meta_age=108 pane=1
+[02:23:22 1794018202] WAKE: check: rearm-resurface
+[02:23:23 1794018203] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:23:24 1794018204] WAKE: check: rearm-resurface
+[02:23:25 1794018205] WAKE: check: rearm-resurface
+[02:23:26 1794018206] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:23:27 1794018207]   t+122s state=busy event=user-prompt-submit turn_ended=absent meta_age=113 pane=1
+[02:23:27 1794018207] WAKE: check: rearm-resurface
+[02:23:29 1794018209] WAKE: check: rearm-resurface
+[02:23:29 1794018209] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:23:30 1794018210] WAKE: check: rearm-resurface
+[02:23:32 1794018212]   t+127s state=busy event=user-prompt-submit turn_ended=absent meta_age=118 pane=1
+[02:23:32 1794018212] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:23:32 1794018212] WAKE: check: rearm-resurface
+[02:23:33 1794018213] WAKE: check: rearm-resurface
+[02:23:35 1794018215] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:23:35 1794018215] WAKE: check: rearm-resurface
+[02:23:36 1794018216] WAKE: check: rearm-resurface
+[02:23:37 1794018217]   t+132s state=busy event=user-prompt-submit turn_ended=absent meta_age=123 pane=1
+[02:23:38 1794018218] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:23:38 1794018218] WAKE: check: rearm-resurface
+[02:23:40 1794018220] WAKE: check: rearm-resurface
+[02:23:41 1794018221] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:23:41 1794018221] WAKE: check: rearm-resurface
+[02:23:42 1794018222]   t+137s state=busy event=user-prompt-submit turn_ended=absent meta_age=128 pane=1
+[02:23:43 1794018223] WAKE: check: rearm-resurface
+[02:23:44 1794018224] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:23:44 1794018224] WAKE: check: rearm-resurface
+[02:23:46 1794018226] WAKE: check: rearm-resurface
+[02:23:47 1794018227]   t+142s state=busy event=user-prompt-submit turn_ended=absent meta_age=133 pane=1
+[02:23:47 1794018227] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:23:47 1794018227] WAKE: check: rearm-resurface
+[02:23:49 1794018229] WAKE: check: rearm-resurface
+[02:23:50 1794018230] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:23:51 1794018231] WAKE: check: rearm-resurface
+[02:23:52 1794018232]   t+147s state=busy event=user-prompt-submit turn_ended=absent meta_age=138 pane=1
+[02:23:52 1794018232] WAKE: check: rearm-resurface
+[02:23:53 1794018233] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:23:54 1794018234] WAKE: check: rearm-resurface
+[02:23:55 1794018235] WAKE: check: rearm-resurface
+[02:23:56 1794018236] sample busy=busy:user-prompt-submit turn_ended=absent
+[02:23:57 1794018237]   t+152s state=busy event=user-prompt-submit turn_ended=absent meta_age=143 pane=1
+[02:23:57 1794018237] WAKE: check: rearm-resurface
+[02:23:59 1794018239] WAKE: check: rearm-resurface
+[02:23:59 1794018239] sample busy=idle:stop turn_ended=present
+[02:24:00 1794018240] WAKE: check: rearm-resurface
+[02:24:02 1794018242] WAKE: check: rearm-resurface
+[02:24:02 1794018242] cycle FIXED end: state=idle event=stop turn_ended=present
+[02:24:02 1794018242] sample busy=idle:stop turn_ended=present
+[02:24:03 1794018243] WAKE: check: rearm-resurface
+[02:24:05 1794018245] WAKE: check: rearm-resurface
+[02:24:05 1794018245] sample busy=idle:stop turn_ended=present
+[02:24:06 1794018246] WAKE: check: rearm-resurface
+[02:24:08 1794018248] sample busy=idle:stop turn_ended=present
+[02:24:08 1794018248] WAKE: check: rearm-resurface
+[02:24:09 1794018249] WAKE: check: rearm-resurface
+[02:24:10 1794018250] DRIVER-DONE
