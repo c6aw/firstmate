@@ -1,0 +1,2 @@
+ok - a custom check that exits non-zero with no output surfaces its exit code on installed and fallback timeout paths
+exit=0

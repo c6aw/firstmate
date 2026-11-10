@@ -1,0 +1,20 @@
+=== target e5849a38 ===
+[silent-exit3/installed-timeout] watcher rc=0 wake=check: custom.check.sh: check failed with exit 3
+[silent-exit3/fallback-timeout] watcher rc=0 wake=check: custom.check.sh: check failed with exit 3
+[set-e-crash/installed-timeout] watcher rc=0 wake=check: custom.check.sh: check failed with exit 1
+[set-e-crash/fallback-timeout] watcher rc=0 wake=check: custom.check.sh: check failed with exit 1
+[missing-cmd/installed-timeout] watcher rc=0 wake=check: custom.check.sh: check failed with exit 127
+[missing-cmd/fallback-timeout] watcher rc=0 wake=check: custom.check.sh: check failed with exit 127
+[syntax-error/installed-timeout] watcher rc=0 wake=check: custom.check.sh: check failed with exit 2
+[syntax-error/fallback-timeout] watcher rc=0 wake=check: custom.check.sh: check failed with exit 2
+[output-and-fail/installed-timeout] watcher rc=0 wake=check: custom.check.sh: real finding
+[output-and-fail/fallback-timeout] watcher rc=0 wake=check: custom.check.sh: real finding
+[output-exit0/installed-timeout] watcher rc=0 wake=check: custom.check.sh: real finding
+[output-exit0/fallback-timeout] watcher rc=0 wake=check: custom.check.sh: real finding
+[silent-exit0/installed-timeout] watcher rc=124 wake=<none>
+[silent-exit0/fallback-timeout] watcher rc=124 wake=<none>
+[timeout-regression/installed-timeout] watcher rc=0 wake=check: custom.check.sh: before timed out after 1s
+[timeout-regression/fallback-timeout] watcher rc=0 wake=check: custom.check.sh: before timed out after 1s
+=== base 913bb7a7 (FM_TEST_WATCH_SCRIPT=base fm-watch.sh) ===
+[silent-exit3/installed-timeout] watcher rc=124 wake=<none>
+[silent-exit3/fallback-timeout] watcher rc=124 wake=<none>
