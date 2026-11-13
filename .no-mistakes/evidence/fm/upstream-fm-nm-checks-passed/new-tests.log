@@ -1,0 +1,14 @@
+ok - checks-passed: terminal run status reads as its meaning
+ok - handed-off: terminal run status reads as its meaning
+ok - interrupted-green: terminal run status reads as its meaning
+ok - interrupted-no-ci-log: terminal run status reads as its meaning
+ok - checks-passed-no-outcome: terminal run status reads as its meaning
+ok - handed-off-no-outcome: terminal run status reads as its meaning
+ok - interrupted-green-no-outcome: terminal run status reads as its meaning
+ok - interrupted-no-ci-log-no-outcome: terminal run status reads as its meaning
+ok - coarse-checks-passed: terminal run status reads as its meaning
+ok - coarse-handed-off: terminal run status reads as its meaning
+ok - coarse-interrupted: terminal run status reads as its meaning
+ok - undefined: terminal run status reads as its meaning
+ok - a newer checks_passed ledger row supersedes a selected failure
+ALL-NEW-OK
