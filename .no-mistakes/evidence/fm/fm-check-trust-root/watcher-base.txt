@@ -1,0 +1,4 @@
+== 1. forged state/-only trust record (issue repro, via the real watcher)
+check: /tmp/fm-lab.fGUOEz/state/evil.check.sh: evil check ran
+watcher rc=0
+RESULT: forged check executed

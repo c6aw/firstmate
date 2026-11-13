@@ -1,0 +1,13 @@
+== 3. armed on ed7fbb84, checkout updated in place to HEAD, then fired
+when-old.spec
+when-old.trust
+outcome: status: rejected
+detail: refused without executing anything: trust record is missing or not private
+RESULT: action NOT executed
+== 4. same, then documented one-time step: retire and arm again on HEAD
+retired: when-old
+retired: when-old
+when-old.when-trust
+outcome: status: fired
+detail: the condition held and the action exited 0
+RESULT: action executed

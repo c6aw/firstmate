@@ -1,0 +1,4 @@
+== 2. state/-only writer forges a spec trust record
+outcome: status: fired 
+RESULT: action executed
+== 3. watch armed by the old version, after upgrade

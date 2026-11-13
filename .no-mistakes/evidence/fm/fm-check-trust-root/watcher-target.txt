@@ -1,0 +1,20 @@
+== 1. forged state/-only trust record (issue repro, via the real watcher)
+check: rejected unauthenticated state checks: /tmp/fm-lab.N8HgTL/state/evil.check.sh
+watcher rc=0
+RESULT: forged check refused (not executed)
+== 2. operator-registered check
+registered: state/good.check.sh
+-rw------- 1 c6aw c6aw 84 Nov 13 00:26 good.check-trust
+trust records under state/: 0
+check: /tmp/fm-lab.ysIgpO/state/good.check.sh: good check ran
+watcher rc=0
+RESULT: registered check executed
+== 3. state/ writer swaps bytes of registered check
+registered: state/good.check.sh
+check: rejected unauthenticated state checks: /tmp/fm-lab.RIX7Is/state/good.check.sh
+watcher rc=0
+RESULT: tampered check refused
+== 4. unregister removes config/trust record
+unregistered: state/good.check.sh
+unregister rc=0
+(listing of config/trust ends)

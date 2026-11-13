@@ -1,0 +1,29 @@
+== 1. legit arm on the new version fires
+armed: when-legit
+starts on the watcher's next cycle; or run: bin/fm-procevent.sh reconcile
+reminder: deterministic, safe, reversible actions only; judgment and destructive actions stay on the wake-and-decide path
+when-legit.when-trust
+when-legit.spec
+outcome: status: fired 
+RESULT: action executed
+== 2. state/-only writer forges a spec trust record
+outcome: status: rejected 
+RESULT: action NOT executed
+== 3. watch armed by the old version, after upgrade
+armed: when-old
+starts on the watcher's next cycle; or run: bin/fm-procevent.sh reconcile
+reminder: deterministic, safe, reversible actions only; judgment and destructive actions stay on the wake-and-decide path
+when-old.spec
+when-old.trust
+outcome: status: fired 
+RESULT: action executed
+== 4. documented step: retire then arm again
+retired: when-old
+retired: when-old
+armed: when-old
+starts on the watcher's next cycle; or run: bin/fm-procevent.sh reconcile
+reminder: deterministic, safe, reversible actions only; judgment and destructive actions stay on the wake-and-decide path
+outcome: status: fired 
+RESULT: action executed
+
+NOTE: scenarios 3-4 above armed from a separate old checkout path, so the source record ran the old runner; they are superseded by when-inplace.txt, which updates one checkout path in place as a real upgrade does.

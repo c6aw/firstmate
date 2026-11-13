@@ -1,0 +1,18 @@
+== A. upgraded watcher, old state/ record only
+-- old version registers:
+registered: state/legacy.check.sh
+legacy.check-trust
+check: rejected unauthenticated state checks: /tmp/fm-lab.J9arcZ/state/legacy.check.sh
+RESULT: old state/ record ignored
+== B. upgraded home after the documented one-time step
+-- old version registers:
+registered: state/legacy.check.sh
+legacy.check-trust
+registered: state/legacy.check.sh
+legacy.check-trust
+check: /tmp/fm-lab.N7bidc/state/legacy.check.sh: legacy check ran
+RESULT: re-registered check executed
+-- unregister removes both the new and the leftover state/ record:
+unregistered: state/legacy.check.sh
+trust files in state: 0
+trust files in config/trust: 0
