@@ -1,0 +1,73 @@
+=== S1 issue repro: forged state/ record, argv=/usr/bin/touch <marker>
+--- base code: reconcile
+reconciled: published=0 started=1 stopped=0 uncertain=0 failed=0
+rc=0
+--- base code: start forged-src
+already owned: forged-src
+rc=0
+RESULT(base): forged argv EXECUTED (marker created)
+record kept for inspection
+--- new code: reconcile
+reconciled: published=0 started=0 stopped=0 uncertain=0 failed=1
+rc=1
+--- new code: start forged-src
+error: argv refused: it must start with the installed quota adapter script and its listener verb (source forged-src)
+rc=1
+RESULT(new): forged argv NOT executed
+record kept for inspection
+
+=== S2 register refuses arbitrary / misshapen argv (new code)
+--- register quota -- /usr/bin/touch <lab>/x
+error: argv refused: it must start with the installed quota adapter script and its listener verb
+rc=1
+--- register quota -- <worktree>/bin/fm-procevent-lavish.sh poll
+error: argv refused: it must start with the installed quota adapter script and its listener verb
+rc=1
+--- register lavish -- <worktree>/bin/fm-procevent-lavish.sh retire
+error: argv refused: it must start with the installed lavish adapter script and its listener verb
+rc=1
+s2 records published: 0
+
+=== S3 built-in when adapter: arm -> reconcile -> action fires (new code)
+armed: when-s3
+starts on the watcher's next cycle; or run: bin/fm-procevent.sh reconcile
+reminder: deterministic, safe, reversible actions only; judgment and destructive actions stay on the wake-and-decide path
+arm rc=0
+adapter=when
+argc=3
+argv:
+<worktree>/bin/fm-procevent-when.sh
+reconciled: published=0 started=1 stopped=0 uncertain=0 failed=0
+reconcile rc=0
+RESULT: when action fired
+
+=== S4 quota/lavish/remote-reply argv shapes accepted by register (new code)
+registered: quota-shape (quota)
+quota rc=0
+registered: lavish-shape (lavish)
+lavish rc=0
+registered: rr-shape (remote-reply)
+remote-reply rc=0
+--- real quota arm (quota-axi present)
+registered: quota (quota)
+armed: quota
+provider: (aggregate)
+threshold: 10%
+interval: 600s
+quota arm rc=0
+SOURCE                       ADAPTER      OWNER      PENDING
+lavish-shape                 lavish       none       0
+quota-shape                  quota        none       0
+quota                        quota        none       0
+rr-shape                     remote-reply none       0
+
+=== S5 carry-over: when watch armed by BASE code, code root upgraded in place, reconcile by NEW code
+base arm rc=0
+base quota register rc=0
+upgraded root listener-verb: run
+reconciled: published=0 started=2 stopped=0 uncertain=0 failed=0
+reconcile rc=0
+RESULT: pre-upgrade when watch fired with no migration
+SOURCE                       ADAPTER      OWNER      PENDING
+quota-old                    quota        live       0
+when-s5                      when         live       1
