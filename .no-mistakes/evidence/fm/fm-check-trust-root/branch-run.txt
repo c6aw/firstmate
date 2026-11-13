@@ -1,0 +1,31 @@
+== [branch-f7ae9b6d] lab home: (tmp)/fm-lab.FBu28q
+-- register good:
+registered: state/good.check.sh
+   exit=0
+-- trust files:
+   ./config/trust
+   ./config/trust/good.check-trust
+   ./state/evil.check-trust
+-- run real watcher one sweep (bounded 20s):
+   watcher exit=0
+   stdout: check: /tmp/fm-lab.FBu28q/state/good.check.sh: good-ran
+   wake-queue: 1794580322	1	check	/tmp/fm-lab.FBu28q/state/good.check.sh	check: /tmp/fm-lab.FBu28q/state/good.check.sh: good-ran
+RESULT forged-state-only-check: REFUSED (did not run)
+RESULT registered-check: RAN
+-- arm when watch 'legit':
+   armed: when-legit
+   starts on the watcher's next cycle; or run: bin/fm-procevent.sh reconcile
+   reminder: deterministic, safe, reversible actions only; judgment and destructive actions stay on the wake-and-decide path
+   run exit=0
+RESULT registered-when-watch: FIRED
+-- arm when watch 'forged', then keep only a state/when trust record:
+   state/when: when-forged.spec
+   state/when: when-forged.trust
+   state/when: when-legit.fired
+   state/when: when-legit.spec
+   run exit=0
+   outcome: rejected
+RESULT forged-state-only-when-watch: REFUSED (action did not run)
+-- supervision predicate (FM_STATE_OVERRIDE=state/.):
+   FM_SUP_CHECKS=1 FM_SUP_NEEDED=true
+== [branch-f7ae9b6d] lab removed

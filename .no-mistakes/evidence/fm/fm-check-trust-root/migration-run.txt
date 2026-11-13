@@ -1,0 +1,19 @@
+-- before re-register (only legacy state/old.check-trust):
+   out: check: rejected unauthenticated state checks: /tmp/fm-lab.iZIWBK/state/old.check.sh
+   watcher exit=0 (124 = sweep stayed silent until bound)
+RESULT legacy-record: IGNORED
+-- documented step: bin/fm-check-register.sh old
+registered: state/old.check.sh
+   out: check: rearm-resurface
+   watcher exit=0 (124 = sweep stayed silent until bound)
+   out: check: /tmp/fm-lab.iZIWBK/state/old.check.sh: old-ran
+   watcher exit=0 (124 = sweep stayed silent until bound)
+RESULT after-re-register: RAN
+-- when watch: retire + re-arm path
+RESULT old-layout-when: REFUSED
+   retire: retired: when-w
+   retire: retired: when-w
+   legacy state/when trust removed by retire
+   re-arm: armed: when-w
+RESULT re-armed-when: FIRED
+== lab removed
