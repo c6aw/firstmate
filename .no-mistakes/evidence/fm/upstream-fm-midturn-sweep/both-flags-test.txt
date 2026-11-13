@@ -1,0 +1,4 @@
+1..1
+1794554033	handoff	host-1367307-1794554027
+ok - host+hook: with both flags the acknowledged hand-back owns the pass-through and no sweep owner starts
+FM_TEST_COMPLETE

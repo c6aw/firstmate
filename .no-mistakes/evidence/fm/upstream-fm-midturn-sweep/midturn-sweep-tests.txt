@@ -1,0 +1,10 @@
+1..8
+ok - host+hook: without the mid-turn sweep flag a long turn after a pass-through keeps the one-shot successor
+ok - host+hook: with the mid-turn sweep flag a long turn after a pass-through keeps checks running and the next park takes over one cycle
+ok - host+hook: without the mid-turn sweep flag a long turn after a at-turn keeps the one-shot successor
+ok - host+hook: with the mid-turn sweep flag a long turn after a at-turn keeps checks running and the next park takes over one cycle
+ok - host+hook: opting the home out of the host mid-turn stops the mid-turn sweep owner
+ok - host+hook: a successor close that lands during main's turn is delivered at the next turn end
+ok - host+hook: the next park takes over the cycle a main-only pass-through left, so one arm owns it
+ok - host+hook: an acknowledged hand-back at the turn keeps its pass-through row
+FM_TEST_COMPLETE
