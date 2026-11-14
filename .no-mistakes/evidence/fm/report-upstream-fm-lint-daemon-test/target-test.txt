@@ -1,0 +1,2 @@
+ok - failed enqueue followed by a worker event closes without an obsolete alert, retaining failed resolutions
+exit=0
