@@ -1,0 +1,194 @@
+hook_success SessionStart:startup content_len=0 stdout_len=3604 spilled=False
+hook_success SessionStart:startup content_len=4277 stdout_len=4277 spilled=False
+hook_success SessionStart:startup content_len=268 stdout_len=269 spilled=False
+hook_success SessionStart:startup content_len=2184 stdout_len=61151 spilled=True
+hook_additional_context SessionStart content_len=3539 stdout_len=0 spilled=False
+hook_additional_context UserPromptSubmit content_len=651 stdout_len=0 spilled=False
+hook_success SessionStart:compact content_len=0 stdout_len=3604 spilled=False
+hook_success SessionStart:compact content_len=4277 stdout_len=4277 spilled=False
+hook_success SessionStart:compact content_len=7176 stdout_len=7177 spilled=False
+---- compact hook stdout ----
+RE-EMIT CUE: this re-emit prints each bulky section as a pointer to its file, so it
+stays small. Read a pointed file only when this turn needs that section. If the harness
+still saved this output to a file, read that file through its WAKE QUEUE section first.
+
+================================================================================
+SESSION START (CONTEXT RE-EMIT) - /tmp/fm-lab.gvtUSY
+================================================================================
+This session already took the helm at its own startup and has only lost its
+context. Lock ownership is re-verified and the durable records below are
+reprinted or pointed to, but the sweeps startup already reconciled - project clone refresh,
+secondmate convergence and liveness, pending remote handoff
+retry, X-mode artifact writes, and stale Herdr child cleanup - are NOT repeated.
+Queued wakes ARE still drained: they arrived after startup and are this turn work.
+
+LOCK
+--------------------------------------------------------------------------------
+lock acquired: harness pid 194567
+
+HOME ROLE
+--------------------------------------------------------------------------------
+fm-role: user (default)
+
+BOOTSTRAP
+--------------------------------------------------------------------------------
+PRESENTATION_UNAVAILABLE: lavish-axi (requires >=0.1.77; install: npm install -g lavish-axi && lavish-axi setup hooks) - nonvisual work may proceed with plain-text decisions and reports; install or upgrade before using Lavish
+
+WAKE QUEUE
+--------------------------------------------------------------------------------
+(no queued wakes)
+
+================================================================================
+SUPERVISION OPERATING INSTRUCTIONS - primary harness: claude
+================================================================================
+Not reprinted in a context re-emit; print them before arming, repairing, or ending a
+turn with work under way: FM_HOME=/tmp/fm-lab.gvtUSY /tmp/tmp.IlKLx5kFdV/fmclone/bin/fm-supervision-instructions.sh --harness claude --read-only 0 --afk 0 --afk-mode away --x-mode 0
+
+================================================================================
+READ-ONCE CONTRACT
+================================================================================
+This context re-emit prints the lock, wake queue, away posture, and network
+checks in full, and every bulky section below as a one-line pointer to its file.
+Read a pointed file only when this turn needs that section, never all of them
+at once, and do NOT bulk-read data/backlog.md or state/*.status.
+If a STARTUP TRUNCATED banner names a stage, that stage never ran: reconcile it.
+
+================================================================================
+FLEET STATE
+================================================================================
+
+data/backlog.md
+--------------------------------------------------------------------------------
+not reprinted in a context re-emit; read /tmp/fm-lab.gvtUSY/data/backlog.md (or bin/fm-tasks-axi.sh list) when this turn needs the backlog
+
+Work under way (state/*.meta)
+--------------------------------------------------------------------------------
+Per task, only its endpoint is reprinted in a context re-emit. Its fields are in
+/tmp/fm-lab.gvtUSY/state/<id>.meta and its wake-EVENT history in <id>.status (bin/fm-crew-state.sh <id>
+owns current state); read one only when this turn needs it.
+
+--- task-001 ---
+endpoint: dead (backend=tmux window=fm-task-001)
+
+--- task-002 ---
+endpoint: dead (backend=tmux window=fm-task-002)
+
+--- task-003 ---
+endpoint: dead (backend=tmux window=fm-task-003)
+
+--- task-004 ---
+endpoint: dead (backend=tmux window=fm-task-004)
+
+--- task-005 ---
+endpoint: dead (backend=tmux window=fm-task-005)
+
+--- task-006 ---
+endpoint: dead (backend=tmux window=fm-task-006)
+
+--- task-007 ---
+endpoint: dead (backend=tmux window=fm-task-007)
+
+--- task-008 ---
+endpoint: dead (backend=tmux window=fm-task-008)
+
+--- task-009 ---
+endpoint: dead (backend=tmux window=fm-task-009)
+
+--- task-010 ---
+endpoint: dead (backend=tmux window=fm-task-010)
+
+--- task-011 ---
+endpoint: dead (backend=tmux window=fm-task-011)
+
+--- task-012 ---
+endpoint: dead (backend=tmux window=fm-task-012)
+
+--- task-013 ---
+endpoint: dead (backend=tmux window=fm-task-013)
+
+--- task-014 ---
+endpoint: dead (backend=tmux window=fm-task-014)
+
+--- task-015 ---
+endpoint: dead (backend=tmux window=fm-task-015)
+
+--- task-016 ---
+endpoint: dead (backend=tmux window=fm-task-016)
+
+--- task-017 ---
+endpoint: dead (backend=tmux window=fm-task-017)
+
+--- task-018 ---
+endpoint: dead (backend=tmux window=fm-task-018)
+
+--- task-019 ---
+endpoint: dead (backend=tmux window=fm-task-019)
+
+--- task-020 ---
+endpoint: dead (backend=tmux window=fm-task-020)
+
+--- task-021 ---
+endpoint: dead (backend=tmux window=fm-task-021)
+
+--- task-022 ---
+endpoint: dead (backend=tmux window=fm-task-022)
+
+--- task-023 ---
+endpoint: dead (backend=tmux window=fm-task-023)
+
+--- task-024 ---
+endpoint: dead (backend=tmux window=fm-task-024)
+
+--- task-025 ---
+endpoint: dead (backend=tmux window=fm-task-025)
+
+Orphan status logs (state/*.status without matching .meta)
+--------------------------------------------------------------------------------
+Only ids are reprinted in a context re-emit; each log is /tmp/fm-lab.gvtUSY/state/<id>.status.
+(none)
+
+AFK
+--------------------------------------------------------------------------------
+absent
+
+================================================================================
+NETWORK CHECKS
+================================================================================
+completed off the startup path in 1s: GitHub authentication.
+(silent - no problems found)
+
+================================================================================
+CONTEXT
+================================================================================
+
+data/projects.md
+--------------------------------------------------------------------------------
+ABSENT
+
+data/secondmates.md
+--------------------------------------------------------------------------------
+ABSENT
+
+data/captain.md
+--------------------------------------------------------------------------------
+not reprinted in a context re-emit; read /tmp/fm-lab.gvtUSY/data/captain.md before work it governs
+
+data/captain-shared.md (shared, main-authoritative, read-only in secondmate homes)
+--------------------------------------------------------------------------------
+ABSENT
+
+data/learnings.md
+--------------------------------------------------------------------------------
+not reprinted in a context re-emit; read /tmp/fm-lab.gvtUSY/data/learnings.md before work it governs
+
+================================================================================
+NEXT STEP
+================================================================================
+Print the supervision instructions with the command in the
+SUPERVISION OPERATING INSTRUCTIONS section above, then follow them for harness 'claude'.
+This script never starts supervision itself.
+
+The digest above is complete for this session start. The READ-ONCE CONTRACT
+section near the top of it governs what may still be read from disk.
+
+hook_additional_context SessionStart content_len=3539 stdout_len=0 spilled=False

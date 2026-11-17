@@ -1,0 +1,1328 @@
+RE-EMIT CUE: if this output ends with "Output too large ... Full output saved to <path>",
+read that whole file now, before acting. Otherwise read data/captain.md, data/captain-shared.md,
+and data/learnings.md under /tmp/fm-lab.eToMM1/data now if any of them is missing below.
+
+================================================================================
+SESSION START (CONTEXT RE-EMIT) - /tmp/fm-lab.eToMM1
+================================================================================
+This session already took the helm at its own startup and has only lost its
+context. Lock ownership is re-verified and the durable records below are
+reprinted, but the sweeps startup already reconciled - project clone refresh,
+secondmate convergence and liveness, pending remote handoff
+retry, X-mode artifact writes, and stale Herdr child cleanup - are NOT repeated.
+Queued wakes ARE still drained: they arrived after startup and are this turn work.
+
+LOCK
+--------------------------------------------------------------------------------
+lock acquired: harness pid 3529988
+
+HOME ROLE
+--------------------------------------------------------------------------------
+fm-role: user (default)
+
+BOOTSTRAP
+--------------------------------------------------------------------------------
+PRESENTATION_UNAVAILABLE: lavish-axi (requires >=0.1.77; install: npm install -g lavish-axi && lavish-axi setup hooks) - nonvisual work may proceed with plain-text decisions and reports; install or upgrade before using Lavish
+
+WAKE QUEUE
+--------------------------------------------------------------------------------
+WARNING: watcher still down (same stale episode; last beat: never, grace 300s) - full banner already printed this episode.
+================================================================================
+SUPERVISION OPERATING INSTRUCTIONS - primary harness: claude
+================================================================================
+Current state:
+- Lock: held by this session; this session owns normal supervision unless away mode says otherwise.
+- Away/quiet mode: inactive.
+- X mode: inactive; use the default watcher cadence.
+- Supervision host: on; it takes away-posture wakes and, where the dialog mirror is verified, eligible attended wakes itself, and hands the rest to you (protocol at the end of this block).
+- Ordinary wake: the Stop-owned auto-arm (bin/fm-claude-stop-autoarm.sh) already owns watcher continuity; drain and handle the wake, and do not arm another cycle yourself.
+
+Mode: Claude Stop-hook-owned supervision.
+
+When this session owns supervision and away mode is not active:
+1. Drain first with `bin/fm-wake-drain.sh`.
+   After handling all emitted wakes and reconciling open decisions and unread status lines, run the exact `--ack-through` command printed as `WAKE_ACK_REQUIRED`; until then the work remains durable for idempotent re-handling after interruption.
+2. Routine watcher arm and re-arm are owned by the Stop `asyncRewake` hook (`bin/fm-claude-stop-autoarm.sh`), never by you.
+   Every turn end while supervision is needed launches or attaches one home-scoped watcher cycle with no model command and no model tokens.
+   An actionable close wakes you through the hook's exit-2 rewake, delivered as a `Stop hook feedback` message.
+3. On a `Stop hook feedback` wake (`signal:`, `stale:`, `check:`, or `heartbeat`), run `bin/fm-wake-drain.sh` first and handle the wake.
+   Do not run `bin/fm-watch-arm.sh` after an ordinary wake; the next turn end re-arms automatically when supervision is still needed.
+   Do not invent a wake from an attach-status line alone; drain and act only on real wake records, the drain's `OPEN DECISIONS` and `UNREAD STATUS` entries, or a real watcher reason line.
+4. On the one `Stop hook feedback` automatic-mechanism failure notice (`firstmate watcher auto-arm FAILED ...`), drain, inspect the automatic mechanism failure, and do not turn the notice into a repeating manual-arm loop.
+5. If the Stop hook does not claim the home or reports an exhausted failure, inspect its registration and watcher startup path before ending blind.
+   Keep the Stop-owned automatic mechanism as the only Claude arm owner.
+6. Treat `watcher: started ...` and `watcher: attached ...` inside automatic arm output as proof that one live cycle exists.
+   On attach, the arm follows verified identity-matched successors instead of exiting when the first cycle ends.
+7. The durable wake queue preserves actionable events between a rewake and the next Stop-launched arm, while the bounded turn-end guard prevents a blind Stop when recovery did not start.
+   No PreToolUse hook denies fleet commands based on watcher status.
+   [`watcher-continuity.md`](../watcher-continuity.md) owns the exact session-lock recovery boundary.
+8. The turn-end guard (`bin/fm-turnend-guard.sh --claude`) remains the final backstop.
+   It requires the PID-strict live-watcher and fresh-beacon predicate at the Stop boundary, except for the Claude-specific foreign-live-owner safe exit owned by [`turnend-guard.md`](../turnend-guard.md#guard-predicates); that document also owns the distinct model-aware mid-turn pull-guard rules.
+   Otherwise, it allows the stop when a watcher is healthy or an open auto-arm generation claim owns recovery, while fresh failure epochs advance the bounded one-time attended fail-open progression described there.
+9. Waiting on the hook-owned cycle is silent: do not send idle progress while the watcher is parked.
+
+The watcher itself remains `bin/fm-watch.sh`, and `bin/fm-watch-arm.sh` remains the verified arm wrapper that the Stop hook foregrounds on a home that opted out of the [supervision host](../supervision-host.md) (`config/supervision-host-off`).
+Re-arm attaches to an existing healthy cycle when one is already present and follows its verified successor chain.
+See [`watcher-continuity.md`](../watcher-continuity.md) for the arm-layer successor and clean-close failure contract and the Claude ownership model.
+
+Supervision host: on for this home (`config/supervision-host-off` turns it off; [`supervision-host.md`](../supervision-host.md) owns the design).
+The Stop hook runs the supervision host in the arm's place, and everything above still holds with these additions:
+1. Attended (no away record, including a quiet-mode record; see [Postures](../supervision-host.md#postures)): a headless supervision session takes the wakes the supervision branch may take and never wakes you for a routine outcome, so fewer wakes reach you; check wakes, decision wakes, and whatever it cannot take still reach you exactly as above.
+   `supervision-host: branch-outcome: ...` means it handled a wake and recorded captain outcomes for you: run `bin/fm-wake-drain.sh`, process each entry of its `BRANCH OUTCOMES` section as firstmate from the task's current state, because each entry says how long ago it was recorded (tell the captain, land or merge what is ready, answer or escalate a decision, or act on a blocker; your reply covers only entries still open, as if a settled one, such as a PR since merged, had never been listed), then run the `mark-processed` acknowledgement it prints; every drain presents them again until you do.
+   `supervision-host: the supervision session could not take this wake ...` means the wake is yours: handle it as above.
+   A failing turn may include a `supervision-host:` health note about repeated engine errors: tell the captain when it matters and handle the handed-back wake as usual; during cooldown later attended closes reach you unchanged.
+   Routine outcomes never wake you; your next drain lists only visible routine outcomes under `BRANCH OUTCOMES, ROUTINE` for awareness, with nothing to acknowledge. Silent rows do not appear there, but remain available through `bin/fm-branch-outcome.sh list`.
+2. Away (an away record exists and no daemon runs): the host hands each wake to a headless away session that runs the supervision branch's contract under the record, and you are parked.
+   Only a wake the host hands back reaches you, as `Stop hook feedback` carrying the close plus one `supervision-host: <why>` line.
+   That wake is automatic supervision, not the captain's return: drain and handle it under the away posture, and never run the return from it.
+   After the return, a `supervision-host:` line naming the captain's return during a turn means that turn has visible outcomes missing from the return brief, whether the wake was handled or handed back: relay every following `supervision-host: outcome ...` line to the captain (the rows also remain in `bin/fm-branch-outcome.sh list`), then drain and handle any queued wake before acknowledging.
+   Each such visible outcome is also a queued `check: supervision-host outcome <n> ... was recorded after the captain returned` wake, which the drain presents until acknowledged: relay each outcome once, whichever arrives first, and acknowledge its `BRANCH OUTCOMES` entry too when it has one. Silent outcomes remain in the store but do not generate a handoff line or check wake.
+3. `supervision-host: cycle boundary ...` means the host ended its park at its bound: run `bin/fm-wake-drain.sh`, handle whatever it presents, run its printed acknowledgement (an empty queue prints `--ack-through 0`), and end the turn; the next park starts at that turn end.
+4. A guarded command that exits 6 naming the branch actor's lease means the supervision session is handling that task right now: leave the lease alone and retry after it releases, which it does when its turn ends.
+5. Captain outcomes the away session records stay in the outcome store until the return drain presents them; the return brief (`bin/fm-afk-return.sh`) counts them and points you to the `BRANCH OUTCOMES` section for processing and acknowledgement ([Captain outcomes](../supervision-host.md#captain-outcomes)).
+6. `/afk` writes only the record here (`bin/fm-afk-launch.sh start-native` refuses the away daemon on this home); for `/quiet`, follow the [quiet skill](../../.agents/skills/quiet/SKILL.md).
+
+
+================================================================================
+READ-ONCE CONTRACT
+================================================================================
+Everything below is printed in full for this session start: every state/*.meta,
+a compact data/backlog.md listing, a bounded tail of every state/*.status,
+data/projects.md, data/secondmates.md, data/captain.md, data/captain-shared.md,
+and data/learnings.md.
+Do NOT re-read any of them after reading this digest, and do NOT bulk-read
+data/backlog.md or state/*.status: re-reading everything defeats the entire
+point of this command.
+
+Go to a source directly only when:
+  - this digest flagged it ABSENT (then rebuild or create it per AGENTS.md),
+  - its contents looked unparseable or corrupt,
+  - an individual full status log is needed for older wake-event history, or a
+    status line was capped and its tail matters (each task's full log path is
+    printed with its tail),
+  - a full task body is needed (bin/fm-tasks-axi.sh show <id> --full, or data/backlog.md),
+  - the backlog listing disclosed omitted queued items and this turn needs them,
+  - the NETWORK CHECKS section reported its checks still IN PROGRESS and this
+    turn needs their verdict (bin/fm-startup-network.sh report),
+  - or a STARTUP TRUNCATED banner named the stage that would have printed it, in
+    which case that stage's sources were never emitted and must be reconciled,
+  - or a context re-emit opened with a read cue because the
+    harness cut the digest short.
+
+================================================================================
+FLEET STATE
+================================================================================
+
+data/backlog.md
+--------------------------------------------------------------------------------
+compact backlog listing (tasks-axi; done rows omitted; every in-flight, held, and blocked row shown in full; ready queued bounded to 20; task bodies omitted)
+
+in flight:
+count: 0
+tasks: 0 in_flight tasks in this backlog
+
+held (captain- or time-gated; an in-flight item that is also held appears in both groups):
+count: 0
+tasks: 0 held tasks in this backlog
+
+blocked queued:
+count: 0
+tasks: 0 blocked queued tasks in this backlog
+
+ready queued (dispatchable now):
+count: 0
+ready: 0 unblocked queued tasks
+ready_public_followups: 0 delivery-ready obligations
+Full task bodies remain available on demand: bin/fm-tasks-axi.sh show <id> --full when compatible tasks-axi is available, or data/backlog.md.
+
+Work under way (state/*.meta)
+--------------------------------------------------------------------------------
+
+--- task-001 ---
+kind=ship
+window=fm-task-001
+project=example
+branch=fm/task-001
+endpoint: dead (backend=tmux window=fm-task-001)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-001.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-002 ---
+kind=ship
+window=fm-task-002
+project=example
+branch=fm/task-002
+endpoint: dead (backend=tmux window=fm-task-002)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-002.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-003 ---
+kind=ship
+window=fm-task-003
+project=example
+branch=fm/task-003
+endpoint: dead (backend=tmux window=fm-task-003)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-003.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-004 ---
+kind=ship
+window=fm-task-004
+project=example
+branch=fm/task-004
+endpoint: dead (backend=tmux window=fm-task-004)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-004.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-005 ---
+kind=ship
+window=fm-task-005
+project=example
+branch=fm/task-005
+endpoint: dead (backend=tmux window=fm-task-005)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-005.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-006 ---
+kind=ship
+window=fm-task-006
+project=example
+branch=fm/task-006
+endpoint: dead (backend=tmux window=fm-task-006)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-006.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-007 ---
+kind=ship
+window=fm-task-007
+project=example
+branch=fm/task-007
+endpoint: dead (backend=tmux window=fm-task-007)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-007.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-008 ---
+kind=ship
+window=fm-task-008
+project=example
+branch=fm/task-008
+endpoint: dead (backend=tmux window=fm-task-008)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-008.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-009 ---
+kind=ship
+window=fm-task-009
+project=example
+branch=fm/task-009
+endpoint: dead (backend=tmux window=fm-task-009)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-009.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-010 ---
+kind=ship
+window=fm-task-010
+project=example
+branch=fm/task-010
+endpoint: dead (backend=tmux window=fm-task-010)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-010.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-011 ---
+kind=ship
+window=fm-task-011
+project=example
+branch=fm/task-011
+endpoint: dead (backend=tmux window=fm-task-011)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-011.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-012 ---
+kind=ship
+window=fm-task-012
+project=example
+branch=fm/task-012
+endpoint: dead (backend=tmux window=fm-task-012)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-012.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-013 ---
+kind=ship
+window=fm-task-013
+project=example
+branch=fm/task-013
+endpoint: dead (backend=tmux window=fm-task-013)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-013.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-014 ---
+kind=ship
+window=fm-task-014
+project=example
+branch=fm/task-014
+endpoint: dead (backend=tmux window=fm-task-014)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-014.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-015 ---
+kind=ship
+window=fm-task-015
+project=example
+branch=fm/task-015
+endpoint: dead (backend=tmux window=fm-task-015)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-015.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-016 ---
+kind=ship
+window=fm-task-016
+project=example
+branch=fm/task-016
+endpoint: dead (backend=tmux window=fm-task-016)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-016.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-017 ---
+kind=ship
+window=fm-task-017
+project=example
+branch=fm/task-017
+endpoint: dead (backend=tmux window=fm-task-017)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-017.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-018 ---
+kind=ship
+window=fm-task-018
+project=example
+branch=fm/task-018
+endpoint: dead (backend=tmux window=fm-task-018)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-018.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-019 ---
+kind=ship
+window=fm-task-019
+project=example
+branch=fm/task-019
+endpoint: dead (backend=tmux window=fm-task-019)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-019.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-020 ---
+kind=ship
+window=fm-task-020
+project=example
+branch=fm/task-020
+endpoint: dead (backend=tmux window=fm-task-020)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-020.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-021 ---
+kind=ship
+window=fm-task-021
+project=example
+branch=fm/task-021
+endpoint: dead (backend=tmux window=fm-task-021)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-021.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-022 ---
+kind=ship
+window=fm-task-022
+project=example
+branch=fm/task-022
+endpoint: dead (backend=tmux window=fm-task-022)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-022.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-023 ---
+kind=ship
+window=fm-task-023
+project=example
+branch=fm/task-023
+endpoint: dead (backend=tmux window=fm-task-023)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-023.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-024 ---
+kind=ship
+window=fm-task-024
+project=example
+branch=fm/task-024
+endpoint: dead (backend=tmux window=fm-task-024)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-024.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+--- task-025 ---
+kind=ship
+window=fm-task-025
+project=example
+branch=fm/task-025
+endpoint: dead (backend=tmux window=fm-task-025)
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/task-025.status):
+working: status event 045 example progress note
+working: status event 046 example progress note
+working: status event 047 example progress note
+working: status event 048 example progress note
+working: status event 049 example progress note
+
+Orphan status logs (state/*.status without matching .meta)
+--------------------------------------------------------------------------------
+
+--- orphan-01 ---
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/orphan-01.status):
+done: old
+
+--- orphan-02 ---
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/orphan-02.status):
+done: old
+
+--- orphan-03 ---
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/orphan-03.status):
+done: old
+
+--- orphan-04 ---
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/orphan-04.status):
+done: old
+
+--- orphan-05 ---
+status tail (last 5 line(s), each capped at 220 characters, wake-EVENT history, not current state; full log: /tmp/fm-lab.eToMM1/state/orphan-05.status):
+done: old
+
+AFK
+--------------------------------------------------------------------------------
+absent
+
+================================================================================
+NETWORK CHECKS
+================================================================================
+completed off the startup path in 1s: GitHub authentication.
+(silent - no problems found)
+
+================================================================================
+CONTEXT
+================================================================================
+
+data/projects.md
+--------------------------------------------------------------------------------
+ABSENT
+
+data/secondmates.md
+--------------------------------------------------------------------------------
+ABSENT
+
+data/captain.md
+--------------------------------------------------------------------------------
+preference line 0000 example preference text
+preference line 0001 example preference text
+preference line 0002 example preference text
+preference line 0003 example preference text
+preference line 0004 example preference text
+preference line 0005 example preference text
+preference line 0006 example preference text
+preference line 0007 example preference text
+preference line 0008 example preference text
+preference line 0009 example preference text
+preference line 0010 example preference text
+preference line 0011 example preference text
+preference line 0012 example preference text
+preference line 0013 example preference text
+preference line 0014 example preference text
+preference line 0015 example preference text
+preference line 0016 example preference text
+preference line 0017 example preference text
+preference line 0018 example preference text
+preference line 0019 example preference text
+preference line 0020 example preference text
+preference line 0021 example preference text
+preference line 0022 example preference text
+preference line 0023 example preference text
+preference line 0024 example preference text
+preference line 0025 example preference text
+preference line 0026 example preference text
+preference line 0027 example preference text
+preference line 0028 example preference text
+preference line 0029 example preference text
+preference line 0030 example preference text
+preference line 0031 example preference text
+preference line 0032 example preference text
+preference line 0033 example preference text
+preference line 0034 example preference text
+preference line 0035 example preference text
+preference line 0036 example preference text
+preference line 0037 example preference text
+preference line 0038 example preference text
+preference line 0039 example preference text
+preference line 0040 example preference text
+preference line 0041 example preference text
+preference line 0042 example preference text
+preference line 0043 example preference text
+preference line 0044 example preference text
+preference line 0045 example preference text
+preference line 0046 example preference text
+preference line 0047 example preference text
+preference line 0048 example preference text
+preference line 0049 example preference text
+preference line 0050 example preference text
+preference line 0051 example preference text
+preference line 0052 example preference text
+preference line 0053 example preference text
+preference line 0054 example preference text
+preference line 0055 example preference text
+preference line 0056 example preference text
+preference line 0057 example preference text
+preference line 0058 example preference text
+preference line 0059 example preference text
+preference line 0060 example preference text
+preference line 0061 example preference text
+preference line 0062 example preference text
+preference line 0063 example preference text
+preference line 0064 example preference text
+preference line 0065 example preference text
+preference line 0066 example preference text
+preference line 0067 example preference text
+preference line 0068 example preference text
+preference line 0069 example preference text
+preference line 0070 example preference text
+preference line 0071 example preference text
+preference line 0072 example preference text
+preference line 0073 example preference text
+preference line 0074 example preference text
+preference line 0075 example preference text
+preference line 0076 example preference text
+preference line 0077 example preference text
+preference line 0078 example preference text
+preference line 0079 example preference text
+preference line 0080 example preference text
+preference line 0081 example preference text
+preference line 0082 example preference text
+preference line 0083 example preference text
+preference line 0084 example preference text
+preference line 0085 example preference text
+preference line 0086 example preference text
+preference line 0087 example preference text
+preference line 0088 example preference text
+preference line 0089 example preference text
+preference line 0090 example preference text
+preference line 0091 example preference text
+preference line 0092 example preference text
+preference line 0093 example preference text
+preference line 0094 example preference text
+preference line 0095 example preference text
+preference line 0096 example preference text
+preference line 0097 example preference text
+preference line 0098 example preference text
+preference line 0099 example preference text
+preference line 0100 example preference text
+preference line 0101 example preference text
+preference line 0102 example preference text
+preference line 0103 example preference text
+preference line 0104 example preference text
+preference line 0105 example preference text
+preference line 0106 example preference text
+preference line 0107 example preference text
+preference line 0108 example preference text
+preference line 0109 example preference text
+preference line 0110 example preference text
+preference line 0111 example preference text
+preference line 0112 example preference text
+preference line 0113 example preference text
+preference line 0114 example preference text
+preference line 0115 example preference text
+preference line 0116 example preference text
+preference line 0117 example preference text
+preference line 0118 example preference text
+preference line 0119 example preference text
+preference line 0120 example preference text
+preference line 0121 example preference text
+preference line 0122 example preference text
+preference line 0123 example preference text
+preference line 0124 example preference text
+preference line 0125 example preference text
+preference line 0126 example preference text
+preference line 0127 example preference text
+preference line 0128 example preference text
+preference line 0129 example preference text
+preference line 0130 example preference text
+preference line 0131 example preference text
+preference line 0132 example preference text
+preference line 0133 example preference text
+preference line 0134 example preference text
+preference line 0135 example preference text
+preference line 0136 example preference text
+preference line 0137 example preference text
+preference line 0138 example preference text
+preference line 0139 example preference text
+preference line 0140 example preference text
+preference line 0141 example preference text
+preference line 0142 example preference text
+preference line 0143 example preference text
+preference line 0144 example preference text
+preference line 0145 example preference text
+preference line 0146 example preference text
+preference line 0147 example preference text
+preference line 0148 example preference text
+preference line 0149 example preference text
+preference line 0150 example preference text
+preference line 0151 example preference text
+preference line 0152 example preference text
+preference line 0153 example preference text
+preference line 0154 example preference text
+preference line 0155 example preference text
+preference line 0156 example preference text
+preference line 0157 example preference text
+preference line 0158 example preference text
+preference line 0159 example preference text
+preference line 0160 example preference text
+preference line 0161 example preference text
+preference line 0162 example preference text
+preference line 0163 example preference text
+preference line 0164 example preference text
+preference line 0165 example preference text
+preference line 0166 example preference text
+preference line 0167 example preference text
+preference line 0168 example preference text
+preference line 0169 example preference text
+preference line 0170 example preference text
+preference line 0171 example preference text
+preference line 0172 example preference text
+preference line 0173 example preference text
+preference line 0174 example preference text
+preference line 0175 example preference text
+preference line 0176 example preference text
+preference line 0177 example preference text
+preference line 0178 example preference text
+preference line 0179 example preference text
+preference line 0180 example preference text
+preference line 0181 example preference text
+preference line 0182 example preference text
+preference line 0183 example preference text
+preference line 0184 example preference text
+preference line 0185 example preference text
+preference line 0186 example preference text
+preference line 0187 example preference text
+preference line 0188 example preference text
+preference line 0189 example preference text
+preference line 0190 example preference text
+preference line 0191 example preference text
+preference line 0192 example preference text
+preference line 0193 example preference text
+preference line 0194 example preference text
+preference line 0195 example preference text
+preference line 0196 example preference text
+preference line 0197 example preference text
+preference line 0198 example preference text
+preference line 0199 example preference text
+preference line 0200 example preference text
+preference line 0201 example preference text
+preference line 0202 example preference text
+preference line 0203 example preference text
+preference line 0204 example preference text
+preference line 0205 example preference text
+preference line 0206 example preference text
+preference line 0207 example preference text
+preference line 0208 example preference text
+preference line 0209 example preference text
+preference line 0210 example preference text
+preference line 0211 example preference text
+preference line 0212 example preference text
+preference line 0213 example preference text
+preference line 0214 example preference text
+preference line 0215 example preference text
+preference line 0216 example preference text
+preference line 0217 example preference text
+preference line 0218 example preference text
+preference line 0219 example preference text
+preference line 0220 example preference text
+preference line 0221 example preference text
+preference line 0222 example preference text
+preference line 0223 example preference text
+preference line 0224 example preference text
+preference line 0225 example preference text
+preference line 0226 example preference text
+preference line 0227 example preference text
+preference line 0228 example preference text
+preference line 0229 example preference text
+preference line 0230 example preference text
+preference line 0231 example preference text
+preference line 0232 example preference text
+preference line 0233 example preference text
+preference line 0234 example preference text
+preference line 0235 example preference text
+preference line 0236 example preference text
+preference line 0237 example preference text
+preference line 0238 example preference text
+preference line 0239 example preference text
+preference line 0240 example preference text
+preference line 0241 example preference text
+preference line 0242 example preference text
+preference line 0243 example preference text
+preference line 0244 example preference text
+preference line 0245 example preference text
+preference line 0246 example preference text
+preference line 0247 example preference text
+preference line 0248 example preference text
+preference line 0249 example preference text
+preference line 0250 example preference text
+preference line 0251 example preference text
+preference line 0252 example preference text
+preference line 0253 example preference text
+preference line 0254 example preference text
+preference line 0255 example preference text
+preference line 0256 example preference text
+preference line 0257 example preference text
+preference line 0258 example preference text
+preference line 0259 example preference text
+preference line 0260 example preference text
+preference line 0261 example preference text
+preference line 0262 example preference text
+preference line 0263 example preference text
+preference line 0264 example preference text
+preference line 0265 example preference text
+preference line 0266 example preference text
+preference line 0267 example preference text
+preference line 0268 example preference text
+preference line 0269 example preference text
+preference line 0270 example preference text
+preference line 0271 example preference text
+preference line 0272 example preference text
+preference line 0273 example preference text
+preference line 0274 example preference text
+preference line 0275 example preference text
+preference line 0276 example preference text
+preference line 0277 example preference text
+preference line 0278 example preference text
+preference line 0279 example preference text
+preference line 0280 example preference text
+preference line 0281 example preference text
+preference line 0282 example preference text
+preference line 0283 example preference text
+preference line 0284 example preference text
+preference line 0285 example preference text
+preference line 0286 example preference text
+preference line 0287 example preference text
+preference line 0288 example preference text
+preference line 0289 example preference text
+preference line 0290 example preference text
+preference line 0291 example preference text
+preference line 0292 example preference text
+preference line 0293 example preference text
+preference line 0294 example preference text
+preference line 0295 example preference text
+preference line 0296 example preference text
+preference line 0297 example preference text
+preference line 0298 example preference text
+preference line 0299 example preference text
+preference line 0300 example preference text
+preference line 0301 example preference text
+preference line 0302 example preference text
+preference line 0303 example preference text
+preference line 0304 example preference text
+preference line 0305 example preference text
+preference line 0306 example preference text
+preference line 0307 example preference text
+preference line 0308 example preference text
+preference line 0309 example preference text
+preference line 0310 example preference text
+preference line 0311 example preference text
+preference line 0312 example preference text
+preference line 0313 example preference text
+preference line 0314 example preference text
+preference line 0315 example preference text
+preference line 0316 example preference text
+preference line 0317 example preference text
+preference line 0318 example preference text
+preference line 0319 example preference text
+preference line 0320 example preference text
+preference line 0321 example preference text
+preference line 0322 example preference text
+preference line 0323 example preference text
+preference line 0324 example preference text
+preference line 0325 example preference text
+preference line 0326 example preference text
+preference line 0327 example preference text
+preference line 0328 example preference text
+preference line 0329 example preference text
+preference line 0330 example preference text
+preference line 0331 example preference text
+preference line 0332 example preference text
+preference line 0333 example preference text
+preference line 0334 example preference text
+preference line 0335 example preference text
+preference line 0336 example preference text
+preference line 0337 example preference text
+preference line 0338 example preference text
+preference line 0339 example preference text
+preference line 0340 example preference text
+preference line 0341 example preference text
+preference line 0342 example preference text
+preference line 0343 example preference text
+preference line 0344 example preference text
+preference line 0345 example preference text
+preference line 0346 example preference text
+preference line 0347 example preference text
+preference line 0348 example preference text
+preference line 0349 example preference text
+preference line 0350 example preference text
+preference line 0351 example preference text
+preference line 0352 example preference text
+preference line 0353 example preference text
+preference line 0354 example preference text
+preference line 0355 example preference text
+preference line 0356 example preference text
+preference line 0357 example preference text
+preference line 0358 example preference text
+preference line 0359 example preference text
+preference line 0360 example preference text
+preference line 0361 example preference text
+preference line 0362 example preference text
+preference line 0363 example preference text
+preference line 0364 example preference text
+preference line 0365 example preference text
+preference line 0366 example preference text
+preference line 0367 example preference text
+preference line 0368 example preference text
+preference line 0369 example preference text
+preference line 0370 example preference text
+preference line 0371 example preference text
+preference line 0372 example preference text
+preference line 0373 example preference text
+preference line 0374 example preference text
+preference line 0375 example preference text
+preference line 0376 example preference text
+preference line 0377 example preference text
+preference line 0378 example preference text
+preference line 0379 example preference text
+preference line 0380 example preference text
+preference line 0381 example preference text
+preference line 0382 example preference text
+preference line 0383 example preference text
+preference line 0384 example preference text
+preference line 0385 example preference text
+preference line 0386 example preference text
+preference line 0387 example preference text
+preference line 0388 example preference text
+preference line 0389 example preference text
+preference line 0390 example preference text
+preference line 0391 example preference text
+preference line 0392 example preference text
+preference line 0393 example preference text
+preference line 0394 example preference text
+preference line 0395 example preference text
+preference line 0396 example preference text
+preference line 0397 example preference text
+preference line 0398 example preference text
+preference line 0399 example preference text
+
+data/captain-shared.md (shared, main-authoritative, read-only in secondmate homes)
+--------------------------------------------------------------------------------
+ABSENT
+
+data/learnings.md
+--------------------------------------------------------------------------------
+learning line 0000 example learning text
+learning line 0001 example learning text
+learning line 0002 example learning text
+learning line 0003 example learning text
+learning line 0004 example learning text
+learning line 0005 example learning text
+learning line 0006 example learning text
+learning line 0007 example learning text
+learning line 0008 example learning text
+learning line 0009 example learning text
+learning line 0010 example learning text
+learning line 0011 example learning text
+learning line 0012 example learning text
+learning line 0013 example learning text
+learning line 0014 example learning text
+learning line 0015 example learning text
+learning line 0016 example learning text
+learning line 0017 example learning text
+learning line 0018 example learning text
+learning line 0019 example learning text
+learning line 0020 example learning text
+learning line 0021 example learning text
+learning line 0022 example learning text
+learning line 0023 example learning text
+learning line 0024 example learning text
+learning line 0025 example learning text
+learning line 0026 example learning text
+learning line 0027 example learning text
+learning line 0028 example learning text
+learning line 0029 example learning text
+learning line 0030 example learning text
+learning line 0031 example learning text
+learning line 0032 example learning text
+learning line 0033 example learning text
+learning line 0034 example learning text
+learning line 0035 example learning text
+learning line 0036 example learning text
+learning line 0037 example learning text
+learning line 0038 example learning text
+learning line 0039 example learning text
+learning line 0040 example learning text
+learning line 0041 example learning text
+learning line 0042 example learning text
+learning line 0043 example learning text
+learning line 0044 example learning text
+learning line 0045 example learning text
+learning line 0046 example learning text
+learning line 0047 example learning text
+learning line 0048 example learning text
+learning line 0049 example learning text
+learning line 0050 example learning text
+learning line 0051 example learning text
+learning line 0052 example learning text
+learning line 0053 example learning text
+learning line 0054 example learning text
+learning line 0055 example learning text
+learning line 0056 example learning text
+learning line 0057 example learning text
+learning line 0058 example learning text
+learning line 0059 example learning text
+learning line 0060 example learning text
+learning line 0061 example learning text
+learning line 0062 example learning text
+learning line 0063 example learning text
+learning line 0064 example learning text
+learning line 0065 example learning text
+learning line 0066 example learning text
+learning line 0067 example learning text
+learning line 0068 example learning text
+learning line 0069 example learning text
+learning line 0070 example learning text
+learning line 0071 example learning text
+learning line 0072 example learning text
+learning line 0073 example learning text
+learning line 0074 example learning text
+learning line 0075 example learning text
+learning line 0076 example learning text
+learning line 0077 example learning text
+learning line 0078 example learning text
+learning line 0079 example learning text
+learning line 0080 example learning text
+learning line 0081 example learning text
+learning line 0082 example learning text
+learning line 0083 example learning text
+learning line 0084 example learning text
+learning line 0085 example learning text
+learning line 0086 example learning text
+learning line 0087 example learning text
+learning line 0088 example learning text
+learning line 0089 example learning text
+learning line 0090 example learning text
+learning line 0091 example learning text
+learning line 0092 example learning text
+learning line 0093 example learning text
+learning line 0094 example learning text
+learning line 0095 example learning text
+learning line 0096 example learning text
+learning line 0097 example learning text
+learning line 0098 example learning text
+learning line 0099 example learning text
+learning line 0100 example learning text
+learning line 0101 example learning text
+learning line 0102 example learning text
+learning line 0103 example learning text
+learning line 0104 example learning text
+learning line 0105 example learning text
+learning line 0106 example learning text
+learning line 0107 example learning text
+learning line 0108 example learning text
+learning line 0109 example learning text
+learning line 0110 example learning text
+learning line 0111 example learning text
+learning line 0112 example learning text
+learning line 0113 example learning text
+learning line 0114 example learning text
+learning line 0115 example learning text
+learning line 0116 example learning text
+learning line 0117 example learning text
+learning line 0118 example learning text
+learning line 0119 example learning text
+learning line 0120 example learning text
+learning line 0121 example learning text
+learning line 0122 example learning text
+learning line 0123 example learning text
+learning line 0124 example learning text
+learning line 0125 example learning text
+learning line 0126 example learning text
+learning line 0127 example learning text
+learning line 0128 example learning text
+learning line 0129 example learning text
+learning line 0130 example learning text
+learning line 0131 example learning text
+learning line 0132 example learning text
+learning line 0133 example learning text
+learning line 0134 example learning text
+learning line 0135 example learning text
+learning line 0136 example learning text
+learning line 0137 example learning text
+learning line 0138 example learning text
+learning line 0139 example learning text
+learning line 0140 example learning text
+learning line 0141 example learning text
+learning line 0142 example learning text
+learning line 0143 example learning text
+learning line 0144 example learning text
+learning line 0145 example learning text
+learning line 0146 example learning text
+learning line 0147 example learning text
+learning line 0148 example learning text
+learning line 0149 example learning text
+learning line 0150 example learning text
+learning line 0151 example learning text
+learning line 0152 example learning text
+learning line 0153 example learning text
+learning line 0154 example learning text
+learning line 0155 example learning text
+learning line 0156 example learning text
+learning line 0157 example learning text
+learning line 0158 example learning text
+learning line 0159 example learning text
+learning line 0160 example learning text
+learning line 0161 example learning text
+learning line 0162 example learning text
+learning line 0163 example learning text
+learning line 0164 example learning text
+learning line 0165 example learning text
+learning line 0166 example learning text
+learning line 0167 example learning text
+learning line 0168 example learning text
+learning line 0169 example learning text
+learning line 0170 example learning text
+learning line 0171 example learning text
+learning line 0172 example learning text
+learning line 0173 example learning text
+learning line 0174 example learning text
+learning line 0175 example learning text
+learning line 0176 example learning text
+learning line 0177 example learning text
+learning line 0178 example learning text
+learning line 0179 example learning text
+learning line 0180 example learning text
+learning line 0181 example learning text
+learning line 0182 example learning text
+learning line 0183 example learning text
+learning line 0184 example learning text
+learning line 0185 example learning text
+learning line 0186 example learning text
+learning line 0187 example learning text
+learning line 0188 example learning text
+learning line 0189 example learning text
+learning line 0190 example learning text
+learning line 0191 example learning text
+learning line 0192 example learning text
+learning line 0193 example learning text
+learning line 0194 example learning text
+learning line 0195 example learning text
+learning line 0196 example learning text
+learning line 0197 example learning text
+learning line 0198 example learning text
+learning line 0199 example learning text
+learning line 0200 example learning text
+learning line 0201 example learning text
+learning line 0202 example learning text
+learning line 0203 example learning text
+learning line 0204 example learning text
+learning line 0205 example learning text
+learning line 0206 example learning text
+learning line 0207 example learning text
+learning line 0208 example learning text
+learning line 0209 example learning text
+learning line 0210 example learning text
+learning line 0211 example learning text
+learning line 0212 example learning text
+learning line 0213 example learning text
+learning line 0214 example learning text
+learning line 0215 example learning text
+learning line 0216 example learning text
+learning line 0217 example learning text
+learning line 0218 example learning text
+learning line 0219 example learning text
+learning line 0220 example learning text
+learning line 0221 example learning text
+learning line 0222 example learning text
+learning line 0223 example learning text
+learning line 0224 example learning text
+learning line 0225 example learning text
+learning line 0226 example learning text
+learning line 0227 example learning text
+learning line 0228 example learning text
+learning line 0229 example learning text
+learning line 0230 example learning text
+learning line 0231 example learning text
+learning line 0232 example learning text
+learning line 0233 example learning text
+learning line 0234 example learning text
+learning line 0235 example learning text
+learning line 0236 example learning text
+learning line 0237 example learning text
+learning line 0238 example learning text
+learning line 0239 example learning text
+learning line 0240 example learning text
+learning line 0241 example learning text
+learning line 0242 example learning text
+learning line 0243 example learning text
+learning line 0244 example learning text
+learning line 0245 example learning text
+learning line 0246 example learning text
+learning line 0247 example learning text
+learning line 0248 example learning text
+learning line 0249 example learning text
+learning line 0250 example learning text
+learning line 0251 example learning text
+learning line 0252 example learning text
+learning line 0253 example learning text
+learning line 0254 example learning text
+learning line 0255 example learning text
+learning line 0256 example learning text
+learning line 0257 example learning text
+learning line 0258 example learning text
+learning line 0259 example learning text
+learning line 0260 example learning text
+learning line 0261 example learning text
+learning line 0262 example learning text
+learning line 0263 example learning text
+learning line 0264 example learning text
+learning line 0265 example learning text
+learning line 0266 example learning text
+learning line 0267 example learning text
+learning line 0268 example learning text
+learning line 0269 example learning text
+learning line 0270 example learning text
+learning line 0271 example learning text
+learning line 0272 example learning text
+learning line 0273 example learning text
+learning line 0274 example learning text
+learning line 0275 example learning text
+learning line 0276 example learning text
+learning line 0277 example learning text
+learning line 0278 example learning text
+learning line 0279 example learning text
+learning line 0280 example learning text
+learning line 0281 example learning text
+learning line 0282 example learning text
+learning line 0283 example learning text
+learning line 0284 example learning text
+learning line 0285 example learning text
+learning line 0286 example learning text
+learning line 0287 example learning text
+learning line 0288 example learning text
+learning line 0289 example learning text
+learning line 0290 example learning text
+learning line 0291 example learning text
+learning line 0292 example learning text
+learning line 0293 example learning text
+learning line 0294 example learning text
+learning line 0295 example learning text
+learning line 0296 example learning text
+learning line 0297 example learning text
+learning line 0298 example learning text
+learning line 0299 example learning text
+learning line 0300 example learning text
+learning line 0301 example learning text
+learning line 0302 example learning text
+learning line 0303 example learning text
+learning line 0304 example learning text
+learning line 0305 example learning text
+learning line 0306 example learning text
+learning line 0307 example learning text
+learning line 0308 example learning text
+learning line 0309 example learning text
+learning line 0310 example learning text
+learning line 0311 example learning text
+learning line 0312 example learning text
+learning line 0313 example learning text
+learning line 0314 example learning text
+learning line 0315 example learning text
+learning line 0316 example learning text
+learning line 0317 example learning text
+learning line 0318 example learning text
+learning line 0319 example learning text
+learning line 0320 example learning text
+learning line 0321 example learning text
+learning line 0322 example learning text
+learning line 0323 example learning text
+learning line 0324 example learning text
+learning line 0325 example learning text
+learning line 0326 example learning text
+learning line 0327 example learning text
+learning line 0328 example learning text
+learning line 0329 example learning text
+learning line 0330 example learning text
+learning line 0331 example learning text
+learning line 0332 example learning text
+learning line 0333 example learning text
+learning line 0334 example learning text
+learning line 0335 example learning text
+learning line 0336 example learning text
+learning line 0337 example learning text
+learning line 0338 example learning text
+learning line 0339 example learning text
+learning line 0340 example learning text
+learning line 0341 example learning text
+learning line 0342 example learning text
+learning line 0343 example learning text
+learning line 0344 example learning text
+learning line 0345 example learning text
+learning line 0346 example learning text
+learning line 0347 example learning text
+learning line 0348 example learning text
+learning line 0349 example learning text
+learning line 0350 example learning text
+learning line 0351 example learning text
+learning line 0352 example learning text
+learning line 0353 example learning text
+learning line 0354 example learning text
+learning line 0355 example learning text
+learning line 0356 example learning text
+learning line 0357 example learning text
+learning line 0358 example learning text
+learning line 0359 example learning text
+learning line 0360 example learning text
+learning line 0361 example learning text
+learning line 0362 example learning text
+learning line 0363 example learning text
+learning line 0364 example learning text
+learning line 0365 example learning text
+learning line 0366 example learning text
+learning line 0367 example learning text
+learning line 0368 example learning text
+learning line 0369 example learning text
+learning line 0370 example learning text
+learning line 0371 example learning text
+learning line 0372 example learning text
+learning line 0373 example learning text
+learning line 0374 example learning text
+learning line 0375 example learning text
+learning line 0376 example learning text
+learning line 0377 example learning text
+learning line 0378 example learning text
+learning line 0379 example learning text
+learning line 0380 example learning text
+learning line 0381 example learning text
+learning line 0382 example learning text
+learning line 0383 example learning text
+learning line 0384 example learning text
+learning line 0385 example learning text
+learning line 0386 example learning text
+learning line 0387 example learning text
+learning line 0388 example learning text
+learning line 0389 example learning text
+learning line 0390 example learning text
+learning line 0391 example learning text
+learning line 0392 example learning text
+learning line 0393 example learning text
+learning line 0394 example learning text
+learning line 0395 example learning text
+learning line 0396 example learning text
+learning line 0397 example learning text
+learning line 0398 example learning text
+learning line 0399 example learning text
+
+================================================================================
+NEXT STEP
+================================================================================
+Follow the supervision operating instructions block above for harness 'claude'.
+This script never starts supervision itself.
+
+The digest above is complete for this session start. The READ-ONCE CONTRACT
+section near the top of it governs what may still be read from disk.
