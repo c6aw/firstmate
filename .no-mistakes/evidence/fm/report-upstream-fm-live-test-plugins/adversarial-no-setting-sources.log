@@ -1,0 +1,2 @@
+not ok - claude 2.1.326 (Claude Code) still ran the user-scope plugin under the live-test flags
+exit=1

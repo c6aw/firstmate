@@ -1,0 +1,6 @@
+ok - Claude Code 2.1.326 (Claude Code): the live-test flags keep the fixture's project hooks, drop user-scope plugins and hooks, and keep bypass mode without its warning
+
+real	0m27.992s
+user	0m5.054s
+sys	0m2.932s
+exit=0
