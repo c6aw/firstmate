@@ -1,0 +1,5 @@
+ok - --reemit reprints the digest without repeating startup's mutating sweeps and still drains queued wakes
+ok - --reemit stays under the hook output cap, keeps the safety lines inline, and points to each bulky section
+ok - --reemit prints a supervision command that runs from a home path with a space
+ok - --reemit re-verifies lock ownership and keeps repair ownership with whoever holds it
+done

@@ -1,0 +1,204 @@
+RE-EMIT CUE: this re-emit prints each bulky section as a pointer to its file, so it
+stays small. Read a pointed file only when this turn needs that section. If the harness
+still saved this output to a file, read that file through its WAKE QUEUE section first.
+
+================================================================================
+SESSION START (CONTEXT RE-EMIT) - /tmp/fm-lab.mfeUxz
+================================================================================
+This session already took the helm at its own startup and has only lost its
+context. Lock ownership is re-verified and the durable records below are
+reprinted or pointed to, but the sweeps startup already reconciled - project clone refresh,
+secondmate convergence and liveness, pending remote handoff
+retry, X-mode artifact writes, and stale Herdr child cleanup - are NOT repeated.
+Queued wakes ARE still drained: they arrived after startup and are this turn work.
+
+LOCK
+--------------------------------------------------------------------------------
+lock acquired: harness pid 103270
+
+HOME ROLE
+--------------------------------------------------------------------------------
+fm-role: user (default)
+
+BOOTSTRAP
+--------------------------------------------------------------------------------
+PRESENTATION_UNAVAILABLE: lavish-axi (requires >=0.1.77; install: npm install -g lavish-axi && lavish-axi setup hooks) - nonvisual work may proceed with plain-text decisions and reports; install or upgrade before using Lavish
+
+WAKE QUEUE
+--------------------------------------------------------------------------------
+1795181176	26	signal	orphan-01.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181176	27	signal	orphan-02.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181176	28	signal	orphan-03.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181177	29	signal	orphan-04.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181177	30	signal	orphan-05.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181177	31	signal	task-001.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181177	32	signal	task-002.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181177	33	signal	task-003.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181177	34	signal	task-004.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181177	35	signal	task-005.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181177	36	signal	task-006.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181177	37	signal	task-007.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181177	38	signal	task-008.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181177	39	signal	task-009.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181177	40	signal	task-010.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181177	41	signal	task-011.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181177	42	signal	task-012.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181178	43	signal	task-013.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181178	44	signal	task-014.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181178	45	signal	task-015.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181178	46	signal	task-016.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181178	47	signal	task-017.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181178	48	signal	task-018.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181178	49	signal	task-019.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181178	50	signal	task-020.status	signal: /tmp/fm-lab.mfeUxz/state/orphan-01.status /tmp/fm-lab.mfeUxz/state/orphan-02.status /tmp/fm-lab.mfeUxz/state/orphan-03.status /tmp/fm-lab.mfeUxz/state/orphan-04.status /tmp/fm-lab.mfeUxz/state/orphan-05.status /tmp/fm-lab.mfeUxz/state/task-001.status /tmp/fm-lab.mfeUxz/state/task-002.status /tmp/fm-lab.mfeUxz/state/task-003.status /tmp/fm-lab.mfeUxz/state/task-004.status /tmp/fm-lab.mfeUxz/state/task-005.status /tmp/fm-lab.mfeUxz/state/task-006.status /tmp/fm-lab.mfeUxz/state/task-007.status /tmp/fm-lab.mfeUxz/state/task-008.status /tmp/fm-lab.mfeUxz/state/task-009.status /tmp/fm-lab.mfeUxz/state/task-010.status /tmp/fm-lab.mfeUxz/state/task-011.status /tmp/fm-lab.mfeUxz/state/task-012.status /tmp/fm-lab.mfeUxz/state/task-013.status /tmp/fm-lab.mfeUxz/state/task-014.status /tmp/fm-lab.mfeUxz/state/task-015.status /tmp/fm-lab.mfeUxz/state/task-016.status /tmp/fm-lab.mfeUxz/state/task-017.status /tmp/fm-lab.mfeUxz/state/task-018.status /tmp/fm-lab.mfeUxz/state/task-019.status /tmp/fm-lab.mfeUxz/state/task-020.status
+1795181198	51	signal	task-007	done: adversarial wake queued after startup
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 51 --recovery-generation 154211.1795181175.1b8laF
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+
+================================================================================
+SUPERVISION OPERATING INSTRUCTIONS - primary harness: claude
+================================================================================
+Not reprinted in a context re-emit; print them before arming, repairing, or ending a
+turn with work under way: FM_HOME=/tmp/fm-lab.mfeUxz /tmp/fm-lab.mfeUxz-clone/bin/fm-supervision-instructions.sh --harness claude --read-only 0 --afk 1 --afk-mode away --x-mode 0
+
+================================================================================
+READ-ONCE CONTRACT
+================================================================================
+This context re-emit prints the lock, wake queue, away posture, and network
+checks in full, and every bulky section below as a one-line pointer to its file.
+Read a pointed file only when this turn needs that section, never all of them
+at once, and do NOT bulk-read data/backlog.md or state/*.status.
+If a STARTUP TRUNCATED banner names a stage, that stage never ran: reconcile it.
+
+================================================================================
+FLEET STATE
+================================================================================
+
+data/backlog.md
+--------------------------------------------------------------------------------
+not reprinted in a context re-emit; read /tmp/fm-lab.mfeUxz/data/backlog.md (or bin/fm-tasks-axi.sh list) when this turn needs the backlog
+
+Work under way (state/*.meta)
+--------------------------------------------------------------------------------
+Per task, only its endpoint is reprinted in a context re-emit. Its fields are in
+/tmp/fm-lab.mfeUxz/state/<id>.meta and its wake-EVENT history in <id>.status (bin/fm-crew-state.sh <id>
+owns current state); read one only when this turn needs it.
+
+--- task-001 ---
+endpoint: dead (backend=tmux window=fm-task-001)
+
+--- task-002 ---
+endpoint: dead (backend=tmux window=fm-task-002)
+
+--- task-003 ---
+endpoint: dead (backend=tmux window=fm-task-003)
+
+--- task-004 ---
+endpoint: dead (backend=tmux window=fm-task-004)
+
+--- task-005 ---
+endpoint: dead (backend=tmux window=fm-task-005)
+
+--- task-006 ---
+endpoint: dead (backend=tmux window=fm-task-006)
+
+--- task-007 ---
+endpoint: dead (backend=tmux window=fm-task-007)
+
+--- task-008 ---
+endpoint: dead (backend=tmux window=fm-task-008)
+
+--- task-009 ---
+endpoint: dead (backend=tmux window=fm-task-009)
+
+--- task-010 ---
+endpoint: dead (backend=tmux window=fm-task-010)
+
+--- task-011 ---
+endpoint: dead (backend=tmux window=fm-task-011)
+
+--- task-012 ---
+endpoint: dead (backend=tmux window=fm-task-012)
+
+--- task-013 ---
+endpoint: dead (backend=tmux window=fm-task-013)
+
+--- task-014 ---
+endpoint: dead (backend=tmux window=fm-task-014)
+
+--- task-015 ---
+endpoint: dead (backend=tmux window=fm-task-015)
+
+--- task-016 ---
+endpoint: dead (backend=tmux window=fm-task-016)
+
+--- task-017 ---
+endpoint: dead (backend=tmux window=fm-task-017)
+
+--- task-018 ---
+endpoint: dead (backend=tmux window=fm-task-018)
+
+--- task-019 ---
+endpoint: dead (backend=tmux window=fm-task-019)
+
+--- task-020 ---
+endpoint: dead (backend=tmux window=fm-task-020)
+
+Orphan status logs (state/*.status without matching .meta)
+--------------------------------------------------------------------------------
+Only ids are reprinted in a context re-emit; each log is /tmp/fm-lab.mfeUxz/state/<id>.status.
+
+--- orphan-01 ---
+
+--- orphan-02 ---
+
+--- orphan-03 ---
+
+--- orphan-04 ---
+
+--- orphan-05 ---
+
+AFK
+--------------------------------------------------------------------------------
+present - away-mode supervision is active; the daemon owns the watcher (legacy flag with no posture record).
+
+================================================================================
+NETWORK CHECKS
+================================================================================
+completed off the startup path in 1s: GitHub authentication.
+(silent - no problems found)
+
+================================================================================
+CONTEXT
+================================================================================
+
+data/projects.md
+--------------------------------------------------------------------------------
+ABSENT
+
+data/secondmates.md
+--------------------------------------------------------------------------------
+ABSENT
+
+data/captain.md
+--------------------------------------------------------------------------------
+not reprinted in a context re-emit; read /tmp/fm-lab.mfeUxz/data/captain.md before work it governs
+
+data/captain-shared.md (shared, main-authoritative, read-only in secondmate homes)
+--------------------------------------------------------------------------------
+ABSENT
+
+data/learnings.md
+--------------------------------------------------------------------------------
+not reprinted in a context re-emit; read /tmp/fm-lab.mfeUxz/data/learnings.md before work it governs
+
+================================================================================
+NEXT STEP
+================================================================================
+Away mode is active. Print the supervision instructions with the command in the
+SUPERVISION OPERATING INSTRUCTIONS section above, then follow them:
+load /afk and ensure the daemon is running, because the daemon owns watcher
+supervision.
+
+The digest above is complete for this session start. The READ-ONCE CONTRACT
+section near the top of it governs what may still be read from disk.

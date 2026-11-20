@@ -1,0 +1,34 @@
+<persisted-output>
+Output too large (33.4KB). Full output saved to: ~/.claude/projects/-tmp-fm-lab-mfeUxz-clone/0fe36e09-05dc-4ea4-a20a-f24e652ac879/tool-results/hook-781b1512-818b-4a4b-a131-2c37009f6f06-76bf42d54a22c52a3108a2ec8afbe812-stdout.txt
+
+Preview (first 2KB):
+RE-EMIT CUE: this re-emit prints each bulky section as a pointer to its file, so it
+stays small. Read a pointed file only when this turn needs that section. If the harness
+still saved this output to a file, read that file through its WAKE QUEUE section first.
+
+================================================================================
+SESSION START (CONTEXT RE-EMIT) - /tmp/fm-lab.mfeUxz
+================================================================================
+This session already took the helm at its own startup and has only lost its
+context. Lock ownership is re-verified and the durable records below are
+reprinted or pointed to, but the sweeps startup already reconciled - project clone refresh,
+secondmate convergence and liveness, pending remote handoff
+retry, X-mode artifact writes, and stale Herdr child cleanup - are NOT repeated.
+Queued wakes ARE still drained: they arrived after startup and are this turn work.
+
+LOCK
+--------------------------------------------------------------------------------
+lock acquired: harness pid 103270
+
+HOME ROLE
+--------------------------------------------------------------------------------
+fm-role: user (default)
+
+BOOTSTRAP
+--------------------------------------------------------------------------------
+PRESENTATION_UNAVAILABLE: lavish-axi (requires >=0.1.77; install: npm install -g lavish-axi && lavish-axi setup hooks) - nonvisual work may proceed with plain-text decisions and reports; install or upgrade before using Lavish
+
+WAKE QUEUE
+--------------------------------------------------------------------------------
+...
+</persisted-output>
