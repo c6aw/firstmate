@@ -1,0 +1,13 @@
+== sweep 1 (head watcher) stdout:
+check: $LAB/state/a-chatty.check.sh: chatty: prints every interval
+watcher exit=0
+== b-quiet runs: 1; c-late runs: 1
+== drain:
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 2 --recovery-generation 4084283.1795285421.nqfT2x
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+1	check	$LAB/state/a-chatty.check.sh
+2	check	$LAB/state/c-late.check.sh
+== sweep 2 (chatty check still printing) stdout:
+check: $LAB/state/a-chatty.check.sh: chatty: prints every interval
+watcher exit=0
+== b-quiet runs: 2; c-late runs: 2

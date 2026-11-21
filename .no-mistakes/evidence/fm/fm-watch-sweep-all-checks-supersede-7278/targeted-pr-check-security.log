@@ -1,0 +1,6 @@
+ok - a degraded ready PR wakes once per head/pipeline transition and stays silent on a repeat
+ok - a degraded wake is queued before its dedupe marker, so a failed marker save never silences it
+ok - a degraded wake does not end the sweep; later checks run and one wake follows
+ok - a timed-out custom check surfaces its timeout and earlier output on installed and fallback timeout paths
+ok - bootstrap does not rewrite unauthenticated checks or emit retired migration diagnostics
+exit=0
