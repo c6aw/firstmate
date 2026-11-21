@@ -1,0 +1,15 @@
+ok - historical annotations replay nothing already announced and keep everything new
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 1623140.1795269552.PossSD
+ok - concurrent append plus drain preserves durable records through acknowledgement
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 1643580.1795269558.NEonIt
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+ok - registered custom check output is queued before cadence suppression
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 2 --recovery-generation 1645853.1795269560.urc8LH
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+ok - one sweep runs every due check and queues each printing result
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 2 --recovery-generation 1648202.1795269561.9hg3RU
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+ok - a printing check does not skip the park-on-review tick
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 1650258.1795269563.d7F223
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+ok - multi-line check output wakes as one line matching its queued row

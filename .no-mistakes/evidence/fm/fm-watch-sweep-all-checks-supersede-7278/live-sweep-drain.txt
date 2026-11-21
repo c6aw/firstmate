@@ -1,0 +1,5 @@
+$ FM_STATE_OVERRIDE=/tmp/fm-sweep-live bin/fm-wake-drain.sh   (run right after the single sweep in live-sweep-transcript.txt)
+1795269656	1	check	/tmp/fm-sweep-live/a-chatty.check.sh	check: /tmp/fm-sweep-live/a-chatty.check.sh: chatty-every-interval
+1795269656	2	check	/tmp/fm-sweep-live/c-late.check.sh	check: /tmp/fm-sweep-live/c-late.check.sh: disk-full
+1795269656	3	check	unauthenticated-state-checks	check: rejected unauthenticated state checks: /tmp/fm-sweep-live/d-unregistered.check.sh
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 3 --recovery-generation 1790670.1795269656.pt5iLP

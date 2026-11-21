@@ -1,0 +1,6 @@
+ok - a degraded ready PR wakes once per head/pipeline transition and stays silent on a repeat
+ok - a degraded wake is queued before its dedupe marker, so a failed marker save never silences it
+ok - a degraded wake does not end the sweep; later checks run and one wake follows
+ok - degraded wake reads are opt-in; absent flag keeps GitHub and GitLab polls merged-only, silent, and baseline-free
+ok - a renumbered registration is never re-recorded around a tampered artifact: swapped-check altered-check swapped-sidecar altered-sidecar altered-template-hash wrong-mode hardlinked-check split-device foreign-device, or a pending retirement
+ok - registered generations survive template updates and relaunch metadata without executing sidecar code or trusting forged bytes

@@ -1,0 +1,4 @@
+$ fm-watch.sh  (a-chatty prints, b-quiet silent, c-late prints, d-unregistered is rejected)
+check: /tmp/fm-sweep-live/a-chatty.check.sh: chatty-every-interval
+exit=0
+b-quiet ran in the same sweep: yes

@@ -1,0 +1,4 @@
+not ok - the quiet check after a printing check did not run
+rc=1
+not ok - the park-on-review tick did not run after a printing check
+rc=1
