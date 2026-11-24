@@ -1,0 +1,89 @@
+===START
+##### base
+-- folder ACL
+user::rwx
+user:1001:r-x
+group::r-x
+mask::r-x
+other::---
+default:user::rwx
+default:user:1001:r-x
+default:group::r-x
+default:mask::r-x
+default:other::---
+
+fm-send rc=0
+-- record
+user::rw-
+user:1001:r-x			#effective:---
+group::r-x			#effective:---
+mask::---
+other::---
+
+-- uid 1001 reads record:
+cat: /w/base/state/t1.inbox/001.msg: Permission denied
+rc=1
+-- uid 1002 reads record:
+cat: /w/base/state/t1.inbox/001.msg: Permission denied
+rc=1
+-- uid 1001 tries to write record:
+bash: line 1: /w/base/state/t1.inbox/001.msg: Permission denied
+rc=1
+-- idempotent writer (remote/secondmate enqueue path) under umask 077
+/w/base/state/t1.inbox/002.msg
+/w/base/state/t1.inbox/002.msg
+cat: /w/base/state/t1.inbox/002.msg: Permission denied
+001.msg  002.msg  handled
+-- after ack mv, uid 1001 reads handled record:
+tail: cannot open '/w/base/state/t1.inbox/handled/001.msg' for reading: Permission denied
+-- plain folder, umask 077 (private stays private)
+600
+cat: /w/base/state/plain.inbox/001.msg: Permission denied
+rc=1
+##### fixed
+-- folder ACL
+user::rwx
+user:1001:r-x
+group::r-x
+mask::r-x
+other::---
+default:user::rwx
+default:user:1001:r-x
+default:group::r-x
+default:mask::r-x
+default:other::---
+
+fm-send rc=0
+-- record
+user::rw-
+user:1001:r-x			#effective:r--
+group::r-x			#effective:r--
+mask::r--
+other::---
+
+-- uid 1001 reads record:
+schema=fm-task-inbox.v1
+at=2026-11-24T21:34:34Z
+body-terminator=1
+--
+steer for the second account
+rc=0
+-- uid 1002 reads record:
+cat: /w/fixed/state/t1.inbox/001.msg: Permission denied
+rc=1
+-- uid 1001 tries to write record:
+bash: line 1: /w/fixed/state/t1.inbox/001.msg: Permission denied
+rc=1
+-- idempotent writer (remote/secondmate enqueue path) under umask 077
+/w/fixed/state/t1.inbox/002.msg
+/w/fixed/state/t1.inbox/002.msg
+--
+idem
+001.msg  002.msg  handled
+-- after ack mv, uid 1001 reads handled record:
+steer for the second account
+-- plain folder, umask 077 (private stays private)
+600
+cat: /w/fixed/state/plain.inbox/001.msg: Permission denied
+rc=1
+===END

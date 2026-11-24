@@ -1,0 +1,93 @@
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/fm-lab.pUmdf3
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the requested message WILL still be sent.
+●  watcher supervision needs Stop-owned automatic recovery; inspect the hook registration and startup status before ending the turn.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+fm-send: doorbell not typed because the agent in lab:fm-t1 has exited; the steer is durably recorded at /tmp/fm-lab.pUmdf3/state/u022.inbox/001.msg for recovery (stuck-crewmate-recovery), and the watcher will not re-ring a dead pane
+fm-send rc=0
+umask 022: record 644  ordinary 644
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/fm-lab.pUmdf3
+WARNING: watcher still down (same stale episode; last beat: never, grace 300s) - full banner already printed this episode.
+fm-send: doorbell not typed because the agent in lab:fm-t1 has exited; the steer is durably recorded at /tmp/fm-lab.pUmdf3/state/u077.inbox/001.msg for recovery (stuck-crewmate-recovery), and the watcher will not re-ring a dead pane
+fm-send rc=0
+umask 077: record 600  ordinary 600
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/fm-lab.pUmdf3
+WARNING: watcher still down (same stale episode; last beat: never, grace 300s) - full banner already printed this episode.
+fm-send: doorbell not typed because the agent in lab:fm-t1 has exited; the steer is durably recorded at /tmp/fm-lab.pUmdf3/state/u027.inbox/001.msg for recovery (stuck-crewmate-recovery), and the watcher will not re-ring a dead pane
+fm-send rc=0
+umask 027: record 640  ordinary 640
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/fm-lab.pUmdf3
+WARNING: watcher still down (same stale episode; last beat: never, grace 300s) - full banner already printed this episode.
+fm-send: doorbell not typed because the agent in lab:fm-t1 has exited; the steer is durably recorded at /tmp/fm-lab.pUmdf3/state/acl.inbox/001.msg for recovery (stuck-crewmate-recovery), and the watcher will not re-ring a dead pane
+fm-send rc=0
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/fm-lab.pUmdf3
+WARNING: watcher still down (same stale episode; last beat: never, grace 300s) - full banner already printed this episode.
+fm-send: doorbell not typed because the agent in lab:fm-t1 has exited; the steer is durably recorded at /tmp/fm-lab.pUmdf3/state/acl.inbox/002.msg for recovery (stuck-crewmate-recovery), and the watcher will not re-ring a dead pane
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/fm-lab.pUmdf3
+WARNING: watcher still down (same stale episode; last beat: never, grace 300s) - full banner already printed this episode.
+error: --fire-and-forget requires a recorded secondmate task selector
+faf rc=1
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/fm-lab.pUmdf3
+WARNING: watcher still down (same stale episode; last beat: never, grace 300s) - full banner already printed this episode.
+error: --fire-and-forget requires a recorded secondmate task selector
+faf repeat rc=1
+total 
+drwxr-xr-x+ .
+drwxr-xr-x ..
+-rw-r--r--+ 001.msg
+-rw-r--r--+ 002.msg
+drwxr-xr-x+ handled
+-rw-r--r--+ ordinary
+-- 001.msg
+user::rw-
+user:960:r-x	#effective:r--
+group::r-x	#effective:r--
+mask::r--
+other::r--
+
+-- 002.msg
+user::rw-
+user:960:r-x	#effective:r--
+group::r-x	#effective:r--
+mask::r--
+other::r--
+
+-- 003.msg
+getfacl: /tmp/fm-lab.pUmdf3/state/acl.inbox/003.msg: No such file or directory
+-- ordinary
+user::rw-
+user:960:r-x	#effective:r--
+group::r-x	#effective:r--
+mask::r--
+other::r--
+
+-- 001.msg content
+schema=fm-task-inbox.v1
+at=2026-11-24T21:32:05Z
+body-terminator=1
+--
+line1
+line2 $x
+-- worker acks by mv into handled/
+user::rw-
+user:960:r-x	#effective:r--
+group::r-x	#effective:r--
+mask::r--
+other::r--
+
+-- pane
+bash-5.3$
+-- adversarial: unwritable inbox folder
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /tmp/fm-lab.pUmdf3
+WARNING: watcher still down (same stale episode; last beat: never, grace 300s) - full banner already printed this episode.
+mktemp: failed to create file via template ‘/tmp/fm-lab.pUmdf3/state/ro.inbox/.lock-probe.XXXXXX’: Permission denied
+error: steer not sent to ro: its inbox record could not be written under /tmp/fm-lab.pUmdf3/state/ro.inbox
+fm-send rc=1
+handled
+-- adversarial: 12 concurrent fm-send, default ACL
+records: 12 distinct bodies: 12 staging left: 0
+distinct ACLs:
+     12 user::rw- user:960:r-x	#effective:r-- group::r-x	#effective:r-- mask::r-- other::r--  
