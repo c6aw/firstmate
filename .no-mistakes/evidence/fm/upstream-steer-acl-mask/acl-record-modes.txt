@@ -1,0 +1,110 @@
+=== BASE (umask 077, default ACL named entry user:<uid>:r = yes)
+total 8
+-rw-------+ 1 <uid> 960 84 Nov 27 10:05 001.msg
+-rw-------+ 1 <uid> 960 76 Nov 27 10:05 002.msg
+drwxr-xr-x+ 2 <uid> 960 40 Nov 27 10:05 handled
+-rw-r--r--+ 1 <uid> 960  0 Nov 27 10:05 ordinary
+--- 001.msg
+user::rw-
+user:<uid>:r--	#effective:---
+group::r-x	#effective:---
+mask::---
+other::---
+
+--- 002.msg
+user::rw-
+user:<uid>:r--	#effective:---
+group::r-x	#effective:---
+mask::---
+other::---
+
+--- ordinary
+user::rw-
+user:<uid>:r--	#effective:r--
+group::r-x	#effective:r--
+mask::r--
+other::r--
+
+body 001: hello steering
+leftover staging files: 0
+=== FIX (umask 077, default ACL named entry user:<uid>:r = yes)
+total 8
+-rw-r--r--+ 1 <uid> 960 84 Nov 27 10:05 001.msg
+-rw-r--r--+ 1 <uid> 960 76 Nov 27 10:05 002.msg
+drwxr-xr-x+ 2 <uid> 960 40 Nov 27 10:05 handled
+-rw-r--r--+ 1 <uid> 960  0 Nov 27 10:05 ordinary
+--- 001.msg
+user::rw-
+user:<uid>:r--	#effective:r--
+group::r-x	#effective:r--
+mask::r--
+other::r--
+
+--- 002.msg
+user::rw-
+user:<uid>:r--	#effective:r--
+group::r-x	#effective:r--
+mask::r--
+other::r--
+
+--- ordinary
+user::rw-
+user:<uid>:r--	#effective:r--
+group::r-x	#effective:r--
+mask::r--
+other::r--
+
+body 001: hello steering
+leftover staging files: 0
+=== FIX (umask 022, default ACL named entry user:<uid>:r = yes)
+total 8
+-rw-r--r--+ 1 <uid> 960 84 Nov 27 10:05 001.msg
+-rw-r--r--+ 1 <uid> 960 76 Nov 27 10:05 002.msg
+drwxr-xr-x+ 2 <uid> 960 40 Nov 27 10:05 handled
+-rw-r--r--+ 1 <uid> 960  0 Nov 27 10:05 ordinary
+--- 001.msg
+user::rw-
+user:<uid>:r--	#effective:r--
+group::r-x	#effective:r--
+mask::r--
+other::r--
+
+--- 002.msg
+user::rw-
+user:<uid>:r--	#effective:r--
+group::r-x	#effective:r--
+mask::r--
+other::r--
+
+--- ordinary
+user::rw-
+user:<uid>:r--	#effective:r--
+group::r-x	#effective:r--
+mask::r--
+other::r--
+
+body 001: hello steering
+leftover staging files: 0
+=== FIX (umask 022, default ACL named entry user:<uid>:r = no)
+total 8
+-rw------- 1 <uid> 960 84 Nov 27 10:05 001.msg
+-rw------- 1 <uid> 960 76 Nov 27 10:05 002.msg
+drwxr-xr-x 2 <uid> 960 40 Nov 27 10:05 handled
+-rw-r--r-- 1 <uid> 960  0 Nov 27 10:05 ordinary
+--- 001.msg
+user::rw-
+group::---
+other::---
+
+--- 002.msg
+user::rw-
+group::---
+other::---
+
+--- ordinary
+user::rw-
+group::r--
+other::r--
+
+body 001: hello steering
+leftover staging files: 0
